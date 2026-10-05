@@ -3,6 +3,7 @@
 import { usePathname } from 'next/navigation'
 import { Navbar } from '@/components/layout/Navbar'
 import { Footer } from '@/components/layout/Footer'
+import { FloatingWhatsAppButton } from '@/components/ui/FloatingWhatsAppButton'
 
 export function LayoutShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname()
@@ -15,6 +16,7 @@ export function LayoutShell({ children }: { children: React.ReactNode }) {
         {children}
       </main>
       {!isPortalHome && <Footer />}
+      {!isPortalHome && <FloatingWhatsAppButton />}
     </>
   )
 }

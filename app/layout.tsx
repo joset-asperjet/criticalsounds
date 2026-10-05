@@ -45,6 +45,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&display=swap"
+          rel="stylesheet"
+        />
+      </head>
       <body className={`${openSans.variable} ${publicSans.variable} ${plusJakartaSans.variable} antialiased bg-[#0d0d0e] text-[#f5f3ef]`}>
         <LayoutShell>
           {children}
@@ -54,3 +62,4 @@ export default function RootLayout({
     </html>
   )
 }
+

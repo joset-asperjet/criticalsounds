@@ -1,44 +1,27 @@
+'use client'
+
 import Link from 'next/link'
 import { Course } from '@/lib/data/courses'
 
 export function CourseCard({ course }: { course: Course }) {
-  const toneColors = {
-    cyan: 'border-[#a9eff1] shadow-[#a9eff1]/20',
-    lime: 'border-[#d7ff54] shadow-[#d7ff54]/20',
-    violet: 'border-[#b4a2ff] shadow-[#b4a2ff]/20',
-    orange: 'border-[#ff9d59] shadow-[#ff9d59]/20',
-    pink: 'border-[#fa9ebc] shadow-[#fa9ebc]/20',
-    blue: 'border-[#80b7ff] shadow-[#80b7ff]/20',
-    red: 'border-[#ff7b68] shadow-[#ff7b68]/20',
-  }
-
-  const toneBg = {
-    cyan: 'bg-[#4a5531]', // Just using the original tailwind specific bg or fallback
-    lime: 'bg-[#4a5531]',
-    violet: 'bg-[#433b67]',
-    orange: 'bg-[#77451d]',
-    pink: 'bg-[#733f52]',
-    blue: 'bg-[#274e70]',
-    red: 'bg-[#71352f]',
-  }
-
   return (
     <Link 
       href={`/cursos/${course.slug}`}
-      className="group flex flex-col bg-[#1c1c1d] rounded-sm overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:bg-[#252526] hover:shadow-2xl"
+      className="group flex flex-col bg-[#1c1c1d] rounded-none overflow-hidden"
     >
-      <div className={`relative h-[170px] overflow-hidden ${toneBg[course.tone as keyof typeof toneBg] || 'bg-[#26353a]'}`}>
-        <div className="absolute inset-0 bg-gradient-to-br from-transparent to-black/60 z-10" />
-        <span className="absolute top-4 left-4 z-20 text-[#111] bg-[#d7ff54] px-2.5 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-wider">
+      <div className="relative aspect-[16/10] sm:aspect-[16/9] w-full overflow-hidden bg-[#161618] rounded-none">
+        {course.image && (
+          <img 
+            src={course.image} 
+            alt={course.name}
+            className="w-full h-full object-cover object-[center_35%] opacity-90"
+          />
+        )}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#1c1c1d] via-black/30 to-transparent z-10" />
+        
+        <span className="absolute top-4 left-4 z-20 text-white border border-white/80 bg-black/40 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-mono font-medium uppercase tracking-wider">
           {course.tag}
         </span>
-        <span className="absolute bottom-3 right-4 z-20 text-white/50 text-[42px] font-light">
-          {course.id}
-        </span>
-        
-        {/* Decorative waves */}
-        <div className="absolute top-8 left-[35%] w-[210px] h-[210px] rounded-full border-[20px] border-[#a9eff1] opacity-75 shadow-[0_0_0_18px_#a9eff122,0_0_0_37px_#a9eff111]" />
-        <div className="absolute top-0 left-[10%] w-[75px] h-[75px] rounded-full border-[20px] border-[#d7ff54] opacity-75" />
       </div>
       
       <div className="p-6 flex flex-col flex-1">
@@ -52,16 +35,26 @@ export function CourseCard({ course }: { course: Course }) {
           {course.description}
         </p>
         
-        <div className="flex items-end justify-between pt-4 border-t border-[#333]">
+        <div className="flex items-center justify-between pt-4 border-t border-[#333] gap-2">
           <div>
-            <strong className="text-[16px] font-normal text-white">{course.price}</strong>
-            {course.oldPrice && (
-              <del className="block text-[#666] text-[11px] mt-1">{course.oldPrice}</del>
-            )}
+            <span className="text-[13px] font-mono font-light text-[#d4d4d8] tracking-wider">{course.price}</span>
           </div>
-          <span className="text-[#d7ff54] text-[24px] group-hover:translate-x-1 transition-transform">
-            →
-          </span>
+          <div className="flex items-center gap-2">
+            <span
+              onClick={(e) => {
+                e.preventDefault()
+                e.stopPropagation()
+                const msg = encodeURIComponent(`Hola! Quiero apartar mi cupo / espacio para el curso: ${course.name}`)
+                window.open(`https://wa.me/573226393861?text=${msg}`, '_blank')
+              }}
+              className="inline-flex items-center text-[12px] font-mono font-medium text-white bg-white/10 hover:bg-white hover:text-black border border-white/20 hover:border-white px-3 py-1.5 rounded-full transition-all duration-300 cursor-pointer"
+            >
+              Quiero mi espacio
+            </span>
+            <span className="inline-flex items-center gap-1.5 text-[12px] font-mono font-medium text-[#d7ff54] bg-[#d7ff5418] border border-[#d7ff5440] px-3.5 py-1.5 rounded-full transition-all duration-300 group-hover:bg-[#d7ff54] group-hover:text-[#0d0d0e] group-hover:border-[#d7ff54]">
+              Ver ruta →
+            </span>
+          </div>
         </div>
       </div>
     </Link>

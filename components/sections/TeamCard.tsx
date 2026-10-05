@@ -3,6 +3,7 @@
 import React, { useState } from 'react'
 import Image from 'next/image'
 import { X, ArrowUpRight } from 'lucide-react'
+import { SiBeatport, SiInstagram, SiSpotify } from 'react-icons/si'
 import { TeamMember } from '@/lib/data/team'
 import { PixelTrail } from '@/components/ui/PixelTrail'
 
@@ -37,20 +38,19 @@ export function TeamCard({ member }: TeamCardProps) {
             </div>
           )}
 
-          {/* Iconos de Redes adentro de la foto: Blanco nítido y visible */}
+          {/* Iconos de Redes adentro de la foto: Invert (fondo negro/icono blanco -> fondo blanco/icono negro en hover) */}
           {member.socials && (
-            <div className="absolute bottom-4 right-4 z-10 flex items-center gap-2.5">
+            <div className="absolute bottom-4 right-4 z-30 pointer-events-auto flex items-center gap-2.5">
               {member.socials.instagram && (
                 <a
                   href={member.socials.instagram}
                   target="_blank"
                   rel="noopener noreferrer"
                   title="Instagram"
-                  className="w-9 h-9 rounded-full bg-black/80 backdrop-blur-md border border-white/40 flex items-center justify-center text-white hover:bg-white hover:text-black hover:border-white transition-all duration-300 shadow-lg"
+                  onClick={(e) => e.stopPropagation()}
+                  className="w-9 h-9 rounded-full bg-black/85 backdrop-blur-md border border-white/40 flex items-center justify-center text-white hover:bg-white hover:text-black hover:border-white transition-all duration-300 shadow-lg group/icon"
                 >
-                  <svg className="w-4 h-4 fill-white hover:fill-current" viewBox="0 0 24 24">
-                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
-                  </svg>
+                  <SiInstagram className="w-4 h-4 text-white group-hover/icon:text-black fill-current transition-all duration-300 group-hover/icon:scale-110" />
                 </a>
               )}
               {member.socials.beatport && (
@@ -59,11 +59,10 @@ export function TeamCard({ member }: TeamCardProps) {
                   target="_blank"
                   rel="noopener noreferrer"
                   title="Beatport"
-                  className="w-9 h-9 rounded-full bg-black/80 backdrop-blur-md border border-white/40 flex items-center justify-center text-white hover:bg-white hover:text-black hover:border-white transition-all duration-300 shadow-lg"
+                  onClick={(e) => e.stopPropagation()}
+                  className="w-9 h-9 rounded-full bg-black/85 backdrop-blur-md border border-white/40 flex items-center justify-center text-white hover:bg-white hover:text-black hover:border-white transition-all duration-300 shadow-lg group/icon"
                 >
-                  <svg className="w-4 h-4 fill-white hover:fill-current" viewBox="0 0 24 24">
-                    <path d="M18.84 5.37a4.63 4.63 0 0 0-3.95-2.07c-2.09 0-3.9 1.34-4.52 3.28a5.27 5.27 0 0 0-4.63-.5c-2.45.82-4.14 3.16-4.14 5.86 0 3.39 2.76 6.15 6.15 6.15 1.94 0 3.65-.9 4.75-2.32a4.67 4.67 0 0 0 3.84 2.05c2.56 0 4.65-2.09 4.65-4.65 0-2.05-1.33-3.79-3.2-4.39.26-.74.4-1.55.4-2.39 0-.37-.03-.73-.1-1.02zm-11.1 10.6c-2.18 0-3.95-1.77-3.95-3.95s1.77-3.95 3.95-3.95 3.95 1.77 3.95 3.95-1.77 3.95-3.95 3.95zm8.9 0c-1.35 0-2.45-1.1-2.45-2.45s1.1-2.45 2.45-2.45 2.45 1.1 2.45 2.45-1.1 2.45-2.45 2.45z" />
-                  </svg>
+                  <SiBeatport className="w-4.5 h-4.5 text-white group-hover/icon:text-black fill-current transition-all duration-300 group-hover/icon:scale-110" />
                 </a>
               )}
               {member.socials.spotify && (
@@ -72,11 +71,10 @@ export function TeamCard({ member }: TeamCardProps) {
                   target="_blank"
                   rel="noopener noreferrer"
                   title="Spotify"
-                  className="w-9 h-9 rounded-full bg-black/80 backdrop-blur-md border border-white/40 flex items-center justify-center text-white hover:bg-white hover:text-black hover:border-white transition-all duration-300 shadow-lg"
+                  onClick={(e) => e.stopPropagation()}
+                  className="w-9 h-9 rounded-full bg-black/85 backdrop-blur-md border border-white/40 flex items-center justify-center text-white hover:bg-white hover:text-black hover:border-white transition-all duration-300 shadow-lg group/icon"
                 >
-                  <svg className="w-4 h-4 fill-white hover:fill-current" viewBox="0 0 24 24">
-                    <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z" />
-                  </svg>
+                  <SiSpotify className="w-4 h-4 text-white group-hover/icon:text-black fill-current transition-all duration-300 group-hover/icon:scale-110" />
                 </a>
               )}
             </div>
@@ -89,50 +87,46 @@ export function TeamCard({ member }: TeamCardProps) {
           {member.role}
         </p>
 
-        {/* Preview Bio estandarizada a la misma altura */}
+        {/* Preview Bio y Logos */}
         <div className="flex flex-col flex-grow justify-between">
-          <p
-            className="text-[#999] text-[14px] leading-relaxed mb-4 min-h-[72px] line-clamp-3 [&_b]:text-white [&_b]:font-semibold"
-            dangerouslySetInnerHTML={{ __html: member.description }}
-          />
-
-          {/* Botón Bio completa: diseño ultra-compacto, minimalista y elegante */}
-          <div className="mb-6">
+          <p className="text-[#999] text-[14px] leading-relaxed mb-4 min-h-[72px] [&_b]:text-white [&_b]:font-semibold">
+            <span dangerouslySetInnerHTML={{ __html: member.description }} />
+            {' '}
             <button
               onClick={() => setIsOpen(true)}
-              className="inline-flex items-center gap-1 text-[9px] uppercase tracking-[0.16em] font-medium text-white/50 hover:text-[#d7ff54] transition-colors py-0.5 group/btn border-b border-white/15 hover:border-[#d7ff54]"
+              className="inline-flex items-center gap-0.5 text-white/80 hover:text-[#d7ff54] font-medium transition-colors duration-200 underline underline-offset-4 decoration-white/30 hover:decoration-[#d7ff54] cursor-pointer"
             >
-              <span>Bio completa</span>
-              <ArrowUpRight className="w-2.5 h-2.5 transition-transform duration-300 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
+              ver más
+              <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </button>
-          </div>
-        </div>
+          </p>
 
-        {/* Logos de sellos / marcas discográficas */}
-        {member.logos && member.logos.length > 0 && (
-          <div className="pt-4 border-t border-white/[0.08] flex items-center flex-wrap gap-5 mt-auto">
-            {member.logos.map((logo) => {
-              const isPerfectoFluoro = logo.name === 'Perfecto Fluoro'
-              return (
-                <div
-                  key={logo.name}
-                  title={logo.name}
-                  className="relative h-9 sm:h-10 w-auto min-w-[44px] max-w-[115px] flex items-center justify-start opacity-85 hover:opacity-100 transition-opacity duration-300"
-                >
-                  <Image
-                    src={logo.src}
-                    alt={logo.name}
-                    width={130}
-                    height={46}
-                    className={`h-full w-auto object-contain transition-all duration-300 ${
-                      isPerfectoFluoro ? '' : 'brightness-0 invert opacity-95'
-                    }`}
-                  />
-                </div>
-              )
-            })}
-          </div>
-        )}
+          {/* Logos de sellos / marcas discográficas */}
+          {member.logos && member.logos.length > 0 && (
+            <div className="pt-2 pb-1 flex items-center flex-wrap gap-4.5 mt-auto">
+              {member.logos.map((logo) => {
+                const isPerfectoFluoro = logo.name === 'Perfecto Fluoro'
+                return (
+                  <div
+                    key={logo.name}
+                    title={logo.name}
+                    className="relative h-10 sm:h-11 w-auto min-w-[44px] max-w-[120px] flex items-center justify-start opacity-90 hover:opacity-100 transition-opacity duration-300"
+                  >
+                    <Image
+                      src={logo.src}
+                      alt={logo.name}
+                      width={140}
+                      height={48}
+                      className={`h-full w-auto object-contain transition-all duration-300 ${
+                        isPerfectoFluoro ? '' : 'brightness-0 invert opacity-95'
+                      }`}
+                    />
+                  </div>
+                )
+              })}
+            </div>
+          )}
+        </div>
       </article>
 
       {/* Modal estético para Bio Completa */}

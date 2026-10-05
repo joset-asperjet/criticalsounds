@@ -62,4 +62,74 @@
   animation-play-state: paused;
 }
 
+/* Handwritten write-on animation repeating every 10s */
+@keyframes writeHandwritten {
+  0% {
+    clip-path: inset(0 100% 0 0);
+    opacity: 0.1;
+  }
+  4% {
+    opacity: 1;
+  }
+  25% {
+    clip-path: inset(0 0% 0 0);
+    opacity: 1;
+  }
+  88% {
+    clip-path: inset(0 0% 0 0);
+    opacity: 1;
+  }
+  94% {
+    opacity: 0;
+    clip-path: inset(0 0% 0 0);
+  }
+  98% {
+    opacity: 0;
+    clip-path: inset(0 100% 0 0);
+  }
+  100% {
+    opacity: 0.1;
+    clip-path: inset(0 100% 0 0);
+  }
+}
+
+@keyframes drawStroke {
+  0% {
+    stroke-dashoffset: 120;
+    opacity: 0;
+  }
+  4% {
+    opacity: 1;
+  }
+  22% {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+  88% {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+  94% {
+    opacity: 0;
+  }
+  98% {
+    opacity: 0;
+    stroke-dashoffset: 120;
+  }
+  100% {
+    opacity: 0;
+    stroke-dashoffset: 120;
+  }
+}
+
+.animate-handwritten {
+  animation: writeHandwritten 10s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  font-family: 'Caveat', cursive, sans-serif;
+}
+
+.animate-brush-flag {
+  stroke-dasharray: 120;
+  animation: drawStroke 10s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
 

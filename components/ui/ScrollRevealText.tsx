@@ -7,11 +7,27 @@ interface ScrollRevealTextProps {
   className?: string
 }
 
+const HOLD_IMAGES = [
+  '/multimedia/images/critical-academy/hold-section/1.jpg',
+  '/multimedia/images/critical-academy/hold-section/2.jpg',
+  '/multimedia/images/critical-academy/hold-section/3.jpg',
+]
+
 export function ScrollRevealText({
   className = '',
 }: ScrollRevealTextProps) {
   const containerRef = useRef<HTMLDivElement>(null)
   const [scrollProgress, setScrollProgress] = useState(0)
+  const [currentImageIndex, setCurrentImageIndex] = useState(0)
+
+  // Cambio automático tipo ruleta cada 5 segundos
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % HOLD_IMAGES.length)
+    }, 5000)
+
+    return () => clearInterval(timer)
+  }, [])
 
   useEffect(() => {
     const handleScroll = () => {
@@ -34,7 +50,7 @@ export function ScrollRevealText({
   }, [])
 
   // Texto hasta "Pablo Anon" sin el punto final
-  const textWithoutDot = 'Un holding musical. Una escena completa. Critical Sounds Recordings es un Holding empresarial que nació como sello discográfico en Australia por Pablo Anon'
+  const textWithoutDot = 'Una escena completa. Critical Sounds Recordings es un holding empresarial que nació como sello discográfico en Australia por Pablo Anon'
   const words = textWithoutDot.split(' ')
 
   // Total de elementos para el escalonado del scroll: palabras + foto + punto final
@@ -68,7 +84,7 @@ export function ScrollRevealText({
 
   return (
     <div ref={containerRef} className={`relative select-none max-w-5xl ${className}`}>
-      <p className="text-[clamp(28px,3.8vw,52px)] font-light leading-[1.18] tracking-tight">
+      <div className="text-[clamp(28px,3.8vw,52px)] font-light leading-[1.18] tracking-tight">
         {words.map((word, index) => {
           const itemStart = index / totalItems
           const itemEnd = Math.min(itemStart + 0.14, 1)
@@ -85,16 +101,57 @@ export function ScrollRevealText({
           const b = Math.round(164 - (164 - 14) * factor)
 
           return (
-            <span
-              key={index}
-              className="inline-block mr-[0.26em] transition-colors duration-200 ease-out"
-              style={{
-                color: `rgb(${r}, ${g}, ${b})`,
-                filter: factor === 1 ? 'none' : `blur(${(1 - factor) * 1.5}px)`,
-              }}
-            >
-              {word}
-            </span>
+            <React.Fragment key={index}>
+              <span
+                className="inline-block mr-[0.26em] transition-colors duration-200 ease-out"
+                style={{
+                  color: `rgb(${r}, ${g}, ${b})`,
+                  filter: factor === 1 ? 'none' : `blur(${(1 - factor) * 1.5}px)`,
+                }}
+              >
+                {word}
+              </span>
+
+              {/* Ruleta de imágenes de la sección hold (1.jpg, 2.jpg, 3.jpg) al lado derecho de "Australia" */}
+              {word === 'Australia' && (
+                <span
+                  className="inline-flex align-middle mx-1.5 sm:mx-2 relative transition-all duration-300 ease-out select-none"
+                  style={{
+                    opacity: 0.2 + 0.8 * factor,
+                    transform: `scale(${0.9 + 0.1 * factor}) translateY(${(1 - factor) * 4}px)`,
+                    filter: factor === 1 ? 'none' : `blur(${(1 - factor) * 2}px)`,
+                  }}
+                >
+                  <span className="relative inline-block w-[68px] h-[36px] sm:w-[88px] sm:h-[46px] md:w-[108px] md:h-[52px] rounded-full overflow-hidden shadow-[0_4px_16px_rgba(0,0,0,0.08)]">
+                    <div
+                      className="w-full h-full relative transition-transform duration-700 ease-[cubic-bezier(0.65,0,0.35,1)]"
+                      style={{
+                        transform: `translateY(-${currentImageIndex * 100}%)`,
+                        height: '100%',
+                      }}
+                    >
+                      {HOLD_IMAGES.map((src, imgIdx) => (
+                        <div
+                          key={src}
+                          className="w-full h-full absolute inset-0"
+                          style={{
+                            top: `${imgIdx * 100}%`,
+                          }}
+                        >
+                          <Image
+                            src={src}
+                            alt={`Australia highlight ${imgIdx + 1}`}
+                            fill
+                            className="object-cover object-center"
+                            priority={imgIdx === 0}
+                          />
+                        </div>
+                      ))}
+                    </div>
+                  </span>
+                </span>
+              )}
+            </React.Fragment>
           )
         })}
 
@@ -128,7 +185,7 @@ export function ScrollRevealText({
         >
           .
         </span>
-      </p>
+      </div>
     </div>
   )
 }

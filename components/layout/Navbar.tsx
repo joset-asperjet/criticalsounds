@@ -10,8 +10,8 @@ export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
 
   const links = [
-    { name: 'Quiénes somos', href: '/quienes-somos' },
-    { name: 'Cursos', href: '/cursos' },
+    { name: 'Quiénes somos', href: '/academy-studios#quienes-somos' },
+    { name: 'Cursos', href: '/cursos/social-dj' },
     { name: 'Cabinas', href: '/cabinas' },
     { name: 'Galería', href: '/galeria' },
   ]
@@ -36,7 +36,7 @@ export function Navbar() {
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-8 ml-auto mr-8">
+        <nav className="hidden md:flex items-center gap-8 ml-auto">
           {links.map((link) => (
             <Link
               key={link.name}
@@ -46,14 +46,15 @@ export function Navbar() {
               {link.name}
             </Link>
           ))}
+          <a
+            href={`https://wa.me/573226393861?text=${encodeURIComponent('Hola! Quiero información sobre los planes de financiación para los cursos de DJ.')}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[13px] text-[#aaa] hover:text-white transition-colors"
+          >
+            Financiación
+          </a>
         </nav>
-
-        <Link
-          href="/cursos"
-          className="hidden md:flex items-center rounded-full border border-[#444] px-[17px] py-[12px] text-[13px] text-white hover:bg-white/5 transition-colors"
-        >
-          Ver cursos <span className="ml-[9px] text-[#d7ff54]">↗</span>
-        </Link>
 
         {/* Mobile Toggle */}
         <button
@@ -78,13 +79,15 @@ export function Navbar() {
               {link.name}
             </Link>
           ))}
-          <Link
-            href="/cursos"
+          <a
+            href={`https://wa.me/573226393861?text=${encodeURIComponent('Hola! Quiero información sobre los planes de financiación para los cursos de DJ.')}`}
+            target="_blank"
+            rel="noopener noreferrer"
             onClick={() => setIsOpen(false)}
-            className="mt-4 inline-flex items-center justify-center rounded-full border border-[#444] px-6 py-3 text-white"
+            className="text-lg text-[#aaa] hover:text-white transition-colors"
           >
-            Ver cursos <span className="ml-2 text-[#d7ff54]">↗</span>
-          </Link>
+            Financiación
+          </a>
         </div>
       )}
     </header>
