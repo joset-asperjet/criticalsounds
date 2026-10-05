@@ -36,26 +36,67 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ s
 
           {/* Navigation Links for All 7 Courses */}
           <nav className="flex flex-col gap-1.5 flex-1">
+            <style>{`
+              @keyframes meshShift {
+                0% { background-position: 0% 50%; }
+                50% { background-position: 100% 50%; }
+                100% { background-position: 0% 50%; }
+              }
+              .animate-mesh-gradient {
+                background-size: 250% 250%;
+                animation: meshShift 6s ease infinite;
+              }
+            `}</style>
             {courses.map(c => {
               const isActive = c.slug === slug
+
+              // Custom vivid animated mesh gradients tailored for each course
+              const meshGradients: Record<string, string> = {
+                'social-dj': 'radial-gradient(at 0% 0%, #00f2fe 0px, transparent 55%), radial-gradient(at 100% 0%, #4facfe 0px, transparent 50%), radial-gradient(at 100% 100%, #0052d4 0px, transparent 55%), radial-gradient(at 0% 100%, #43e97b 0px, transparent 55%), #051937',
+                'club-dj': 'radial-gradient(at 0% 0%, #d7ff54 0px, transparent 55%), radial-gradient(at 100% 0%, #00f2fe 0px, transparent 50%), radial-gradient(at 100% 100%, #11998e 0px, transparent 55%), radial-gradient(at 0% 100%, #38ef7d 0px, transparent 55%), #092015',
+                'vinyl-dj': 'radial-gradient(at 0% 0%, #c471ed 0px, transparent 55%), radial-gradient(at 100% 0%, #f64f59 0px, transparent 50%), radial-gradient(at 100% 100%, #12c2e9 0px, transparent 55%), radial-gradient(at 0% 100%, #7f00ff 0px, transparent 55%), #1a0826',
+                'digital-dj': 'radial-gradient(at 0% 0%, #ff9900 0px, transparent 55%), radial-gradient(at 100% 0%, #ff5e36 0px, transparent 50%), radial-gradient(at 100% 100%, #f12711 0px, transparent 55%), radial-gradient(at 0% 100%, #f5af19 0px, transparent 55%), #2a1103',
+                '360-dj': 'radial-gradient(at 0% 0%, #ff0844 0px, transparent 55%), radial-gradient(at 100% 0%, #ffb199 0px, transparent 50%), radial-gradient(at 100% 100%, #9055ff 0px, transparent 55%), radial-gradient(at 0% 100%, #ff4e50 0px, transparent 55%), #2e0821',
+                'master-dj': 'radial-gradient(at 0% 0%, #3a7bd5 0px, transparent 55%), radial-gradient(at 100% 0%, #00d2ff 0px, transparent 50%), radial-gradient(at 100% 100%, #4a00e0 0px, transparent 55%), radial-gradient(at 0% 100%, #8e2de2 0px, transparent 55%), #0c1435',
+                'master-efx-dj': 'radial-gradient(at 0% 0%, #ff0055 0px, transparent 55%), radial-gradient(at 100% 0%, #ff5252 0px, transparent 50%), radial-gradient(at 100% 100%, #d50000 0px, transparent 55%), radial-gradient(at 0% 100%, #ff7700 0px, transparent 55%), #30060e',
+              }
+
+              const bgMesh = meshGradients[c.slug] || meshGradients['social-dj']
+
               return (
                 <Link
                   key={c.slug}
                   href={`/cursos/${c.slug}`}
-                  className={`group relative flex items-center justify-between px-3.5 py-3 rounded-none border text-[13px] transition-all duration-200 ${
+                  className={`group relative flex items-center justify-between px-3 py-2.5 rounded-none border text-[13px] transition-all duration-200 ${
                     isActive
                       ? 'bg-white/10 text-white border-white/40 shadow-[0_0_15px_rgba(255,255,255,0.06)]'
                       : 'text-[#888] border-transparent hover:text-white hover:bg-white/[0.04] hover:border-[#27272a]'
                   }`}
                 >
-                  <div className="flex flex-col">
-                    <span className={`font-medium ${isActive ? 'text-white' : 'text-[#aaa] group-hover:text-white'}`}>
-                      {c.name}
-                    </span>
-                    <span className="text-[11px] font-mono text-[#666]">
-                      {c.duration}
-                    </span>
+                  <div className="flex items-center gap-3">
+                    {/* Animated Mesh Gradient Box for desktop only */}
+                    <div 
+                      className={`w-9 h-9 shrink-0 rounded-[6px] border border-white/20 shadow-md relative overflow-hidden animate-mesh-gradient transition-all duration-300 ${
+                        isActive 
+                          ? 'ring-2 ring-white/50 scale-105 shadow-[0_0_12px_rgba(255,255,255,0.25)]' 
+                          : 'group-hover:scale-105 group-hover:border-white/40 opacity-90 group-hover:opacity-100'
+                      }`}
+                      style={{ backgroundImage: bgMesh }}
+                    >
+                      {/* Subtle glossy glass reflection overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-tr from-black/25 via-transparent to-white/35 pointer-events-none" />
+                    </div>
+
+                    <div className="flex flex-col">
+                      <span className={`font-medium ${isActive ? 'text-white' : 'text-[#aaa] group-hover:text-white'}`}>
+                        {c.name}
+                      </span>
+                      <span className="text-[11px] font-mono text-[#666]">
+                        {c.duration}
+                      </span>
+                    </div>
                   </div>
+
                   {isActive ? (
                     <span className="text-[#d7ff54] text-[12px] font-mono">●</span>
                   ) : (
