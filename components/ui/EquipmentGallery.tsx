@@ -32,13 +32,52 @@ export function EquipmentGallery({
     if (!containerRef.current) return
     const { scrollLeft, scrollWidth, clientWidth } = containerRef.current
     const maxScroll = scrollWidth - clientWidth
-    if (maxScroll > 0) {
+    if (maxScroll > 1) {
       setScrollProgress(scrollLeft / maxScroll)
       setCanScroll(true)
     } else {
       setCanScroll(false)
     }
   }
+
+  // Auto ping-pong marquee scroll for desktop overflow
+  useEffect(() => {
+    let animationFrameId: number
+    let direction = 1
+    let isHovered = false
+
+    const el = containerRef.current
+    if (!el) return
+
+    const handleMouseEnter = () => { isHovered = true }
+    const handleMouseLeave = () => { isHovered = false }
+
+    el.addEventListener('mouseenter', handleMouseEnter)
+    el.addEventListener('mouseleave', handleMouseLeave)
+
+    const step = () => {
+      if (el && !isHovered && !isDraggingTrack) {
+        const maxScroll = el.scrollWidth - el.clientWidth
+        if (maxScroll > 4) {
+          if (el.scrollLeft >= maxScroll - 1) direction = -1
+          else if (el.scrollLeft <= 1) direction = 1
+
+          el.scrollLeft += direction * 0.4
+        }
+      }
+      animationFrameId = requestAnimationFrame(step)
+    }
+
+    animationFrameId = requestAnimationFrame(step)
+
+    return () => {
+      cancelAnimationFrame(animationFrameId)
+      if (el) {
+        el.removeEventListener('mouseenter', handleMouseEnter)
+        el.removeEventListener('mouseleave', handleMouseLeave)
+      }
+    }
+  }, [equipment, isDraggingTrack])
 
   useEffect(() => {
     const el = containerRef.current
@@ -114,11 +153,11 @@ export function EquipmentGallery({
       )}
 
       {/* Horizontal list of equipment cards with centered square scrollbar indicator */}
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-2 relative">
         <div 
           ref={containerRef}
           onWheel={handleWheel}
-          className="flex items-stretch gap-2 overflow-x-auto pb-1.5 pt-0.5 no-scrollbar scroll-smooth cursor-grab active:cursor-grabbing"
+          className="flex items-stretch gap-2 lg:gap-3 overflow-x-auto pb-1.5 pt-0.5 no-scrollbar scroll-smooth cursor-grab active:cursor-grabbing"
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
           {equipment.map((eq, i) => {
@@ -128,15 +167,15 @@ export function EquipmentGallery({
                 key={i}
                 type="button"
                 onClick={() => img && setSelectedEquip({ name: eq, image: img })}
-                className={`group/eq shrink-0 flex flex-col items-center justify-between bg-[#131316] hover:bg-[#1c1c24] border border-[#26262e] hover:border-[#a9eff1]/50 p-1.5 rounded-none ${cardWidth} ${cardHeight} transition-all duration-200 cursor-pointer relative focus:outline-none focus:ring-1 focus:ring-[#d7ff54] shadow-sm hover:shadow-[0_4px_16px_rgba(0,0,0,0.5)]`}
+                className={`group/eq shrink-0 flex flex-col items-center justify-between bg-[#131316] hover:bg-[#1c1c24] border border-[#26262e] hover:border-[#a9eff1]/50 p-2 sm:p-2.5 rounded-none ${cardWidth} ${cardHeight} lg:!w-[150px] lg:!h-[135px] transition-all duration-200 cursor-pointer relative focus:outline-none focus:ring-1 focus:ring-[#d7ff54] shadow-sm hover:shadow-[0_4px_16px_rgba(0,0,0,0.5)]`}
                 title={`Clic para ver ${eq} en detalle`}
               >
-                <div className="w-full flex-1 flex items-center justify-center overflow-hidden py-0.5 relative">
+                <div className="w-full flex-1 flex items-center justify-center overflow-hidden py-1 relative">
                   {img ? (
                     <img
                       src={img}
                       alt={eq}
-                      className="max-h-[48px] max-w-full object-contain filter drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)] group-hover/eq:scale-110 transition-transform duration-200"
+                      className="max-h-[52px] lg:max-h-[72px] max-w-full object-contain filter drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)] group-hover/eq:scale-110 transition-transform duration-200"
                       loading="lazy"
                     />
                   ) : (
@@ -155,7 +194,7 @@ export function EquipmentGallery({
                       strokeWidth="2" 
                       strokeLinecap="round" 
                       strokeLinejoin="round" 
-                      className="w-2.5 h-2.5 text-white"
+                      className="w-2.5 h-2.5 lg:w-3 lg:h-3 text-white"
                     >
                       <circle cx="11" cy="11" r="7" />
                       <line x1="21" y1="21" x2="16.65" y2="16.65" />
@@ -165,7 +204,7 @@ export function EquipmentGallery({
                   </div>
                 </div>
 
-                <span className="text-[9.5px] font-mono text-[#999] group-hover/eq:text-white text-center leading-tight line-clamp-2 w-full mt-1 border-t border-[#1f1f24] group-hover/eq:border-[#2f2f3a] pt-1 transition-colors">
+                <span className="text-[9.5px] lg:text-[11px] font-mono text-[#999] group-hover/eq:text-white text-center leading-tight line-clamp-2 w-full mt-1 border-t border-[#1f1f24] group-hover/eq:border-[#2f2f3a] pt-1 transition-colors">
                   {eq.replace(/^Pioneer\s+/i, '')}
                 </span>
               </button>

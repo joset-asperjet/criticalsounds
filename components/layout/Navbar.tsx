@@ -17,7 +17,7 @@ export function Navbar() {
   ]
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-white/[0.08] bg-black/30 backdrop-blur-xl supports-[backdrop-filter]:bg-black/20 shadow-[0_8px_32px_0_rgba(0,0,0,0.35)] transition-all duration-300">
+    <header className="fixed top-0 left-0 right-0 z-[100] w-full border-b border-white/[0.08] bg-[#0d0d0e]/85 backdrop-blur-2xl shadow-[0_8px_32px_0_rgba(0,0,0,0.5)] transition-all duration-300">
       <div className="flex h-[82px] items-center justify-between px-6 lg:px-12">
         <Link href="/academy-studios" className="flex items-center gap-3 md:gap-3.5 hover:opacity-85 transition-opacity">
           <Image

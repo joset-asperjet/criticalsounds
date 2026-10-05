@@ -164,9 +164,9 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ s
             />
             
             <div className="relative z-10">
-              <div className="flex lg:hidden items-center gap-2 pb-5 mb-6 border-b border-[#222] overflow-x-auto whitespace-nowrap scrollbar-hide [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none'] w-full">
-                <span className="text-[#666] text-[10.5px] font-mono uppercase tracking-widest font-semibold shrink-0 mr-1">
-                  Cursos:
+              <div className="flex flex-wrap lg:hidden items-center gap-2 pb-5 mb-6 border-b border-[#222] w-full">
+                <span className="text-[#666] text-[10.5px] font-mono uppercase tracking-widest font-semibold shrink-0 mr-1 w-full basis-full mb-1">
+                  Explorar cursos:
                 </span>
                 {courses.map(c => {
                   const isActive = c.slug === slug
@@ -174,7 +174,7 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ s
                     <Link 
                       key={c.slug} 
                       href={`/cursos/${c.slug}`}
-                      className={`text-[11.5px] font-mono px-3 py-1.5 rounded-none border transition-all duration-200 shrink-0 ${
+                      className={`text-[11.5px] font-mono px-3.5 py-1.5 rounded-full border transition-all duration-200 inline-flex items-center justify-center ${
                         isActive 
                           ? 'bg-white !text-black border-white font-bold shadow-[0_0_12px_rgba(255,255,255,0.4)]' 
                           : 'text-[#888] border-[#292929] hover:text-white hover:border-[#444] bg-[#121215]'
@@ -288,13 +288,15 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ s
                   href={`https://wa.me/573226393861?text=${encodeURIComponent(`Hola! Quiero apartar mi cupo / espacio para el curso: ${course.name}`)}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full sm:w-auto text-center rounded-full bg-transparent border-2 border-white !text-white px-8 py-3.5 text-[14px] font-semibold hover:bg-white hover:!text-black transition-colors duration-200 shrink-0 flex items-center justify-center"
+                  className="group w-full sm:w-auto text-center rounded-full bg-transparent border-2 border-white px-8 py-3.5 text-[14px] font-semibold hover:bg-white transition-colors duration-200 shrink-0 flex items-center justify-center"
                 >
-                  {course.ctaText || 'Quiero mi espacio'}
+                  <span className="text-white group-hover:text-black transition-colors duration-200">
+                    {course.ctaText || 'Quiero mi espacio'}
+                  </span>
                 </a>
                 
                 {/* Coupon / Voucher style box with white dotted border */}
-                <div className="relative border-2 border-dashed border-white/50 hover:border-white/80 bg-[#121215] px-4 py-3 rounded-none flex items-center justify-center gap-2.5 transition-colors flex-1 min-w-0">
+                <div className="relative border-2 border-dashed border-[#fde047]/50 hover:border-[#fde047]/80 bg-[#121215] px-4 py-3 rounded-none flex items-center justify-center gap-2.5 transition-colors flex-1 min-w-0">
                   {/* Ticket / Coupon SVG Icon */}
                   <svg 
                     xmlns="http://www.w3.org/2000/svg" 
@@ -304,7 +306,7 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ s
                     strokeWidth="1.75" 
                     strokeLinecap="round" 
                     strokeLinejoin="round" 
-                    className="w-4 h-4 text-white shrink-0"
+                    className="w-4 h-4 text-[#fde047] shrink-0"
                   >
                     <path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z" />
                     <path d="M13 5v2" />
@@ -313,7 +315,7 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ s
                   </svg>
 
                   <p className="text-[#e4e4e7] text-[12px] font-mono leading-snug m-0">
-                    <strong className="text-white font-semibold">15% OFF de por vida</strong> en todos los servicios Critical Sounds
+                    <strong className="text-[#fde047] font-semibold">15% OFF de por vida</strong> en todos los servicios Critical Sounds
                   </p>
                 </div>
               </div>
@@ -350,9 +352,11 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ s
             href="https://wa.me/573226393861?text=Hola!%20Me%20interesan%20las%20Clases%20Personalizadas"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex rounded-full bg-transparent border border-white text-white px-8 py-4 text-[14px] font-medium hover:bg-white hover:text-[#0d0d0e] transition-colors"
+            className="group inline-flex rounded-full bg-transparent border-2 border-white px-8 py-4 text-[14px] font-semibold hover:bg-white transition-colors duration-200"
           >
-            Hablar con un asesor
+            <span className="text-white group-hover:text-black transition-colors duration-200">
+              Hablar con un asesor
+            </span>
           </a>
         </div>
       </section>

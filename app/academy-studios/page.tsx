@@ -10,6 +10,8 @@ import { PixelCardTrail } from '@/components/ui/PixelCardTrail'
 import { EnclosingTextCircle } from '@/components/ui/EnclosingTextCircle'
 import { FaWhatsapp } from 'react-icons/fa6'
 import Link from 'next/link'
+import { FAQSection } from '@/components/sections/FAQSection'
+import { InteractiveParticles } from '@/components/ui/InteractiveParticles'
 
 export default function AcademyStudiosPage() {
   return (
@@ -100,7 +102,7 @@ export default function AcademyStudiosPage() {
       <section id="cursos" className="bg-[#101011] text-[#f5f3ef] py-24 px-4 sm:px-8 lg:px-[8vw] scroll-mt-20">
         <div className="mb-20">
           <h2 className="text-[clamp(40px,5.7vw,82px)] leading-[0.92] font-light tracking-tight m-0">
-            De cero a profesional.<br className="hidden sm:block" />
+            De cero a profesional. <br className="hidden sm:block" />
             <span className="text-[#d7ff54]">A tu ritmo, con equipos reales.</span>
           </h2>
           <div className="mt-8 max-w-4xl">
@@ -135,25 +137,33 @@ export default function AcademyStudiosPage() {
 
 
       {/* Final CTA */}
-      <section className="bg-white text-[#0d0d0e] py-24 lg:py-32 px-8 lg:px-[8vw] relative overflow-hidden border-t border-[#e5e5e5]">
-        <h2 className="text-[clamp(40px,6vw,90px)] font-light leading-[0.92] tracking-tight mb-10 z-10 relative text-[#0d0d0e]">
-          El próximo track<br />
-          <em className="not-italic text-[#666]">empieza contigo.</em>
-        </h2>
-        <a
-          href={`https://wa.me/573226393861?text=${encodeURIComponent('Hola! Quiero hablar con un asesor sobre los cursos de Critical Sounds.')}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-3 rounded-full bg-transparent hover:bg-[#0d0d0e] text-[#0d0d0e] hover:text-white border-2 border-[#0d0d0e] px-8 py-4 text-[14px] font-medium tracking-wide transition-all duration-300 z-10 relative shadow-[0_4px_16px_rgba(0,0,0,0.06)] hover:shadow-[0_6px_24px_rgba(0,0,0,0.2)] group"
-        >
-          <FaWhatsapp className="text-[20px] transition-transform group-hover:scale-110" />
-          <span>Hablar con un asesor</span>
-        </a>
+      <section className="bg-white text-[#0d0d0e] py-24 lg:py-32 px-8 lg:px-[8vw] relative overflow-hidden border-t border-[#e5e5e5] grid lg:grid-cols-12 gap-8 items-center min-h-[420px]">
+        <div className="lg:col-span-7 z-10 relative">
+          <h2 className="text-[clamp(40px,6vw,90px)] font-light leading-[0.92] tracking-tight mb-10 text-[#0d0d0e]">
+            El próximo éxito<br />
+            <em className="not-italic text-[#666]">empieza contigo.</em>
+          </h2>
+          <a
+            href={`https://wa.me/573226393861?text=${encodeURIComponent('Hola! Quiero hablar con un asesor sobre los cursos de Critical Sounds.')}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-flex items-center gap-3 rounded-full bg-transparent hover:bg-[#0d0d0e] border-2 border-[#0d0d0e] px-8 py-4 text-[14px] font-semibold tracking-wide transition-all duration-300 shadow-[0_4px_16px_rgba(0,0,0,0.06)] hover:shadow-[0_6px_24px_rgba(0,0,0,0.2)]"
+          >
+            <FaWhatsapp className="text-[20px] text-[#0d0d0e] group-hover:text-white transition-colors duration-300 group-hover:scale-110" />
+            <span className="text-[#0d0d0e] group-hover:text-white transition-colors duration-300">
+              Hablar con un asesor
+            </span>
+          </a>
+        </div>
 
-        <div className="absolute right-[10%] top-[30%] text-[120px] lg:text-[180px] text-black/[0.04] select-none z-0">
-          ✦
+        {/* Interactive Mouse Reactive Particle Field on Right */}
+        <div className="lg:col-span-5 h-[320px] lg:h-full relative overflow-hidden flex items-center justify-center">
+          <InteractiveParticles />
         </div>
       </section>
+
+      {/* FAQ Section */}
+      <FAQSection />
     </div>
   )
 }

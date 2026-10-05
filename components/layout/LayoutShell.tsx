@@ -12,7 +12,7 @@ export function LayoutShell({ children }: { children: React.ReactNode }) {
   return (
     <>
       {!isPortalHome && <Navbar />}
-      <main className="min-h-screen">
+      <main className={`min-h-screen ${!isPortalHome ? 'pt-[82px]' : ''}`}>
         {children}
       </main>
       {!isPortalHome && <Footer />}
