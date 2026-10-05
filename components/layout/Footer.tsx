@@ -333,9 +333,19 @@ export function Footer() {
           </div>
 
           {/* Bottom copyright stamp inside the max-w-7xl so it aligns with content */}
-          <div className="border-t border-[#1a1a20] pt-6 flex flex-col sm:flex-row items-center justify-between text-[11px] text-white/40 relative z-10 mt-12">
+          <div className="border-t border-[#1a1a20] pt-6 flex flex-col items-center sm:flex-row sm:justify-between text-[11px] text-white/40 relative z-10 mt-12 gap-2 text-center sm:text-left">
             <span>© {new Date().getFullYear()} Critical Sounds · Medellín, Colombia</span>
-            <span className="mt-2 sm:mt-0">Academy &amp; Studios</span>
+            <span className="flex flex-wrap items-center justify-center gap-1">
+              Diseñado con amor y javascript por{' '}
+              <a 
+                href="https://josetportfolio-delta.vercel.app/" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="text-white/60 hover:text-[#d7ff54] transition-colors font-medium"
+              >
+                Joset
+              </a>
+            </span>
           </div>
 
           {/* HUGE SPACER to forcefully push content above image details */}
