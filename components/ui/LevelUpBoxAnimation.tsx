@@ -31,11 +31,13 @@ export function LevelUpBoxAnimation() {
     ]
 
     const updatePlatforms = () => {
+      const pad = width < 480 ? 12 : 24
+      const availableW = width - pad * 2
       platforms = [
-        { id: 0, label: 'INICIO', x: width * 0.05, y: height * 0.85, w: width * 0.12 },
-        { id: 1, label: 'APRENDE', x: width * 0.25, y: height * 0.65, w: width * 0.15 },
-        { id: 2, label: 'PRACTICA', x: width * 0.50, y: height * 0.45, w: width * 0.15 },
-        { id: 3, label: 'EVOLUCIONA', x: width * 0.80, y: height * 0.25, w: width * 0.15 },
+        { id: 0, label: 'INICIO', x: pad + availableW * 0.02, y: height * 0.85, w: availableW * 0.14 },
+        { id: 1, label: 'APRENDE', x: pad + availableW * 0.25, y: height * 0.65, w: availableW * 0.17 },
+        { id: 2, label: 'PRACTICA', x: pad + availableW * 0.52, y: height * 0.45, w: availableW * 0.18 },
+        { id: 3, label: 'EVOLUCIONA', x: pad + availableW * 0.77, y: height * 0.25, w: availableW * 0.20 },
       ]
     }
 

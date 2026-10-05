@@ -53,8 +53,8 @@ export default function AcademyStudiosPage() {
       {/* Method Section */}
       <section className="bg-[#0a0a0b] text-[#f5f3ef] py-16 sm:py-24 px-4 sm:px-8 lg:px-[8vw] overflow-hidden border-t border-b border-[#1f1f22]">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-[6vw] items-center">
-          <div>
-            <h2 className="text-[clamp(32px,5vw,56px)] lg:text-[clamp(44px,5.5vw,82px)] leading-[1.1] lg:leading-[0.92] font-light tracking-tight m-0 text-white whitespace-nowrap lg:whitespace-normal">
+          <div className="min-w-0">
+            <h2 className="text-[clamp(28px,7.5vw,56px)] lg:text-[clamp(44px,5.5vw,82px)] leading-[1.1] lg:leading-[0.92] font-light tracking-tight m-0 text-white break-words">
               Aprende. <br className="hidden lg:block" />
               <span className="text-[#a9eff1]">Practica.</span>{' '}
               <span className="text-[#d7ff54]">Evoluciona.</span>
@@ -68,12 +68,12 @@ export default function AcademyStudiosPage() {
               </p>
             </div>
           </div>
-          <div className="w-full">
+          <div className="w-full min-w-0 overflow-hidden">
             <LevelUpBoxAnimation />
           </div>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-px bg-[#242428] mt-20 border border-[#242428]">
+        <div className="grid sm:grid-cols-3 gap-px bg-[#242428] mt-16 sm:mt-20 border border-[#242428]">
           {[
             ['Aprende', 'Fundamentos sólidos, ritmo, tonalidad y manejo de equipos Pioneer.', '#a9eff1'],
             ['Practica', 'Sesiones reales en cabinas profesionales, con feedback constante.', '#d7ff54'],
