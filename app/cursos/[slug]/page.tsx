@@ -1,4 +1,6 @@
 import { courses } from '@/lib/data/courses'
+import { EquipmentGallery } from '@/components/ui/EquipmentGallery'
+import { CourseAccordion } from '@/components/ui/CourseAccordion'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 
@@ -37,31 +39,54 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ s
           {/* Navigation Links for All 7 Courses */}
           <nav className="flex flex-col gap-1.5 flex-1">
             <style>{`
-              @keyframes meshShift {
-                0% { background-position: 0% 50%; }
-                50% { background-position: 100% 50%; }
-                100% { background-position: 0% 50%; }
+              @keyframes meshBlobA {
+                0%   { transform: translate(-30%, -30%) scale(1); }
+                33%  { transform: translate(40%, -10%) scale(1.25); }
+                66%  { transform: translate(10%, 45%) scale(0.9); }
+                100% { transform: translate(-30%, -30%) scale(1); }
               }
-              .animate-mesh-gradient {
-                background-size: 250% 250%;
-                animation: meshShift 6s ease infinite;
+              @keyframes meshBlobB {
+                0%   { transform: translate(45%, 40%) scale(1.1); }
+                33%  { transform: translate(-35%, 30%) scale(0.85); }
+                66%  { transform: translate(-10%, -40%) scale(1.3); }
+                100% { transform: translate(45%, 40%) scale(1.1); }
               }
+              @keyframes meshBlobC {
+                0%   { transform: translate(40%, -40%) scale(0.9); }
+                33%  { transform: translate(20%, 45%) scale(1.2); }
+                66%  { transform: translate(-40%, 0%) scale(1); }
+                100% { transform: translate(40%, -40%) scale(0.9); }
+              }
+              .mesh-blob {
+                position: absolute;
+                inset: 0;
+                width: 100%;
+                height: 100%;
+                border-radius: 9999px;
+                filter: blur(7px);
+                mix-blend-mode: screen;
+                will-change: transform;
+              }
+              .mesh-blob-a { animation: meshBlobA 6s ease-in-out infinite; }
+              .mesh-blob-b { animation: meshBlobB 7.5s ease-in-out infinite; }
+              .mesh-blob-c { animation: meshBlobC 9s ease-in-out infinite; }
+              .group:hover .mesh-blob { animation-duration: 3s; }
             `}</style>
             {courses.map(c => {
               const isActive = c.slug === slug
 
-              // Custom vivid animated mesh gradients tailored for each course
-              const meshGradients: Record<string, string> = {
-                'social-dj': 'radial-gradient(at 0% 0%, #00f2fe 0px, transparent 55%), radial-gradient(at 100% 0%, #4facfe 0px, transparent 50%), radial-gradient(at 100% 100%, #0052d4 0px, transparent 55%), radial-gradient(at 0% 100%, #43e97b 0px, transparent 55%), #051937',
-                'club-dj': 'radial-gradient(at 0% 0%, #d7ff54 0px, transparent 55%), radial-gradient(at 100% 0%, #00f2fe 0px, transparent 50%), radial-gradient(at 100% 100%, #11998e 0px, transparent 55%), radial-gradient(at 0% 100%, #38ef7d 0px, transparent 55%), #092015',
-                'vinyl-dj': 'radial-gradient(at 0% 0%, #c471ed 0px, transparent 55%), radial-gradient(at 100% 0%, #f64f59 0px, transparent 50%), radial-gradient(at 100% 100%, #12c2e9 0px, transparent 55%), radial-gradient(at 0% 100%, #7f00ff 0px, transparent 55%), #1a0826',
-                'digital-dj': 'radial-gradient(at 0% 0%, #ff9900 0px, transparent 55%), radial-gradient(at 100% 0%, #ff5e36 0px, transparent 50%), radial-gradient(at 100% 100%, #f12711 0px, transparent 55%), radial-gradient(at 0% 100%, #f5af19 0px, transparent 55%), #2a1103',
-                '360-dj': 'radial-gradient(at 0% 0%, #ff0844 0px, transparent 55%), radial-gradient(at 100% 0%, #ffb199 0px, transparent 50%), radial-gradient(at 100% 100%, #9055ff 0px, transparent 55%), radial-gradient(at 0% 100%, #ff4e50 0px, transparent 55%), #2e0821',
-                'master-dj': 'radial-gradient(at 0% 0%, #3a7bd5 0px, transparent 55%), radial-gradient(at 100% 0%, #00d2ff 0px, transparent 50%), radial-gradient(at 100% 100%, #4a00e0 0px, transparent 55%), radial-gradient(at 0% 100%, #8e2de2 0px, transparent 55%), #0c1435',
-                'master-efx-dj': 'radial-gradient(at 0% 0%, #ff0055 0px, transparent 55%), radial-gradient(at 100% 0%, #ff5252 0px, transparent 50%), radial-gradient(at 100% 100%, #d50000 0px, transparent 55%), radial-gradient(at 0% 100%, #ff7700 0px, transparent 55%), #30060e',
+              // Harmonious palettes per course: [base, blobA, blobB, blobC]
+              const meshPalettes: Record<string, [string, string, string, string]> = {
+                'social-dj':     ['#04182b', '#00e0ff', '#2563eb', '#10b981'], // cyan / azul / esmeralda
+                'club-dj':       ['#0a1a0c', '#d7ff54', '#22c55e', '#06b6d4'], // lima / verde / turquesa
+                'vinyl-dj':      ['#1a0726', '#d946ef', '#7c3aed', '#f472b6'], // orquídea / violeta / rosa
+                'digital-dj':    ['#220c02', '#fbbf24', '#f97316', '#ef4444'], // ámbar / naranja / rojo
+                '360-dj':        ['#260611', '#fb7185', '#a855f7', '#f59e0b'], // coral / púrpura / dorado
+                'master-dj':     ['#070f2b', '#38bdf8', '#6366f1', '#a78bfa'], // zafiro / índigo / lavanda
+                'master-efx-dj': ['#240508', '#ff1f5a', '#ff7a00', '#c026d3'], // carmesí / fuego / magenta
               }
 
-              const bgMesh = meshGradients[c.slug] || meshGradients['social-dj']
+              const [base, colA, colB, colC] = meshPalettes[c.slug] || meshPalettes['social-dj']
 
               return (
                 <Link
@@ -74,17 +99,18 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ s
                   }`}
                 >
                   <div className="flex items-center gap-3">
-                    {/* Animated Mesh Gradient Box for desktop only */}
+                    {/* Animated mesh gradient: square, no border, blurred color blobs drifting */}
                     <div 
-                      className={`w-9 h-9 shrink-0 rounded-[6px] border border-white/20 shadow-md relative overflow-hidden animate-mesh-gradient transition-all duration-300 ${
+                      className={`w-9 h-9 shrink-0 rounded-none relative overflow-hidden transition-all duration-300 ${
                         isActive 
-                          ? 'ring-2 ring-white/50 scale-105 shadow-[0_0_12px_rgba(255,255,255,0.25)]' 
-                          : 'group-hover:scale-105 group-hover:border-white/40 opacity-90 group-hover:opacity-100'
+                          ? 'scale-105' 
+                          : 'opacity-90 group-hover:opacity-100 group-hover:scale-105'
                       }`}
-                      style={{ backgroundImage: bgMesh }}
+                      style={{ backgroundColor: base }}
                     >
-                      {/* Subtle glossy glass reflection overlay */}
-                      <div className="absolute inset-0 bg-gradient-to-tr from-black/25 via-transparent to-white/35 pointer-events-none" />
+                      <span className="mesh-blob mesh-blob-a" style={{ backgroundColor: colA }} />
+                      <span className="mesh-blob mesh-blob-b" style={{ backgroundColor: colB }} />
+                      <span className="mesh-blob mesh-blob-c" style={{ backgroundColor: colC }} />
                     </div>
 
                     <div className="flex flex-col">
@@ -98,7 +124,7 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ s
                   </div>
 
                   {isActive ? (
-                    <span className="text-[#d7ff54] text-[12px] font-mono">●</span>
+                    <span className="text-[#a9eff1] text-[12px] font-mono">●</span>
                   ) : (
                     <span className="text-[#444] group-hover:text-[#888] text-[14px] transition-transform group-hover:translate-x-0.5">→</span>
                   )}
@@ -120,7 +146,7 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ s
                 href="https://wa.me/573226393861?text=Hola!%20Quisiera%20asesoria%20para%20elegir%20mi%20curso%20de%20DJ"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#d7ff54] hover:underline font-mono text-[11px] block"
+                className="text-[#a9eff1] hover:underline font-mono text-[11px] block"
               >
                 Asesoría WhatsApp →
               </a>
@@ -138,29 +164,28 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ s
             />
             
             <div className="relative z-10">
-              {/* Courses Horizontal Breadcrumbs on Desktop (above Volver a Cursos) */}
-              <div className="hidden lg:flex items-center gap-3 pb-6 mb-6 border-b border-[#222] overflow-x-auto whitespace-nowrap">
-                <span className="text-[#666] text-[11px] font-mono uppercase tracking-widest font-semibold shrink-0">
+              <div className="flex lg:hidden items-center gap-2 pb-5 mb-6 border-b border-[#222] overflow-x-auto whitespace-nowrap scrollbar-hide [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none'] w-full">
+                <span className="text-[#666] text-[10.5px] font-mono uppercase tracking-widest font-semibold shrink-0 mr-1">
                   Cursos:
                 </span>
-                <div className="flex flex-wrap items-center gap-2">
-                  {courses.map(c => {
-                    const isActive = c.slug === slug
-                    return (
-                      <Link 
-                        key={c.slug} 
-                        href={`/cursos/${c.slug}`}
-                        className={`text-[12px] font-mono px-3 py-1 rounded-none border transition-all duration-200 ${
-                          isActive 
-                            ? 'bg-white text-[#0d0d0e] border-white font-semibold shadow-[0_0_15px_rgba(255,255,255,0.2)]' 
-                            : 'text-[#888] border-[#292929] hover:text-white hover:border-[#444] bg-[#121215]'
-                        }`}
-                      >
+                {courses.map(c => {
+                  const isActive = c.slug === slug
+                  return (
+                    <Link 
+                      key={c.slug} 
+                      href={`/cursos/${c.slug}`}
+                      className={`text-[11.5px] font-mono px-3 py-1.5 rounded-none border transition-all duration-200 shrink-0 ${
+                        isActive 
+                          ? 'bg-white !text-black border-white font-bold shadow-[0_0_12px_rgba(255,255,255,0.4)]' 
+                          : 'text-[#888] border-[#292929] hover:text-white hover:border-[#444] bg-[#121215]'
+                      }`}
+                    >
+                      <span className={isActive ? '!text-black font-semibold' : ''}>
                         {c.name}
-                      </Link>
-                    )
-                  })}
-                </div>
+                      </span>
+                    </Link>
+                  )
+                })}
               </div>
 
               <Link href="/academy-studios#cursos" className="inline-flex items-center text-[#777] text-[12px] hover:text-white mb-8 uppercase tracking-widest font-mono">
@@ -169,34 +194,31 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ s
           
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-start">
             {/* Left: Image & Equipment */}
-            <div className="lg:col-span-5 flex flex-col gap-8">
-              <div className="relative aspect-[16/10] w-full rounded-xl overflow-hidden border border-[#333] shadow-2xl bg-[#1a1a1b]">
+            <div className="lg:col-span-5 flex flex-col gap-8 min-w-0">
+              <div className="relative aspect-[16/10] w-full rounded-none overflow-hidden border border-[#333] shadow-2xl bg-[#1a1a1b]">
                 {course.image && (
                   <img 
                     src={course.image} 
                     alt={course.name}
-                    className="w-full h-full object-cover object-[center_35%] opacity-90"
+                    className="w-full h-full object-cover object-[center_35%] opacity-90 rounded-none"
                   />
                 )}
               </div>
               
               <div className="hidden lg:block">
-                <h3 className="text-[18px] font-medium tracking-tight mb-4 text-[#a9eff1]">
-                  Equipos principales
-                </h3>
-                <div className="flex flex-wrap gap-2">
-                  {course.equipment.map((eq, i) => (
-                    <span key={i} className="bg-[#1c1c1d] px-3 py-1.5 rounded-md text-[#ccc] text-[13px] border border-[#333]">
-                      {eq}
-                    </span>
-                  ))}
-                </div>
+                <EquipmentGallery
+                  equipment={course.equipment}
+                  title="Equipos de cabina incluidos"
+                  titleClassName="text-[16px] font-medium tracking-tight text-[#a9eff1] mb-3 block"
+                  cardWidth="w-[110px]"
+                  cardHeight="h-[100px]"
+                />
               </div>
             </div>
 
             {/* Right: Info */}
-            <div className="lg:col-span-7 flex flex-col">
-              <div className="inline-block bg-white/10 text-white px-3 py-1 rounded-full text-[11px] uppercase tracking-widest mb-4 w-max">
+            <div className="lg:col-span-7 flex flex-col min-w-0">
+              <div className="inline-block bg-white/10 text-white px-3 py-1 rounded-none text-[11px] uppercase tracking-widest mb-4 w-max border border-white/20">
                 {course.tag}
               </div>
               
@@ -205,7 +227,7 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ s
               </h1>
 
               {course.subtitle && (
-                <p className="text-[#d7ff54] text-[16px] sm:text-[18px] font-light mb-4">
+                <p className="text-[#a9eff1] text-[16px] sm:text-[18px] font-light mb-4">
                   {course.subtitle}
                 </p>
               )}
@@ -214,36 +236,12 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ s
                 {course.extendedDescription || course.description}
               </p>
 
-              {/* ¿Qué aprenderás? - Niveles o Lista */}
+              {/* ¿Qué aprenderás? - Acordeón Colapsable por Niveles */}
               <div className="mb-8">
-                <h3 className="text-[20px] font-medium tracking-tight mb-5 text-[#d7ff54]">
+                <h3 className="text-[20px] font-medium tracking-tight mb-4 text-[#a9eff1]">
                   ¿Qué aprenderás?
                 </h3>
-                {course.syllabusLevels && course.syllabusLevels.length > 0 ? (
-                  <div className="space-y-4">
-                    {course.syllabusLevels.map((lvl, i) => (
-                      <div key={i} className="bg-[#121215] border border-[#27272a] p-4.5">
-                        <span className="text-white font-mono text-[13px] font-medium block mb-1">
-                          {lvl.title}
-                        </span>
-                        <p className="text-[#aaa] text-[13px] leading-relaxed">
-                          {lvl.topics}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                ) : (
-                  <ul className="grid sm:grid-cols-2 gap-4">
-                    {course.learning.map((item, i) => (
-                      <li key={i} className="flex items-start gap-3 text-[#bbb] text-[14px] leading-relaxed">
-                        <span className="text-white bg-[#222] w-5 h-5 rounded-full flex items-center justify-center text-[10px] mt-0.5 shrink-0">
-                          {i + 1}
-                        </span>
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                )}
+                <CourseAccordion levels={course.syllabusLevels} />
               </div>
 
               {/* Al finalizar podrás: */}
@@ -255,7 +253,7 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ s
                   <div className="grid sm:grid-cols-2 gap-3">
                     {course.outcomes.map((outcome, idx) => (
                       <div key={idx} className="flex items-center gap-2.5 text-[#ccc] text-[13px]">
-                        <span className="text-[#d7ff54] text-[14px]">✓</span>
+                        <span className="text-white text-[14px]">✓</span>
                         <span>{outcome}</span>
                       </div>
                     ))}
@@ -285,35 +283,49 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ s
                 )}
               </div>
 
-              <div className="flex flex-col sm:flex-row items-center gap-4">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
                 <a 
                   href={`https://wa.me/573226393861?text=${encodeURIComponent(`Hola! Quiero apartar mi cupo / espacio para el curso: ${course.name}`)}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full sm:w-auto text-center rounded-full bg-[#d7ff54] text-[#0d0d0e] px-8 py-4 text-[14px] font-medium hover:bg-[#c5f03d] transition-colors"
+                  className="w-full sm:w-auto text-center rounded-full bg-transparent border-2 border-white !text-white px-8 py-3.5 text-[14px] font-semibold hover:bg-white hover:!text-black transition-colors duration-200 shrink-0 flex items-center justify-center"
                 >
                   {course.ctaText || 'Quiero mi espacio'}
                 </a>
                 
-                <div className="bg-[#174f55]/20 border border-[#174f55] px-4 py-3 rounded-lg flex-1 w-full">
-                  <span className="text-[#a9eff1] text-[12px] font-bold block mb-1">BONUS VIP</span>
-                  <p className="text-[#bbb] text-[12px] leading-snug">
-                    15% OFF de por vida en todos los servicios de Critical Sounds al completar.
+                {/* Coupon / Voucher style box with white dotted border */}
+                <div className="relative border-2 border-dashed border-white/50 hover:border-white/80 bg-[#121215] px-4 py-3 rounded-none flex items-center justify-center gap-2.5 transition-colors flex-1 min-w-0">
+                  {/* Ticket / Coupon SVG Icon */}
+                  <svg 
+                    xmlns="http://www.w3.org/2000/svg" 
+                    viewBox="0 0 24 24" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    strokeWidth="1.75" 
+                    strokeLinecap="round" 
+                    strokeLinejoin="round" 
+                    className="w-4 h-4 text-white shrink-0"
+                  >
+                    <path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z" />
+                    <path d="M13 5v2" />
+                    <path d="M13 11v2" />
+                    <path d="M13 17v2" />
+                  </svg>
+
+                  <p className="text-[#e4e4e7] text-[12px] font-mono leading-snug m-0">
+                    <strong className="text-white font-semibold">15% OFF de por vida</strong> en todos los servicios Critical Sounds
                   </p>
                 </div>
               </div>
 
-              <div className="mt-8 lg:hidden">
-                <h3 className="text-[18px] font-medium tracking-tight mb-4 text-[#a9eff1]">
-                  Equipos principales
-                </h3>
-                <div className="flex flex-wrap gap-2">
-                  {course.equipment.map((eq, i) => (
-                    <span key={i} className="bg-[#1c1c1d] px-3 py-1.5 rounded-md text-[#ccc] text-[13px] border border-[#333]">
-                      {eq}
-                    </span>
-                  ))}
-                </div>
+              <div className="mt-8 lg:hidden min-w-0 w-full overflow-hidden">
+                <EquipmentGallery
+                  equipment={course.equipment}
+                  title="Equipos de cabina incluidos"
+                  titleClassName="text-[16px] font-medium tracking-tight text-[#a9eff1] mb-3 block"
+                  cardWidth="w-[100px]"
+                  cardHeight="h-[94px]"
+                />
               </div>
             </div>
           </div>
@@ -338,7 +350,7 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ s
             href="https://wa.me/573226393861?text=Hola!%20Me%20interesan%20las%20Clases%20Personalizadas"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex rounded-full bg-white text-[#0d0d0e] px-8 py-4 text-[14px] font-medium hover:bg-white/90 transition-colors"
+            className="inline-flex rounded-full bg-transparent border border-white text-white px-8 py-4 text-[14px] font-medium hover:bg-white hover:text-[#0d0d0e] transition-colors"
           >
             Hablar con un asesor
           </a>

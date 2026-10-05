@@ -18,7 +18,7 @@ export function TeamCard({ member }: TeamCardProps) {
     <>
       <article className="pt-2 flex flex-col group h-full">
         {/* Foto con PixelTrail y Botones Sociales */}
-        <div className="relative h-[390px] w-full overflow-hidden mb-6 rounded-sm bg-[#161618] cursor-pointer">
+        <div className="relative h-[390px] w-full overflow-hidden mb-6 rounded-none bg-[#161618] cursor-pointer">
           {member.image ? (
             <>
               <Image

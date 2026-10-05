@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react'
 import { Course } from '@/lib/data/courses'
+import { EquipmentGallery } from '@/components/ui/EquipmentGallery'
 
 interface ComboSwitchCardProps {
   combos: Course[]
@@ -84,18 +85,13 @@ export function ComboSwitchCard({ combos }: ComboSwitchCardProps) {
               </span>
             </div>
 
-            <div className="space-y-3 pt-4 border-t border-[#1f1f23]">
-              <span className="text-[11px] font-mono uppercase text-[#666] tracking-wider block">
-                Equipamiento de cabina incluido:
-              </span>
-              <div className="flex flex-wrap gap-1.5">
-                {currentCombo.equipment.map((eq, i) => (
-                  <span key={i} className="text-[11px] font-mono bg-[#16161a] text-[#a1a1aa] px-2.5 py-1 rounded border border-[#26262e]">
-                    {eq}
-                  </span>
-                ))}
-              </div>
-            </div>
+            <EquipmentGallery 
+              equipment={currentCombo.equipment}
+              title="Equipamiento de cabina incluido:"
+              className="pt-3 border-t border-[#1f1f23]"
+              cardWidth="w-[90px] sm:w-[98px]"
+              cardHeight="h-[86px]"
+            />
           </div>
 
           {/* Middle/Bottom: Title with Switch on desktop, Description, Accordion & CTAs */}

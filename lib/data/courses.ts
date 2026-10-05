@@ -5,6 +5,28 @@ export type CourseLevelItem = {
   topics: string
 }
 
+export interface EquipmentItem {
+  name: string
+  image: string
+}
+
+export const EQUIPMENT_IMAGES: Record<string, string> = {
+  'Pioneer XDJ-XZ': '/multimedia/images/critical-academy/equip/critical-sounds-pioneer-xdj-xz.png',
+  'Pioneer CDJ-2000 Nexus': '/multimedia/images/critical-academy/equip/critical-sounds-pioneer-2000-nexus.png',
+  'Pioneer CDJ-2000 Nexus 2': '/multimedia/images/critical-academy/equip/critical-sounds-pioneer-cdj-2000-nexus-2.png',
+  'Pioneer CDJ-3000': '/multimedia/images/critical-academy/equip/critical-sounds-pioneer-cdj-3000.png',
+  'Pioneer DJM-A9': '/multimedia/images/critical-academy/equip/critical-sounds-pioneer-dj-a9.png',
+  'Pioneer DJM-V10': '/multimedia/images/critical-academy/equip/critical-sounds-pioneer-djm-v-10.png',
+  'Pioneer PLX-1000': '/multimedia/images/critical-academy/equip/critical-sounds-pioneer-plx-1000.png',
+  'Pioneer PLX-500': '/multimedia/images/critical-academy/equip/critical-sounds-pioneer-plx-500.png',
+  'RMX-1000': '/multimedia/images/critical-academy/equip/critical-sounds-pioneer-rmx-1000.png',
+  'Pioneer RMX-1000': '/multimedia/images/critical-academy/equip/critical-sounds-pioneer-rmx-1000.png',
+}
+
+export const getEquipmentImage = (name: string): string => {
+  return EQUIPMENT_IMAGES[name] || ''
+}
+
 export type Course = {
   id: string
   slug: string
@@ -22,7 +44,7 @@ export type Course = {
   description: string
   extendedDescription?: string
   learning: string[]
-  syllabusLevels?: CourseLevelItem[]
+  syllabusLevels: CourseLevelItem[]
   outcomes?: string[]
   equipment: string[]
   ctaText?: string
@@ -186,6 +208,16 @@ export const courses: Course[] = [
       'Trabajar con soltura en 3 y 4 decks',
       'Utilizar efectos y herramientas profesionales como RMX-1000'
     ],
+    syllabusLevels: [
+      {
+        title: 'Etapa 1 · Social DJ (Fundamentos & Eventos)',
+        topics: 'Ritmo, tonalidad, géneros, controladoras Pioneer, ecualización, sincronización, loops, FX, mezcla armónica con Camelot, Hot Cues, RekordBox y conexión de equipos.'
+      },
+      {
+        title: 'Etapa 2 · Club DJ (Nivel PRO & Escenarios)',
+        topics: 'Sistemas Pioneer de alta gama (DJM-A9, CDJ-3000), mezcla avanzada en 3 y 4 decks, procesador RMX-1000, mashups en vivo, construcción de sets de club, B2B y etiqueta DJ.'
+      }
+    ],
     outcomes: [
       'Mezclar en eventos privados, clubs y festivales.',
       'Crear sets para diferentes públicos.',
@@ -220,6 +252,20 @@ export const courses: Course[] = [
       'Incorporar efectos y herramientas profesionales (RMX-1000, V10)',
       'Prepararte con seguridad para cualquier formato de presentación'
     ],
+    syllabusLevels: [
+      {
+        title: 'Etapa 1 · Social DJ (Fundamentos & Eventos)',
+        topics: 'Ritmo, tonalidad, géneros, controladoras Pioneer, ecualización, sincronización, loops, FX, Camelot, Hot Cues, RekordBox y conexión de equipos.'
+      },
+      {
+        title: 'Etapa 2 · Club DJ (Nivel PRO & Festivales)',
+        topics: 'Cabinas profesionales completas, mezcla en 3 y 4 decks, procesador de efectos RMX-1000, DJM-A9 / DJM-V10, sets profesionales y sesiones B2B.'
+      },
+      {
+        title: 'Etapa 3 · Vinyl DJ (Turntablismo & Formato Análogo)',
+        topics: 'Manejo digital-análogo (PLX-1000/500), sincronización manual a oído, Groove Reading, técnicas wet/dry en vinilo, scratching, chirping y sets híbridos.'
+      }
+    ],
     outcomes: [
       'Mezclar en eventos privados, clubs y festivales.',
       'Crear sets digitales y en vinilo.',
@@ -245,7 +291,7 @@ export const courses: Course[] = [
     tag: 'Especialización',
     tone: 'blue',
     category: 'masterclass',
-    image: '/multimedia/images/educational/critical-sounds-dj-digital-and-vinyl.webp',
+    image: '/multimedia/images/educational/critical-sounds-master-dj.webp',
     description: 'Perfecciona tu técnica y desarrolla un sonido profesional. Para DJs con bases.',
     extendedDescription: 'Una formación avanzada para DJs que quieren llevar su mezcla, performance y manejo de cabina a un nivel superior.',
     learning: [
@@ -255,6 +301,20 @@ export const courses: Course[] = [
       'Mezcla armónica avanzada con Camelot y MIK',
       'Mezcla en 3 y 4 decks, mashups en vivo',
       'RekordBox + Pioneer Pro DJ Link, B2B y etiqueta profesional del DJ'
+    ],
+    syllabusLevels: [
+      {
+        title: 'Nivel 1 · Control y Dinámica Sonora',
+        topics: 'Ecualización avanzada, técnicas de fader de alta precisión, efectos de color y ritmo, filtrado dinámico y combinación armónica de efectos.'
+      },
+      {
+        title: 'Nivel 2 · Performance y Multideck',
+        topics: 'RMX-1000 con técnicas Wet/Dry, mezcla armónica avanzada con Camelot y Mixed In Key (MIK), y mezcla continua en 3 y 4 decks.'
+      },
+      {
+        title: 'Nivel 3 · Escenarios de Élite',
+        topics: 'Mashups en vivo, ecosistema RekordBox + Pioneer Pro DJ Link, sesiones B2B de alto rendimiento y etiqueta profesional del DJ en cabinas de festival.'
+      }
     ],
     outcomes: [
       'Crear sets utilizando técnicas avanzadas.',
@@ -287,6 +347,20 @@ export const courses: Course[] = [
       'Mezcla en 3 y 4 decks con efectos',
       'Uso simultáneo de múltiples efectos y ruteos SEND/RECEIVE',
       'Integración de KORG Kaoss Pad 3 y Kaossilator 3'
+    ],
+    syllabusLevels: [
+      {
+        title: 'Nivel 1 · Fundamentos Creativos de FX',
+        topics: 'Técnicas de efectos de color, combinaciones dinámicas con RMX-1000 y técnicas Wet/Dry avanzadas con mixer DJM-V10.'
+      },
+      {
+        title: 'Nivel 2 · Mezcla Compleja y Ruteos',
+        topics: 'Mezcla en 3 y 4 decks con aplicación de efectos, uso simultáneo de múltiples capas de efectos y gestión de ruteos SEND/RECEIVE.'
+      },
+      {
+        title: 'Nivel 3 · Integración de Hardware Externo',
+        topics: 'Conexión y manipulación en vivo de KORG Kaoss Pad 3 y Kaossilator 3 integrados a la cabina Pioneer para transiciones y texturas únicas.'
+      }
     ],
     outcomes: [
       'Incorporar efectos de manera musical a tus sets.',

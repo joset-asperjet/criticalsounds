@@ -35,11 +35,11 @@ export function CourseCard({ course }: { course: Course }) {
           {course.description}
         </p>
         
-        <div className="flex items-center justify-between pt-4 border-t border-[#333] gap-2">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between pt-4 border-t border-[#333] gap-3">
           <div>
             <span className="text-[13px] font-mono font-light text-[#d4d4d8] tracking-wider">{course.price}</span>
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex flex-col sm:flex-row w-full sm:w-auto items-stretch sm:items-center gap-2">
             <span
               onClick={(e) => {
                 e.preventDefault()
@@ -47,11 +47,11 @@ export function CourseCard({ course }: { course: Course }) {
                 const msg = encodeURIComponent(`Hola! Quiero apartar mi cupo / espacio para el curso: ${course.name}`)
                 window.open(`https://wa.me/573226393861?text=${msg}`, '_blank')
               }}
-              className="inline-flex items-center text-[12px] font-mono font-medium text-white bg-white/10 hover:bg-white hover:text-black border border-white/20 hover:border-white px-3 py-1.5 rounded-full transition-all duration-300 cursor-pointer"
+              className="inline-flex items-center justify-center text-[12px] font-mono font-medium text-white bg-transparent hover:bg-white hover:text-black border border-white px-3 py-1.5 rounded-full transition-all duration-300 cursor-pointer"
             >
               Quiero mi espacio
             </span>
-            <span className="inline-flex items-center gap-1.5 text-[12px] font-mono font-medium text-[#d7ff54] bg-[#d7ff5418] border border-[#d7ff5440] px-3.5 py-1.5 rounded-full transition-all duration-300 group-hover:bg-[#d7ff54] group-hover:text-[#0d0d0e] group-hover:border-[#d7ff54]">
+            <span className="inline-flex items-center justify-center gap-1.5 text-[12px] font-mono font-medium text-white bg-transparent border border-white/40 px-3.5 py-1.5 rounded-full transition-all duration-300 group-hover:bg-white group-hover:text-black group-hover:border-white">
               Ver ruta →
             </span>
           </div>

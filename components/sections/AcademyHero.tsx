@@ -164,7 +164,7 @@ export function AcademyHero() {
           {items.map((item, idx) => (
             <div
               key={idx}
-              className="relative w-[240px] sm:w-[280px] md:w-[320px] lg:w-[330px] h-[360px] sm:h-[420px] md:h-[480px] lg:h-[520px] rounded-2xl overflow-hidden border border-white/10 bg-neutral-900 shadow-[0_16px_50px_rgba(0,0,0,0.7)] flex-shrink-0 group"
+              className="relative w-[240px] sm:w-[280px] md:w-[320px] lg:w-[330px] h-[360px] sm:h-[420px] md:h-[480px] lg:h-[520px] rounded-none overflow-hidden bg-neutral-900 shadow-[0_16px_50px_rgba(0,0,0,0.7)] flex-shrink-0 group"
             >
               {item.type === 'video' ? (
                 <video
@@ -174,7 +174,7 @@ export function AcademyHero() {
                   playsInline
                   preload="auto"
                   poster={item.poster}
-                  className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                  className="w-full h-full object-cover rounded-none transition-transform duration-700 ease-out group-hover:scale-105"
                 >
                   <source src={item.src} type="video/mp4" />
                 </video>
@@ -183,7 +183,7 @@ export function AcademyHero() {
                   src={item.src}
                   alt={item.alt}
                   fill
-                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                  className="object-cover rounded-none transition-transform duration-700 ease-out group-hover:scale-105"
                   sizes="330px"
                   priority={idx < 4}
                 />
