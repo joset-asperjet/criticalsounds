@@ -75,7 +75,7 @@ export function ComboSwitchCard({ combos }: ComboSwitchCardProps) {
                 Inversión de la ruta
               </span>
               <div className="flex items-baseline gap-3">
-                <span className="text-[22px] sm:text-[26px] font-light tracking-wider text-[#e4e4e7] font-mono">
+                <span className="text-[13px] font-mono font-light text-[#d4d4d8] tracking-wider">
                   {currentCombo.price}
                 </span>
               </div>
