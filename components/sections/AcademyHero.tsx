@@ -28,7 +28,7 @@ export function AcademyHero() {
       src: '/multimedia/images/critical-academy/critical-sounds-curso-vinyl-dj.webp',
       alt: 'Curso DJ Vinyl y Tornamesas',
       title: 'Curso DJ Vinyl',
-      tag: 'Technics 1200',
+      tag: 'Pioneer 1000',
     },
     {
       type: 'video',
@@ -43,11 +43,11 @@ export function AcademyHero() {
       src: '/multimedia/images/critical-academy/critical-sounds-curso-productor.mp4',
       alt: 'Cursos de Producción Musical',
       title: 'Cursos Producción',
-      tag: 'Ableton & Logic',
+      tag: 'Ableton & FL Studio',
     },
     {
-      type: 'image',
-      src: '/multimedia/images/critical-academy/critical-sounds-academy-photo.webp',
+      type: 'video',
+      src: '/multimedia/images/critical-academy/critical-sounds-academy-grabacion.mp4',
       alt: 'Grabación de audio y video en estudio',
       title: 'Grabación de audio y video',
       tag: 'Audio & Video 4K',

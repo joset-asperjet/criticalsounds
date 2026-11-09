@@ -4,13 +4,13 @@ import React, { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import lottie, { AnimationItem } from 'lottie-web'
-import { 
-  FaInstagram, 
-  FaYoutube, 
-  FaTiktok, 
-  FaFacebookF, 
-  FaEnvelope, 
-  FaPhone, 
+import {
+  FaInstagram,
+  FaYoutube,
+  FaTiktok,
+  FaFacebookF,
+  FaEnvelope,
+  FaPhone,
   FaLocationDot,
   FaArrowRight,
   FaXmark
@@ -40,7 +40,7 @@ export function Footer() {
   return (
     <>
       <footer className="relative bg-[#09090b] text-[#9a9aa2] overflow-hidden pt-16 lg:pt-24 select-none">
-        
+
         {/* Background Image Container - Absolutely positioned at the bottom of the footer */}
         <div className="absolute bottom-0 left-0 right-0 w-full flex justify-center pointer-events-none z-0">
           <div className="w-full relative" style={{ height: '55vh', maxHeight: '550px', minHeight: '400px' }}>
@@ -61,33 +61,33 @@ export function Footer() {
         <div className="w-full px-8 lg:px-[8vw] relative z-10">
           {/* Content Layout: 4 Columns (Brand & Contact, Cursos, Academy, Ayuda & Contacto) */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 relative z-10">
-            
+
             {/* Col 1: Brand & Contact Info (lg:col-span-4) */}
             <div className="lg:col-span-4 flex flex-col justify-between">
               <div>
                 <Link href="/academy-studios" className="inline-block mb-4 hover:opacity-90 transition-opacity">
                   <Image
-                    src="/multimedia/images/logo-and-svg/critical-sounds-logo.png"
+                    src="/multimedia/images/logo-and-svg/critical-sounds-logo-academy.png"
                     alt="Critical Sounds"
-                    width={160}
-                    height={42}
-                    className="h-8 sm:h-9 w-auto object-contain"
+                    width={220}
+                    height={58}
+                    className="h-11 sm:h-12 md:h-14 w-auto object-contain"
                   />
                 </Link>
 
                 {/* Direct Contacts */}
                 <div className="space-y-2.5 text-[12.5px] text-[#b0b0b8] mt-2">
-                  <a 
-                    href="mailto:info@criticalsounds.com" 
+                  <a
+                    href="mailto:info@criticalsounds.com"
                     className="flex items-center gap-2.5 hover:text-white transition-colors"
                   >
                     <FaEnvelope className="w-3.5 h-3.5 text-white shrink-0" />
                     <span>info@criticalsounds.com</span>
                   </a>
 
-                  <a 
-                    href="https://wa.me/573226393861" 
-                    target="_blank" 
+                  <a
+                    href="https://wa.me/573226393861"
+                    target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-2.5 hover:text-white transition-colors"
                   >
@@ -242,20 +242,20 @@ export function Footer() {
                   </Link>
                 </li>
                 <li>
-                  <a 
-                    href="https://wa.me/573226393861?text=Hola!%20Quiero%20conocer%20las%20cabinas%20de%20practica" 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
+                  <a
+                    href="https://wa.me/573226393861?text=Hola!%20Quiero%20conocer%20las%20cabinas%20de%20practica"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="hover:text-white transition-colors"
                   >
                     Cabinas de Práctica
                   </a>
                 </li>
                 <li>
-                  <a 
-                    href="https://wa.me/573226393861?text=Hola!%20Quiero%20grabar%20mi%20set%20de%20audio%20y%20video" 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
+                  <a
+                    href="https://wa.me/573226393861?text=Hola!%20Quiero%20grabar%20mi%20set%20de%20audio%20y%20video"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="hover:text-white transition-colors"
                   >
                     Grabación Sets 4K
@@ -271,7 +271,7 @@ export function Footer() {
               </h4>
               <ul className="space-y-2.5 text-[13px]">
                 <li>
-                  <a 
+                  <a
                     href="https://wa.me/573226393861?text=Hola!%20Tengo%20preguntas%20frecuentes%20sobre%20la%20academia"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -281,9 +281,9 @@ export function Footer() {
                   </a>
                 </li>
                 <li>
-                  <a 
-                    href="https://maps.google.com/?q=Cra.+33+%2329-105,+Medell%C3%ADn,+Antioquia" 
-                    target="_blank" 
+                  <a
+                    href="https://maps.google.com/?q=Cra.+33+%2329-105,+Medell%C3%ADn,+Antioquia"
+                    target="_blank"
                     rel="noopener noreferrer"
                     className="hover:text-white transition-colors"
                   >
@@ -291,10 +291,10 @@ export function Footer() {
                   </a>
                 </li>
                 <li>
-                  <a 
-                    href="https://wa.me/573226393861?text=Hola!%20Quiero%20agendar%20una%20visita%20a%20la%20academia" 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
+                  <a
+                    href="https://wa.me/573226393861?text=Hola!%20Quiero%20agendar%20una%20visita%20a%20la%20academia"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="hover:text-white transition-colors"
                   >
                     Agendar Visita
@@ -303,7 +303,7 @@ export function Footer() {
 
                 {/* Animated Lottie Folder Trigger */}
                 <li className="pt-2">
-                  <button 
+                  <button
                     onClick={() => setIsModalOpen(true)}
                     onMouseEnter={() => {
                       if (animInstance.current) {
@@ -319,8 +319,8 @@ export function Footer() {
                     }}
                     className="group flex items-center gap-2.5 hover:text-white transition-colors text-left outline-none cursor-pointer"
                   >
-                    <div 
-                      ref={lottieContainerRef} 
+                    <div
+                      ref={lottieContainerRef}
                       className="w-10 h-10 shrink-0 pointer-events-none flex items-center justify-center"
                     />
                     <span className="text-[12px] tracking-wide font-medium text-white/90 group-hover:text-white transition-colors">
@@ -337,10 +337,10 @@ export function Footer() {
             <span>© {new Date().getFullYear()} Critical Sounds · Medellín, Colombia</span>
             <span className="flex flex-wrap items-center justify-center gap-1">
               Diseñado con amor y javascript por{' '}
-              <a 
-                href="https://josetportfolio-delta.vercel.app/" 
-                target="_blank" 
-                rel="noopener noreferrer" 
+              <a
+                href="https://josetportfolio-delta.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-white/60 hover:text-[#d7ff54] transition-colors font-medium"
               >
                 Joset
@@ -357,8 +357,8 @@ export function Footer() {
       {isModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-fadeIn">
           <div className="relative w-full max-w-2xl bg-[#111113] border border-[#24242a] text-[#a1a1aa] p-8 lg:p-12 shadow-2xl rounded-none max-h-[90vh] overflow-y-auto">
-            
-            <button 
+
+            <button
               onClick={() => setIsModalOpen(false)}
               className="absolute top-6 right-6 text-[#666] hover:text-white transition-colors p-2 cursor-pointer"
             >
@@ -388,7 +388,7 @@ export function Footer() {
                   <h4 className="text-white font-medium mb-1">Llegada</h4>
                   <p>Te recomendamos llegar 15 minutos antes. El tiempo de retraso se descuenta de la sesión.</p>
                 </div>
-                
+
                 <div>
                   <h4 className="text-white font-medium mb-1">Reprogramaciones</h4>
                   <p className="mb-1">Puedes reprogramar o ceder tu reserva con mínimo 2 horas de anticipación.</p>

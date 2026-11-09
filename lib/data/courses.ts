@@ -21,6 +21,13 @@ export const EQUIPMENT_IMAGES: Record<string, string> = {
   'Pioneer PLX-500': '/multimedia/images/critical-academy/equip/critical-sounds-pioneer-plx-500.png',
   'RMX-1000': '/multimedia/images/critical-academy/equip/critical-sounds-pioneer-rmx-1000.png',
   'Pioneer RMX-1000': '/multimedia/images/critical-academy/equip/critical-sounds-pioneer-rmx-1000.png',
+  'Korg Kaoss Pad 3': '/multimedia/images/critical-academy/equip/critical-sounds-kaos-pad.png',
+  'KORG Kaoss Pad 3': '/multimedia/images/critical-academy/equip/critical-sounds-kaos-pad.png',
+  'Korg Kaoss Pad': '/multimedia/images/critical-academy/equip/critical-sounds-kaos-pad.png',
+  'Kaoss Pad 3': '/multimedia/images/critical-academy/equip/critical-sounds-kaos-pad.png',
+  'Korg Kaossilator Pro': '/multimedia/images/critical-academy/equip/critical-sounds-kaos-kaosillator-pro.png',
+  'KORG Kaossilator Pro': '/multimedia/images/critical-academy/equip/critical-sounds-kaos-kaosillator-pro.png',
+  'Kaossilator Pro': '/multimedia/images/critical-academy/equip/critical-sounds-kaos-kaosillator-pro.png',
 }
 
 export const getEquipmentImage = (name: string): string => {
@@ -368,7 +375,17 @@ export const courses: Course[] = [
       'Utilizar configuraciones avanzadas de efectos.',
       'Trabajar con cabinas profesionales.'
     ],
-    equipment: ['Pioneer DJM-A9', 'Pioneer DJM-V10', 'Pioneer XDJ-XZ', 'Pioneer CDJ-2000 Nexus', 'Pioneer CDJ-2000 Nexus 2', 'Pioneer CDJ-3000', 'RMX-1000'],
+    equipment: [
+      'Pioneer DJM-A9',
+      'Pioneer DJM-V10',
+      'Pioneer XDJ-XZ',
+      'Pioneer CDJ-2000 Nexus',
+      'Pioneer CDJ-2000 Nexus 2',
+      'Pioneer CDJ-3000',
+      'RMX-1000',
+      'Korg Kaoss Pad 3',
+      'Korg Kaossilator Pro'
+    ],
     ctaText: 'Quiero hacer Master EFX DJ'
   }
 ]

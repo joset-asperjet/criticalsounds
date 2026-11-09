@@ -18,11 +18,10 @@ function DivisionCard({ item, index }: { item: Division; index: number }) {
   const cardContent = (
     <div
       style={{ animationDelay: `${index * 130}ms` }}
-      className={`relative h-full w-full px-5 py-3.5 sm:px-6 sm:py-5 md:p-10 flex flex-col justify-between border-b md:border-b-0 md:border-r border-white/10 transition-all duration-500 overflow-hidden cursor-pointer group animate-entrance-desktop animate-entrance-mobile ${
-        item.active
+      className={`relative h-full w-full px-5 py-3.5 sm:px-6 sm:py-5 md:p-10 flex flex-col justify-between border-b md:border-b-0 md:border-r border-white/10 transition-all duration-500 overflow-hidden cursor-pointer group animate-entrance-desktop animate-entrance-mobile ${item.active
           ? 'bg-neutral-950/70 hover:bg-neutral-900/90'
           : 'bg-black/80 hover:bg-neutral-950/90'
-      }`}
+        }`}
     >
       {/* Background Image: Clean, high resolution, no hyperzoom */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -51,15 +50,14 @@ function DivisionCard({ item, index }: { item: Division; index: number }) {
       <div className="relative z-10 mt-auto flex flex-col pointer-events-none">
         <div className="h-12 sm:h-14 md:h-20 flex items-center mb-1 md:mb-3">
           <Image
-            src="/multimedia/images/logo-and-svg/critical-sounds-logo.png"
+            src="/multimedia/images/logo-and-svg/critical-sounds-logo-academy.png"
             alt="Critical Sounds"
-            width={340}
-            height={90}
-            className={`h-11 sm:h-12 md:h-14 lg:h-16 w-auto object-contain transition-all duration-300 origin-left drop-shadow-[0_2px_12px_rgba(0,0,0,0.8)] ${
-              item.active
+            width={360}
+            height={96}
+            className={`h-12 sm:h-14 md:h-16 lg:h-18 w-auto object-contain transition-all duration-300 origin-left drop-shadow-[0_2px_12px_rgba(0,0,0,0.8)] ${item.active
                 ? 'opacity-95 group-hover:opacity-100'
                 : 'opacity-60 group-hover:opacity-90'
-            }`}
+              }`}
             priority
           />
         </div>

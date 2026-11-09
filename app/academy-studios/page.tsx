@@ -3,7 +3,7 @@ import { courses } from '@/lib/data/courses'
 import { CourseCard } from '@/components/sections/CourseCard'
 import { AcademyHero } from '@/components/sections/AcademyHero'
 import { ScrollRevealText } from '@/components/ui/ScrollRevealText'
-import { TeamCard } from '@/components/sections/TeamCard'
+import { TeamGrid } from '@/components/sections/TeamGrid'
 import { LevelUpBoxAnimation } from '@/components/ui/LevelUpBoxAnimation'
 import { ComboSwitchCard } from '@/components/sections/ComboSwitchCard'
 import { PixelCardTrail } from '@/components/ui/PixelCardTrail'
@@ -27,9 +27,12 @@ export default function AcademyStudiosPage() {
       </section>
 
       {/* EL TEAM */}
-      <section className="py-24 px-8 lg:px-[8vw] bg-[#0d0d0e] text-white">
-        <h2 className="text-[clamp(40px,5.7vw,82px)] leading-[0.92] font-light tracking-tight mb-12">
-          El Team
+      <section id="el-team" className="py-24 px-8 lg:px-[8vw] bg-[#0d0d0e] text-white scroll-mt-24">
+        <h2 className="text-[clamp(40px,5.7vw,82px)] leading-tight font-light tracking-tight mb-12 flex flex-wrap items-baseline gap-x-4 gap-y-1">
+          <span>El Team</span>
+          <span className="text-[clamp(18px,2.2vw,32px)] text-[#888] font-light tracking-normal">
+            (+ 100 años de experiencia colectiva)
+          </span>
         </h2>
 
         {/* Texto histórico y trayectoria abajo del título */}
@@ -45,11 +48,7 @@ export default function AcademyStudiosPage() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 items-stretch">
-          {team.map((member) => (
-            <TeamCard key={member.id} member={member} />
-          ))}
-        </div>
+        <TeamGrid members={team} />
       </section>
 
       {/* Method Section */}
@@ -110,7 +109,7 @@ export default function AcademyStudiosPage() {
               En Critical Sounds Academy &amp; Studios diseñamos nuestras rutas de formación para que puedas aprender DJ desde cero, desarrollar una técnica sólida y avanzar hacia un nivel profesional.
             </p>
             <p className="text-[#999] text-[15px] sm:text-[16px] leading-relaxed">
-              Entrena con equipos Pioneer profesionales, aprende de instructores certificados y embajadores Pioneer y, sobre todo, lleva cada concepto directamente a la práctica.
+              Entrena con equipos Pioneer profesionales, aprende de instructores certificados y lleva cada concepto directamente a la práctica.
             </p>
           </div>
         </div>
@@ -140,8 +139,8 @@ export default function AcademyStudiosPage() {
       <section className="bg-white text-[#0d0d0e] py-24 lg:py-32 px-8 lg:px-[8vw] relative overflow-hidden border-t border-[#e5e5e5] grid lg:grid-cols-12 gap-8 items-center min-h-[420px]">
         <div className="lg:col-span-7 z-10 relative">
           <h2 className="text-[clamp(40px,6vw,90px)] font-light leading-[0.92] tracking-tight mb-10 text-[#0d0d0e]">
-            El próximo éxito<br />
-            <em className="not-italic text-[#666]">empieza contigo.</em>
+            Dale play<br />
+            <em className="not-italic text-[#666]">a tu sueño.</em>
           </h2>
           <a
             href={`https://wa.me/573226393861?text=${encodeURIComponent('Hola! Quiero hablar con un asesor sobre los cursos de Critical Sounds.')}`}

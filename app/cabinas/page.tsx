@@ -223,7 +223,7 @@ export default function CabinasPage() {
                               <span className="text-white mb-1 font-medium">{price.schedule}</span>
                               <div className="flex flex-wrap justify-between gap-x-2 gap-y-1 text-[#888]">
                                 <span className="whitespace-nowrap">Práctica: <span className="text-[#d7ff54]">{price.practica}</span></span>
-                                <span className="whitespace-nowrap">Full: <span className="text-[#a9eff1]">{price.audioVideo}</span></span>
+                                <span className="whitespace-nowrap">Grabación: <span className="text-[#a9eff1]">{price.audioVideo}</span></span>
                               </div>
                             </div>
                           ))}

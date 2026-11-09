@@ -63,7 +63,8 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ s
                 width: 100%;
                 height: 100%;
                 border-radius: 9999px;
-                filter: blur(7px);
+                filter: blur(6px);
+                opacity: 0.85;
                 mix-blend-mode: screen;
                 will-change: transform;
               }
@@ -75,15 +76,22 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ s
             {courses.map(c => {
               const isActive = c.slug === slug
 
-              // Harmonious palettes per course: [base, blobA, blobB, blobC]
+              // Paletas cromáticas de alto impacto y contraste para cada curso: [base, blobA, blobB, blobC]
               const meshPalettes: Record<string, [string, string, string, string]> = {
-                'social-dj':     ['#04182b', '#00e0ff', '#2563eb', '#10b981'], // cyan / azul / esmeralda
-                'club-dj':       ['#0a1a0c', '#d7ff54', '#22c55e', '#06b6d4'], // lima / verde / turquesa
-                'vinyl-dj':      ['#1a0726', '#d946ef', '#7c3aed', '#f472b6'], // orquídea / violeta / rosa
-                'digital-dj':    ['#220c02', '#fbbf24', '#f97316', '#ef4444'], // ámbar / naranja / rojo
-                '360-dj':        ['#260611', '#fb7185', '#a855f7', '#f59e0b'], // coral / púrpura / dorado
-                'master-dj':     ['#070f2b', '#38bdf8', '#6366f1', '#a78bfa'], // zafiro / índigo / lavanda
-                'master-efx-dj': ['#240508', '#ff1f5a', '#ff7a00', '#c026d3'], // carmesí / fuego / magenta
+                // Social DJ: Cyber Cyan & Deep Electric Blue (Luz de pantalla club)
+                'social-dj':     ['#021526', '#00e5ff', '#0284c7', '#06b6d4'],
+                // Club DJ: Critical Acid Lime & Esmeralda Profundo (Verde radioactivo característico de la marca)
+                'club-dj':       ['#051808', '#d7ff54', '#15803d', '#10b981'],
+                // Vinyl DJ: Ultravioleta Cósmico & Amatista Profundo (Atmósfera hipnótica analógica)
+                'vinyl-dj':      ['#140324', '#a855f7', '#6d28d9', '#c026d3'],
+                // DJ Completo — Digital: Ámbar Volcánico & Naranja Neón (Calor de vúmetros analógicos y hardware)
+                'digital-dj':    ['#1c0801', '#ff6b00', '#ea580c', '#f59e0b'],
+                // DJ Completo — Digital & Vinyl (360): Fusión Duotono Rosa Eléctrico + Cian Cyberpunk (360° combo)
+                '360-dj':        ['#18031c', '#f43f5e', '#06b6d4', '#9333ea'],
+                // Master DJ: Zafiro Pro CDJ-3000 & Azul Cobalto (Maestría y estatus profesional)
+                'master-dj':     ['#020c29', '#2563eb', '#1d4ed8', '#38bdf8'],
+                // Master EFX DJ: Láser Carmesí & Fuego Ardiente (Pioneer RMX-1000 isolator pulse)
+                'master-efx-dj': ['#1c0307', '#ef4444', '#b91c1c', '#ff5722'],
               }
 
               const [base, colA, colB, colC] = meshPalettes[c.slug] || meshPalettes['social-dj']
@@ -99,11 +107,11 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ s
                   }`}
                 >
                   <div className="flex items-center gap-3">
-                    {/* Animated mesh gradient: square, no border, blurred color blobs drifting */}
+                    {/* Animated mesh gradient con viñeta para máxima profundidad y saturación */}
                     <div 
                       className={`w-9 h-9 shrink-0 rounded-none relative overflow-hidden transition-all duration-300 ${
                         isActive 
-                          ? 'scale-105' 
+                          ? 'scale-105 ring-1 ring-white/30 shadow-[0_0_12px_rgba(255,255,255,0.15)]' 
                           : 'opacity-90 group-hover:opacity-100 group-hover:scale-105'
                       }`}
                       style={{ backgroundColor: base }}
@@ -111,6 +119,7 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ s
                       <span className="mesh-blob mesh-blob-a" style={{ backgroundColor: colA }} />
                       <span className="mesh-blob mesh-blob-b" style={{ backgroundColor: colB }} />
                       <span className="mesh-blob mesh-blob-c" style={{ backgroundColor: colC }} />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-black/25 pointer-events-none" />
                     </div>
 
                     <div className="flex flex-col">
@@ -160,7 +169,16 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ s
             {/* Background Tone */}
             <div 
               className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full blur-[140px] opacity-20 pointer-events-none" 
-              style={{ backgroundColor: course.tone === 'cyan' ? '#a9eff1' : course.tone === 'lime' ? '#d7ff54' : course.tone === 'violet' ? '#b4a2ff' : '#80b7ff' }} 
+              style={{ 
+                backgroundColor: 
+                  course.tone === 'cyan' ? '#00e5ff' : 
+                  course.tone === 'lime' ? '#d7ff54' : 
+                  course.tone === 'violet' ? '#a855f7' : 
+                  course.tone === 'orange' ? '#ff6b00' :
+                  course.tone === 'pink' ? '#f43f5e' :
+                  course.tone === 'blue' ? '#2563eb' :
+                  course.tone === 'red' ? '#ef4444' : '#00e5ff' 
+              }} 
             />
             
             <div className="relative z-10">

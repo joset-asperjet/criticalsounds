@@ -19,7 +19,7 @@ export const team: TeamMember[] = [
     id: 'pablo-anon',
     name: 'Pablo Anon',
     role: 'CEO',
-    description: 'La música ha sido su pasión profesional desde 2004. Su versatilidad y maestría combinan géneros de trance, abriendo conciertos para <b>Ferry Corsten</b>, <b>Markus Schulz</b> y en los escenarios más importantes del mundo.',
+    description: '30 años de experiencia profesional en el circuito internacional, desde residencias en superclubs hasta festivales.',
     fullBio: [
       'La música ha sido su pasión profesional desde 2004. Su talento innato y su técnica impecable constituyen la base de su carrera como artista de música electrónica. La versatilidad y la maestría musical se combinan en todas sus presentaciones, abarcando diversos géneros de trance.',
       'Pablo siempre ha visualizado la fusión de disciplinas trance, orquestando temas musicales opuestos, eufóricos y su opuesto. Esta estructura distintiva apareció por primera vez en la escena en 2015, consolidando el éxito de Pablo con su sonido único con Andromeda (Discover) y No Regrets (Universal Nation) soportado por pesos pesados del trance: John Askew, Sean Tyas, Woody Van Hayden, Binary Finary, Bryan Kearney, John O’Callaghan, Photographer y Alex M.O.R.P.H.',
@@ -48,7 +48,7 @@ export const team: TeamMember[] = [
     id: 'steve-dekay',
     name: 'Steve Dekay',
     role: 'Productor, DJ y Actual A&R de Critical Sounds',
-    description: 'Prodigio de la música trance con colaboraciones en <b>Armada Music</b>, <b>Vandit Records</b> y <b>FSOE</b>. Colaborador de Paul van Dyk y confirmado en <b>EDC 2026</b>.',
+    description: 'Su trayectoria como productor y DJ cuenta con una de las hojas de vida más impresionantes que ha dado Colombia.',
     fullBio: [
       'Originario de Colombia, Steve Dekay es un prodigio de la música trance cuyos ritmos y melodías han resonado por todo el mundo. Su prestigiosa reputación en la industria musical se ve reforzada por sus colaboraciones con importantes sellos discográficos, como Armada Music, Vandit Records, FSOE, Black Hole y Coldharbour, entre otros.',
       'Uno de los momentos clave en la carrera de Steve ha sido su colaboración con la leyenda del trance Paul van Dyk. Juntos crearon el tema «Aurora», incluido en el álbum «Music Rescues Me» de Paul, y «Impact», que formó parte del álbum «Guiding Light». Actualmente, las melodiosas producciones de Steve se publican principalmente bajo los sellos Armada, Vandit Records y FSOE Recordings.',
@@ -66,6 +66,7 @@ export const team: TeamMember[] = [
       { name: 'Armada Music', src: '/multimedia/images/critical-academy/critical-academy-armada-music.png' },
       { name: 'FSOE', src: '/multimedia/images/critical-academy/critical-academy-fsoe.png' },
       { name: 'Vandit', src: '/multimedia/images/critical-academy/critical-academy-vandit.png' },
+      { name: 'Dreamstate', src: '/multimedia/images/critical-academy/critical-academy-dreamstate.png' },
       { name: 'Critical Academy', src: '/multimedia/images/critical-academy/critical-academy-logo.png' },
     ],
     socials: {
@@ -77,8 +78,8 @@ export const team: TeamMember[] = [
   {
     id: 'galeneo',
     name: 'Galeneo',
-    role: 'Profesor',
-    description: 'DJ y productor de Medellín con trayectoria desde 2014 en Techno y sonidos contundentes. Director de <b>Feeling 1</b> y presentador de <b>Drop TV</b> España.',
+    role: 'Techno · Crossover',
+    description: 'Director de Academia y cuenta con estudios en Barcelona España como profesor y una experiencia de 5 años enseñando en Colombia.',
     fullBio: [
       'DJ y productor colombiano. Nacido en la ciudad de Medellín, tuvo sus inicios en el año 2014, marcando una tendencia alrededor del Techno, la cual ha evolucionado a través de los años, llevándolo a estar en tarimas a nivel internacional como Aruba, Argentina y España.',
       'Se caracteriza por sonidos contundentes, con armonías progresivas que hacen de un ambiente especial para los amantes de la buena música.',
@@ -94,6 +95,120 @@ export const team: TeamMember[] = [
     ],
     socials: {
       instagram: 'https://www.instagram.com/galeneo_dj/',
+    }
+  },
+  {
+    id: 'nabrian-dj',
+    name: 'Nabrian DJ',
+    role: 'Reggaeton · Afrobeat · Dancehall y Rancha',
+    description: 'Con más de 8 años de trayectoria profesional, ha desarrollado un estilo único y preciso en el género urbano.',
+    fullBio: [
+      'Con más de 8 años de trayectoria profesional, Nabrian DJ ha consolidado un estilo único, versátil y de precisión técnica en el género urbano y sus vertientes contemporáneas.',
+      'Su especialidad abarca el Reggaeton, Afrobeat, Dancehall y ritmos crossover, dominando el arte de mantener la pista encendida con transiciones quirúrgicas y control de energía.',
+      'En la academia se enfoca en compartir su experiencia en cabina real, manejo de formatos urbanos, estructura musical y psicología de público para eventos de alto impacto.',
+      'Actualmente forma parte del staff docente de Critical Sounds Academy en el área de mezcla urbana y formato Social DJ.'
+    ],
+    gradient: 'from-[#2d2919] to-[#14120a]',
+    logos: [
+      { name: 'Critical Academy', src: '/multimedia/images/critical-academy/critical-academy-logo.png' },
+    ],
+    socials: {
+      instagram: 'https://www.instagram.com/criticalsounds/',
+    }
+  },
+  {
+    id: 'levanah',
+    name: 'Levanah',
+    role: 'House · Afro House · Organic House · Melodic Techno',
+    description: 'Desde 2004 en Lima y hoy en su natal Medellín, fusiona Techno de Detroit, Electro-Rock y Big Beat con Indie y R&B. Pura “Música Feliz”.',
+    fullBio: [
+      'Iniciando su camino sonoro en 2004 en la ciudad de Lima y hoy radicada en su natal Medellín, Levanah es una de las selectoras más singulares y vibrantes de la escena.',
+      'Su propuesta musical rompe fronteras, fusionando la fuerza del Techno de Detroit, la energía del Electro-Rock y el dinamismo del Big Beat con matices de Indie y R&B, creando una atmósfera inconfundible de pura “Música Feliz”.',
+      'Especialista en géneros como House, Afro House, Organic House y Melodic Techno, su criterio de selección conecta de forma profunda y luminosa con la pista de baile.',
+      'En Critical Sounds Academy aporta su visión artística, enseñando ecualización armónica, construcción de sets evolutivos y conexión emocional con la audiencia.'
+    ],
+    gradient: 'from-[#3b1d2e] to-[#180b13]',
+    logos: [
+      { name: 'Critical Academy', src: '/multimedia/images/critical-academy/critical-academy-logo.png' },
+    ],
+    socials: {
+      instagram: 'https://www.instagram.com/criticalsounds/',
+    }
+  },
+  {
+    id: 'servel',
+    name: 'Servel',
+    role: 'Hard Trance & Dance',
+    description: 'Favorito del público de Medellín, ha actuado en algunos de los espectáculos más importantes de la ciudad y aporta una perspectiva fresca.',
+    fullBio: [
+      'Servel se ha consagrado como uno de los grandes favoritos del público de Medellín gracias a la potencia y velocidad de sus sets en géneros como Hard Trance y Dance.',
+      'Ha actuado en algunos de los escenarios y eventos más trascendentales de la ciudad, aportando siempre una perspectiva sonora fresca, moderna y cargada de adrenalina.',
+      'Su técnica destaca por la rapidez en las transiciones, el manejo de BPMs elevados con precisión métrica y una lectura infalible del momento cúspide de la fiesta.',
+      'Como instructor en Critical Sounds Academy, guía a los estudiantes en técnicas de mezcla rápida, performance para festivales y ecualización de frecuencias intensas.'
+    ],
+    gradient: 'from-[#172d42] to-[#0a1622]',
+    logos: [
+      { name: 'Critical Academy', src: '/multimedia/images/critical-academy/critical-academy-logo.png' },
+    ],
+    socials: {
+      instagram: 'https://www.instagram.com/criticalsounds/',
+    }
+  },
+  {
+    id: 'kashwell',
+    name: 'Kashwell',
+    role: 'Melodic Techno · Techno · Trance',
+    description: 'DJ y productor de Medellín con más de 15 años de trayectoria; ha tocado en Tomorrowland Core X Seteos, Ritvales, Salón Amador y La Rave X.',
+    fullBio: [
+      'Kashwell es un referente indiscutible de la cultura electrónica en Medellín, acumulando más de 15 años de carrera como DJ y productor musical.',
+      'Ha pisado algunas de las tarimas más prestigiosas del circuito nacional e internacional, incluyendo Tomorrowland Core X Seteos, el festival Ritvales, el legendario club Salón Amador y La Rave X.',
+      'Su sonido navega con maestría entre el Melodic Techno envolvente, el Techno hipnótico y las atmósferas épicas del Trance, respaldado por producciones de altísimo nivel técnico.',
+      'En Critical Sounds Academy transmite su vasta experiencia en el circuito profesional, enseñando composición de sets para grandes escenarios y producción musical avanzada.'
+    ],
+    gradient: 'from-[#1b2d38] to-[#0c161d]',
+    logos: [
+      { name: 'Critical Academy', src: '/multimedia/images/critical-academy/critical-academy-logo.png' },
+    ],
+    socials: {
+      instagram: 'https://www.instagram.com/criticalsounds/',
+    }
+  },
+  {
+    id: 'blackswan-dj',
+    name: 'Blackswan DJ',
+    role: 'Melodic Techno · Organic House · Progressive',
+    description: 'Figura de la noche de Medellín en La Rock, Rosa Negra e Inzolente Rooftop, con eventos para marcas como Fórmula 1 y Zona Fit.',
+    fullBio: [
+      'Blackswan DJ es una de las figuras más destacadas de la escena nocturna y exclusiva de Medellín, con residencias y presentaciones en La Rock, Rosa Negra e Inzolente Rooftop.',
+      'Su prestigio la ha llevado a encabezar la musicalización de eventos de élite para marcas de talla mundial como Fórmula 1 y Zona Fit, además de festivales y clubes de alta gama.',
+      'Su línea sonora se distingue por una exquisita curaduría de Melodic Techno, Organic House y Progressive, caracterizada por texturas elegantes y grooves envolventes.',
+      'En la academia enseña curaduría musical para clubes premium, manejo de marca personal y desarrollo de una identidad sonora cautivadora.'
+    ],
+    gradient: 'from-[#2d1b3b] to-[#140b1b]',
+    logos: [
+      { name: 'Critical Academy', src: '/multimedia/images/critical-academy/critical-academy-logo.png' },
+    ],
+    socials: {
+      instagram: 'https://www.instagram.com/criticalsounds/',
+    }
+  },
+  {
+    id: 'critical-special-guests',
+    name: 'Guest Artists & Mentores',
+    role: 'Masterclasses · Industria 360° · Workshops',
+    description: 'Productores, ingenieros y DJs internacionales que visitan periódicamente la academia para masterclasses exclusivas y workshops prácticos.',
+    fullBio: [
+      'En Critical Sounds Academy & Studios la formación se complementa con la experiencia directa de los artistas que lideran la industria global.',
+      'Periódicamente recibimos en nuestras instalaciones a DJs de gira, A&Rs de sellos internacionales e ingenieros de sonido para sesiones a puerta cerrada.',
+      'Nuestros estudiantes acceden a feedback personalizado de sus producciones, sesiones de preguntas y respuestas y demostraciones de flujo de trabajo en vivo.',
+      'Un espacio exclusivo diseñado para conectar el talento local con las redes profesionales de mayor impacto en la música electrónica.'
+    ],
+    gradient: 'from-[#202934] to-[#0f141a]',
+    logos: [
+      { name: 'Critical Academy', src: '/multimedia/images/critical-academy/critical-academy-logo.png' },
+    ],
+    socials: {
+      instagram: 'https://www.instagram.com/criticalsounds/',
     }
   }
 ]

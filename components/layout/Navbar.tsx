@@ -19,20 +19,15 @@ export function Navbar() {
   return (
     <header className="fixed top-0 left-0 right-0 z-[100] w-full border-b border-white/[0.08] bg-[#0d0d0e]/85 backdrop-blur-2xl shadow-[0_8px_32px_0_rgba(0,0,0,0.5)] transition-all duration-300">
       <div className="flex h-[82px] items-center justify-between px-6 lg:px-12">
-        <Link href="/academy-studios" className="flex items-center gap-3 md:gap-3.5 hover:opacity-85 transition-opacity">
+        <Link href="/academy-studios" className="flex items-center hover:opacity-85 transition-opacity">
           <Image
-            src="/multimedia/images/logo-and-svg/critical-sounds-logo.png"
+            src="/multimedia/images/logo-and-svg/critical-sounds-logo-academy.png"
             alt="Critical Sounds"
-            width={190}
-            height={52}
-            className="h-[42px] md:h-[52px] w-auto object-contain"
+            width={240}
+            height={68}
+            className="h-[52px] md:h-[64px] w-auto object-contain"
             priority
           />
-          <div className="h-6 md:h-7 w-[1px] bg-[#333]" />
-          <div className="flex flex-col text-[10px] md:text-[11px] leading-[1.15] tracking-[0.14em] uppercase font-bold text-white font-[family-name:var(--font-open-sans)]">
-            <span>Academy</span>
-            <span>& Studios</span>
-          </div>
         </Link>
 
         {/* Desktop Nav */}

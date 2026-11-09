@@ -38,7 +38,7 @@ export function ComboSwitchCard({ combos }: ComboSwitchCardProps) {
 
       {/* Card Dynamic Body */}
       <div className="flex flex-col lg:flex-row items-stretch gap-8 pt-8">
-        
+
         {/* Left Column: Image & Badges */}
         <div className="w-full lg:w-[55%] flex flex-col gap-4">
           <div className="flex flex-wrap items-center gap-3">
@@ -68,7 +68,7 @@ export function ComboSwitchCard({ combos }: ComboSwitchCardProps) {
 
         {/* Right Column: Content Container */}
         <div className="w-full lg:w-[45%] bg-[#0a0a0c] p-6 sm:p-8 rounded-none border border-[#27272a] shadow-2xl flex flex-col justify-between">
-          
+
           {/* Top: Pricing & Equipment */}
           <div className="flex flex-col space-y-6">
             <div>
@@ -81,11 +81,11 @@ export function ComboSwitchCard({ combos }: ComboSwitchCardProps) {
                 </span>
               </div>
               <span className="text-[#10b981] text-[12px] font-mono block mt-1">
-                ✓ Incluye diploma certificado y horas libres de práctica
+                ✓ Incluye diploma certificado
               </span>
             </div>
 
-            <EquipmentGallery 
+            <EquipmentGallery
               equipment={currentCombo.equipment}
               title="Equipamiento de cabina incluido:"
               className="pt-3 border-t border-[#1f1f23]"
@@ -136,10 +136,9 @@ export function ComboSwitchCard({ combos }: ComboSwitchCardProps) {
                 `}</style>
 
                 {/* Sliding Glass Lens */}
-                <div 
-                  className={`absolute top-1 bottom-1 left-1 w-[calc(50%-4px)] animate-liquid-glass backdrop-blur-lg border border-white/20 rounded-full transition-transform duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] shadow-[0_4px_16px_rgba(0,0,0,0.5),inset_0_1px_2px_rgba(255,255,255,0.4)] pointer-events-none overflow-hidden ${
-                    selectedType === 'digital' ? 'translate-x-0' : 'translate-x-full'
-                  }`}
+                <div
+                  className={`absolute top-1 bottom-1 left-1 w-[calc(50%-4px)] animate-liquid-glass backdrop-blur-lg border border-white/20 rounded-full transition-transform duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] shadow-[0_4px_16px_rgba(0,0,0,0.5),inset_0_1px_2px_rgba(255,255,255,0.4)] pointer-events-none overflow-hidden ${selectedType === 'digital' ? 'translate-x-0' : 'translate-x-full'
+                    }`}
                 >
                   <div className="absolute inset-0 bg-gradient-to-b from-white/10 to-transparent rounded-full pointer-events-none" />
                 </div>
@@ -147,22 +146,20 @@ export function ComboSwitchCard({ combos }: ComboSwitchCardProps) {
                 <button
                   type="button"
                   onClick={() => setSelectedType('digital')}
-                  className={`relative z-10 flex-1 py-1.5 text-[11px] font-medium transition-colors duration-300 text-center ${
-                    selectedType === 'digital'
+                  className={`relative z-10 flex-1 py-1.5 text-[11px] font-medium transition-colors duration-300 text-center ${selectedType === 'digital'
                       ? 'text-white drop-shadow-[0_2px_10px_rgba(255,255,255,0.5)]'
                       : 'text-[#777] hover:text-[#aaa]'
-                  }`}
+                    }`}
                 >
                   Digital
                 </button>
                 <button
                   type="button"
                   onClick={() => setSelectedType('vinyl')}
-                  className={`relative z-10 flex-1 py-1.5 text-[11px] font-medium transition-colors duration-300 text-center ${
-                    selectedType === 'vinyl'
+                  className={`relative z-10 flex-1 py-1.5 text-[11px] font-medium transition-colors duration-300 text-center ${selectedType === 'vinyl'
                       ? 'text-white drop-shadow-[0_2px_10px_rgba(255,255,255,0.5)]'
                       : 'text-[#777] hover:text-white'
-                  }`}
+                    }`}
                 >
                   Digital &amp; Vinyl
                 </button>

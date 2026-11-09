@@ -139,7 +139,7 @@ export function TeamCard({ member }: TeamCardProps) {
             {/* Header del Modal */}
             <div className="p-6 sm:p-8 border-b border-white/10 flex items-start justify-between bg-black/40">
               <div className="flex items-center gap-4 sm:gap-6">
-                {member.image && (
+                {member.image ? (
                   <div className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden shrink-0 border border-white/20">
                     <Image
                       src={member.image}
@@ -147,6 +147,12 @@ export function TeamCard({ member }: TeamCardProps) {
                       fill
                       className="object-cover object-top"
                     />
+                  </div>
+                ) : (
+                  <div className={`relative w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden shrink-0 border border-white/20 flex items-center justify-center bg-gradient-to-br ${member.gradient}`}>
+                    <span className="text-xl sm:text-2xl font-light text-white opacity-90">
+                      {member.name.split(' ').map((n) => n[0]).join('')}
+                    </span>
                   </div>
                 )}
                 <div>

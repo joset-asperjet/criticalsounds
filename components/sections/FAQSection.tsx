@@ -43,7 +43,7 @@ const faqs: FAQItem[] = [
   },
   {
     question: '¿Puedo traer invitados a mi sesión?',
-    answer: 'Sí, puedes venir acompañado. El primer invitado está incluido; a partir del segundo hay un costo adicional (+$10.000 por el segundo, +$20.000 por el tercero y +$30.000 por el cuarto). El límite es de máximo 4 personas por sala.',
+    answer: 'Sí, puedes venir acompañado. El primer invitado está incluido; a partir del segundo hay un costo adicional (+$10.000) por cada invitado adicional. El límite es de máximo 4 personas por reserva.',
   },
   {
     question: '¿Se permiten sesiones B2B?',
@@ -51,7 +51,7 @@ const faqs: FAQItem[] = [
   },
   {
     question: '¿Qué incluyen las cabinas de práctica?',
-    answer: 'Dependiendo de la cabina elegida (Básica, Pro o Pro V10), incluyen equipos Pioneer de última generación, audífonos Sennheiser HD25, micrófono inalámbrico, aire acondicionado, tratamiento acústico y la opción de grabación de audio y video en Full HD con cámaras DJI.',
+    answer: 'Dependiendo de la cabina y el paquete elegido (Básica, Pro o Pro V10), incluyen equipos Pioneer de última generación, audífonos Sennheiser HD25, micrófono inalámbrico, aire acondicionado, tratamiento acústico y la opción de grabación de audio y video en Full HD, 2.7K o 4K con cámaras DJI.',
   },
 ]
 
