@@ -232,7 +232,7 @@ export function Footer() {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/academy-studios#quienes-somos" className="hover:text-white transition-colors">
+                  <Link href="/team" className="hover:text-white transition-colors">
                     Nuestro Team
                   </Link>
                 </li>

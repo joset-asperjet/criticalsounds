@@ -11,6 +11,7 @@ export function Navbar() {
 
   const links = [
     { name: 'Quiénes somos', href: '/academy-studios#quienes-somos' },
+    { name: 'Team', href: '/team' },
     { name: 'Cursos', href: '/cursos/social-dj' },
     { name: 'Cabinas', href: '/cabinas' },
     { name: 'Galería', href: '/galeria' },

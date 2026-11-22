@@ -2,6 +2,7 @@ export type TeamMember = {
   id: string
   name: string
   role: string
+  category?: 'founders' | 'instructors' | 'management'
   description: string
   fullBio: string[]
   gradient: string
@@ -15,11 +16,13 @@ export type TeamMember = {
 }
 
 export const team: TeamMember[] = [
+  // 1. Pablo Anon
   {
     id: 'pablo-anon',
     name: 'Pablo Anon',
-    role: 'CEO',
-    description: '30 años de experiencia profesional en el circuito internacional, desde residencias en superclubs hasta festivales.',
+    role: 'CEO & Founder · Master DJ',
+    category: 'founders',
+    description: '30 años de experiencia profesional en el circuito internacional, desde residencias en superclubs hasta festivales globales.',
     fullBio: [
       'La música ha sido su pasión profesional desde 2004. Su talento innato y su técnica impecable constituyen la base de su carrera como artista de música electrónica. La versatilidad y la maestría musical se combinan en todas sus presentaciones, abarcando diversos géneros de trance.',
       'Pablo siempre ha visualizado la fusión de disciplinas trance, orquestando temas musicales opuestos, eufóricos y su opuesto. Esta estructura distintiva apareció por primera vez en la escena en 2015, consolidando el éxito de Pablo con su sonido único con Andromeda (Discover) y No Regrets (Universal Nation) soportado por pesos pesados del trance: John Askew, Sean Tyas, Woody Van Hayden, Binary Finary, Bryan Kearney, John O’Callaghan, Photographer y Alex M.O.R.P.H.',
@@ -32,7 +35,7 @@ export const team: TeamMember[] = [
       'Actualmente se desempeña como Director de la Academia y profesor de las clases de Master DJ, Master FX y Vinyl DJ.'
     ],
     gradient: 'from-[#174f55] to-[#13292d]',
-    image: '/multimedia/images/critical-academy/critical-sound-founders-pablo-anon.jpg',
+    image: '/multimedia/images/critical-academy/team/critical-sound-founders-pablo-anon.jpg',
     logos: [
       { name: 'Blue Soho', src: '/multimedia/images/critical-academy/critical-academy-blue-soho-logo.png' },
       { name: 'Critical Academy', src: '/multimedia/images/critical-academy/critical-academy-logo.png' },
@@ -44,10 +47,13 @@ export const team: TeamMember[] = [
       instagram: 'https://www.instagram.com/pabloanonmusic/?hl=es-la',
     }
   },
+
+  // 2. Steve Dekay
   {
     id: 'steve-dekay',
     name: 'Steve Dekay',
-    role: 'Productor, DJ y Actual A&R de Critical Sounds',
+    role: 'Productor, DJ & A&R de Critical Sounds',
+    category: 'founders',
     description: 'Su trayectoria como productor y DJ cuenta con una de las hojas de vida más impresionantes que ha dado Colombia.',
     fullBio: [
       'Originario de Colombia, Steve Dekay es un prodigio de la música trance cuyos ritmos y melodías han resonado por todo el mundo. Su prestigiosa reputación en la industria musical se ve reforzada por sus colaboraciones con importantes sellos discográficos, como Armada Music, Vandit Records, FSOE, Black Hole y Coldharbour, entre otros.',
@@ -61,7 +67,7 @@ export const team: TeamMember[] = [
       'Actualmente se desempeña como A&R del label y profesor de la Academia enfocándose en el área mezcla de trance, progressive y techno.'
     ],
     gradient: 'from-[#283c49] to-[#9bb0ae]',
-    image: '/multimedia/images/critical-academy/critical-sound-founders-steve-dekay.jpg',
+    image: '/multimedia/images/critical-academy/team/critical-sound-founders-steve-dekay.jpg',
     logos: [
       { name: 'Armada Music', src: '/multimedia/images/critical-academy/critical-academy-armada-music.png' },
       { name: 'FSOE', src: '/multimedia/images/critical-academy/critical-academy-fsoe.png' },
@@ -75,21 +81,24 @@ export const team: TeamMember[] = [
       instagram: 'https://www.instagram.com/steve_dekay/?hl=es',
     }
   },
+
+  // 3. Galeneo
   {
     id: 'galeneo',
     name: 'Galeneo',
-    role: 'Techno · Crossover',
-    description: 'Director de Academia y cuenta con estudios en Barcelona España como profesor y una experiencia de 5 años enseñando en Colombia.',
+    role: 'Director de Academia · Techno & Crossover',
+    category: 'founders',
+    description: 'Director de Academia con estudios en Barcelona, España y más de 5 años formando a la nueva generación de DJs en Colombia.',
     fullBio: [
-      'DJ y productor colombiano. Nacido en la ciudad de Medellín, tuvo sus inicios en el año 2014, marcando una tendencia alrededor del Techno, la cual ha evolucionado a través de los años, llevándolo a estar en tarimas a nivel internacional como Aruba, Argentina y España.',
-      'Se caracteriza por sonidos contundentes, con armonías progresivas que hacen de un ambiente especial para los amantes de la buena música.',
-      'A nivel nacional ha visitado diversos clubes en las ciudades de Bogotá, Cartagena y Cali, marcando una experiencia sin igual.',
-      'Director del programa de música electrónica Feeling 1 y actualmente uno de los presentadores del programa Drop TV, conectado desde España.',
-      'Ha tenido interacción con DJs internacionales por medio de programas como Drop TV y Feeling, y en ocasiones con artistas como Fernanda Martins, Lexlay, Anna Tur, The YellowHeads, Cristian Varela, entre otros.',
-      'Actualmente se desempeña como profesor de la Academia enfocándose en el área mezcla para los cursos Social DJ y Club DJ.'
+      'DJ y productor colombiano nacido en la ciudad de Medellín. Tuvo sus inicios en el año 2014 marcando una tendencia alrededor del Techno, la cual ha evolucionado a través de los años, llevándolo a estar en tarimas a nivel internacional en Aruba, Argentina y España.',
+      'Se caracteriza por sonidos contundentes y armonías progresivas que crean un ambiente especial e inmersivo para los amantes de la buena música.',
+      'A nivel nacional ha visitado diversos clubes de referencia en las ciudades de Bogotá, Cartagena y Cali, marcando una experiencia sin igual.',
+      'Director del programa de música electrónica Feeling y actualmente uno de los presentadores del programa Drop TV, conectado desde España.',
+      'Ha compartido e interactuado con DJs internacionales por medio de programas como Drop TV y Feeling, y en ocasiones especiales con artistas como Fernanda Martins, Lexlay, Anna Tur, The YellowHeads y Cristian Varela, entre otros.',
+      'Actualmente se desempeña como profesor de la Academia enfocándose en el área de mezcla para los cursos Social DJ y Club DJ.'
     ],
     gradient: 'from-[#714a32] to-[#cac4a1]',
-    image: '/multimedia/images/critical-academy/critical-sound-founders-galeneo.jpg',
+    image: '/multimedia/images/critical-academy/team/critical-sound-founders-galeneo.jpg',
     logos: [
       { name: 'Critical Academy', src: '/multimedia/images/critical-academy/critical-academy-logo.png' },
     ],
@@ -97,18 +106,69 @@ export const team: TeamMember[] = [
       instagram: 'https://www.instagram.com/galeneo_dj/',
     }
   },
+
+  // 4. Kashwell
+  {
+    id: 'kashwell',
+    name: 'Kashwell',
+    role: 'Profesor DJ & Productor',
+    category: 'instructors',
+    description: 'DJ y productor de Medellín con 16 años de trayectoria. Melodic Techno, Progressive y Trance, con shows en Tomorrowland CORE, EDC Colombia y Ritvales.',
+    fullBio: [
+      'Santiago Zapata Sáenz, conocido artísticamente como Kashwell, es DJ y productor musical de Medellín con 16 años de trayectoria en la escena electrónica.',
+      'Su propuesta sonora se centra en el sonido del Trance clásico de los 90s fusionado con Acid y Techno Peak Time, manteniendo versatilidad en géneros como Melodic Techno y Progressive House. Se caracteriza por sets narrativos, cargados de energía, tensión y evolución en pista.',
+      'Ha compartido escenario con artistas internacionales de la talla de Paul van Dyk, Ferry Corsten, Markus Schulz, Mauro Picotto, Thomas Schumacher, Alex Stein, Agents Of Time, Argy, Cassian, Giuseppe Ottaviani, Andrew Rayel y Will Atkinson.',
+      'Ha pisado escenarios icónicos como Tomorrowland CORE, EDC Colombia, Festival MedaYoung y Ritvales. Su discografía incluye lanzamientos en Dragon Records, 4Music, Code Label Group, Denar Records y su aclamado álbum Connection (2024). Además, es el creador del concepto CONNECTIONS, con exitosas ediciones en Medellín, Bogotá, Manizales, Bucaramanga y Pasto.',
+      'En Critical Sounds Academy enseña estructuración narrativa de sets, ecualización avanzada y producción musical.'
+    ],
+    gradient: 'from-[#1b2d38] to-[#0c161d]',
+    image: '/multimedia/images/critical-academy/team/kashwell-profesor-dj.webp',
+    logos: [
+      { name: 'Critical Academy', src: '/multimedia/images/critical-academy/critical-academy-logo.png' },
+    ],
+    socials: {
+      instagram: 'https://www.instagram.com/criticalsounds/',
+    }
+  },
+
+  // 5. Verolila
+  {
+    id: 'verolila',
+    name: 'Verolila',
+    role: 'Profesora DJ',
+    category: 'instructors',
+    description: 'DJ y productora colombiana de Melodic Techno, Progressive House e Indie Dance. Con lanzamientos en Jeahmon, Eleven Records y Freegrant Music, y warm-ups para Above & Beyond y Vintage Culture.',
+    fullBio: [
+      'DJ y productora colombiana cuya propuesta fluye con elegancia entre el Melodic Techno, el Progressive House y el Indie Dance, con sets hipnóticos, emocionales y minuciosamente concebidos para la pista.',
+      'Ha lanzado música en sellos internacionales como Jeahmon, Eleven Records y Freegrant Music, y ha llevado su sonido a escenarios de renombre en Tulum, Ciudad de México, Monterrey y varias ciudades de Colombia.',
+      'Ha abierto shows para gigantes de la industria como Above & Beyond, Vintage Culture, Nora En Pure, Jan Blomqvist y Max Styler.',
+      'En la academia enseña a leer la pista, la técnica de ecualización y la construcción de un set con narrativa de principio a fin.'
+    ],
+    gradient: 'from-[#3b1d2e] to-[#180b13]',
+    image: '/multimedia/images/critical-academy/team/verorila-profesora-dj.webp',
+    logos: [
+      { name: 'Critical Academy', src: '/multimedia/images/critical-academy/critical-academy-logo.png' },
+    ],
+    socials: {
+      instagram: 'https://www.instagram.com/criticalsounds/',
+    }
+  },
+
+  // 6. Nabrian DJ
   {
     id: 'nabrian-dj',
     name: 'Nabrian DJ',
-    role: 'Reggaeton · Afrobeat · Dancehall y Rancha',
-    description: 'Con más de 8 años de trayectoria profesional, ha desarrollado un estilo único y preciso en el género urbano.',
+    role: 'Profesor DJ',
+    category: 'instructors',
+    description: 'DJ colombiano con más de 8 años de trayectoria en Reggaeton, Afrobeat, Dancehall y Rancha, especialista en perreo. Reconocido por mezclar sin audífonos con precisión y por su energía en cabina.',
     fullBio: [
-      'Con más de 8 años de trayectoria profesional, Nabrian DJ ha consolidado un estilo único, versátil y de precisión técnica en el género urbano y sus vertientes contemporáneas.',
-      'Su especialidad abarca el Reggaeton, Afrobeat, Dancehall y ritmos crossover, dominando el arte de mantener la pista encendida con transiciones quirúrgicas y control de energía.',
-      'En la academia se enfoca en compartir su experiencia en cabina real, manejo de formatos urbanos, estructura musical y psicología de público para eventos de alto impacto.',
-      'Actualmente forma parte del staff docente de Critical Sounds Academy en el área de mezcla urbana y formato Social DJ.'
+      'Nabrian DJ es un artista y selector colombiano con más de 8 años de trayectoria profesional ininterrumpida desde su primera presentación en octubre de 2016. Se especializa en géneros como Reggaeton, Afrobeat, Dancehall y Rancha, teniendo el perreo como estampa inconfundible.',
+      'Ha desarrollado un estilo único, ampliamente reconocido por su técnica para mezclar sin audífonos con precisión y por contagiar al público con su energía en cada show.',
+      'Ha recorrido escenarios en diversas ciudades del país como Cali, Bogotá, Bucaramanga, Mocoa y Medellín (donde reside actualmente), presentándose en lugares destacados como Vintrash, Primitivo, Selina, Somos de Calle, El Deck, Casa de la Luna y El Faro C13.',
+      'Domina Rekordbox y tiene experiencia en consolas de todo tipo. En la academia enseña el arte de la mezcla urbana, versatilidad en formatos crossover y el manejo de pista para eventos de alto impacto.'
     ],
     gradient: 'from-[#2d2919] to-[#14120a]',
+    image: '/multimedia/images/critical-academy/team/nabrian-profesor-dj.webp',
     logos: [
       { name: 'Critical Academy', src: '/multimedia/images/critical-academy/critical-academy-logo.png' },
     ],
@@ -116,30 +176,14 @@ export const team: TeamMember[] = [
       instagram: 'https://www.instagram.com/criticalsounds/',
     }
   },
-  {
-    id: 'levanah',
-    name: 'Levanah',
-    role: 'House · Afro House · Organic House · Melodic Techno',
-    description: 'Desde 2004 en Lima y hoy en su natal Medellín, fusiona Techno de Detroit, Electro-Rock y Big Beat con Indie y R&B. Pura “Música Feliz”.',
-    fullBio: [
-      'Iniciando su camino sonoro en 2004 en la ciudad de Lima y hoy radicada en su natal Medellín, Levanah es una de las selectoras más singulares y vibrantes de la escena.',
-      'Su propuesta musical rompe fronteras, fusionando la fuerza del Techno de Detroit, la energía del Electro-Rock y el dinamismo del Big Beat con matices de Indie y R&B, creando una atmósfera inconfundible de pura “Música Feliz”.',
-      'Especialista en géneros como House, Afro House, Organic House y Melodic Techno, su criterio de selección conecta de forma profunda y luminosa con la pista de baile.',
-      'En Critical Sounds Academy aporta su visión artística, enseñando ecualización armónica, construcción de sets evolutivos y conexión emocional con la audiencia.'
-    ],
-    gradient: 'from-[#3b1d2e] to-[#180b13]',
-    logos: [
-      { name: 'Critical Academy', src: '/multimedia/images/critical-academy/critical-academy-logo.png' },
-    ],
-    socials: {
-      instagram: 'https://www.instagram.com/criticalsounds/',
-    }
-  },
+
+  // 7. Servel
   {
     id: 'servel',
     name: 'Servel',
-    role: 'Hard Trance & Dance',
-    description: 'Favorito del público de Medellín, ha actuado en algunos de los espectáculos más importantes de la ciudad y aporta una perspectiva fresca.',
+    role: 'Profesor DJ · Hard Trance & Dance',
+    category: 'instructors',
+    description: 'Favorito del público de Medellín, ha actuado en algunos de los espectáculos más importantes de la ciudad y aporta una perspectiva fresca y potente.',
     fullBio: [
       'Servel se ha consagrado como uno de los grandes favoritos del público de Medellín gracias a la potencia y velocidad de sus sets en géneros como Hard Trance y Dance.',
       'Ha actuado en algunos de los escenarios y eventos más trascendentales de la ciudad, aportando siempre una perspectiva sonora fresca, moderna y cargada de adrenalina.',
@@ -147,6 +191,7 @@ export const team: TeamMember[] = [
       'Como instructor en Critical Sounds Academy, guía a los estudiantes en técnicas de mezcla rápida, performance para festivales y ecualización de frecuencias intensas.'
     ],
     gradient: 'from-[#172d42] to-[#0a1622]',
+    image: '/multimedia/images/critical-academy/team/severl-profesor-dj.webp',
     logos: [
       { name: 'Critical Academy', src: '/multimedia/images/critical-academy/critical-academy-logo.png' },
     ],
@@ -154,29 +199,13 @@ export const team: TeamMember[] = [
       instagram: 'https://www.instagram.com/criticalsounds/',
     }
   },
-  {
-    id: 'kashwell',
-    name: 'Kashwell',
-    role: 'Melodic Techno · Techno · Trance',
-    description: 'DJ y productor de Medellín con más de 15 años de trayectoria; ha tocado en Tomorrowland Core X Seteos, Ritvales, Salón Amador y La Rave X.',
-    fullBio: [
-      'Kashwell es un referente indiscutible de la cultura electrónica en Medellín, acumulando más de 15 años de carrera como DJ y productor musical.',
-      'Ha pisado algunas de las tarimas más prestigiosas del circuito nacional e internacional, incluyendo Tomorrowland Core X Seteos, el festival Ritvales, el legendario club Salón Amador y La Rave X.',
-      'Su sonido navega con maestría entre el Melodic Techno envolvente, el Techno hipnótico y las atmósferas épicas del Trance, respaldado por producciones de altísimo nivel técnico.',
-      'En Critical Sounds Academy transmite su vasta experiencia en el circuito profesional, enseñando composición de sets para grandes escenarios y producción musical avanzada.'
-    ],
-    gradient: 'from-[#1b2d38] to-[#0c161d]',
-    logos: [
-      { name: 'Critical Academy', src: '/multimedia/images/critical-academy/critical-academy-logo.png' },
-    ],
-    socials: {
-      instagram: 'https://www.instagram.com/criticalsounds/',
-    }
-  },
+
+  // 8. Blackswan DJ
   {
     id: 'blackswan-dj',
     name: 'Blackswan DJ',
-    role: 'Melodic Techno · Organic House · Progressive',
+    role: 'Profesora DJ · Melodic Techno & Progressive',
+    category: 'instructors',
     description: 'Figura de la noche de Medellín en La Rock, Rosa Negra e Inzolente Rooftop, con eventos para marcas como Fórmula 1 y Zona Fit.',
     fullBio: [
       'Blackswan DJ es una de las figuras más destacadas de la escena nocturna y exclusiva de Medellín, con residencias y presentaciones en La Rock, Rosa Negra e Inzolente Rooftop.',
@@ -185,6 +214,7 @@ export const team: TeamMember[] = [
       'En la academia enseña curaduría musical para clubes premium, manejo de marca personal y desarrollo de una identidad sonora cautivadora.'
     ],
     gradient: 'from-[#2d1b3b] to-[#140b1b]',
+    image: '/multimedia/images/critical-academy/team/black-swan-dj-profesora.webp',
     logos: [
       { name: 'Critical Academy', src: '/multimedia/images/critical-academy/critical-academy-logo.png' },
     ],
@@ -192,18 +222,88 @@ export const team: TeamMember[] = [
       instagram: 'https://www.instagram.com/criticalsounds/',
     }
   },
+
+  // 9. Wakken
   {
-    id: 'critical-special-guests',
-    name: 'Guest Artists & Mentores',
-    role: 'Masterclasses · Industria 360° · Workshops',
-    description: 'Productores, ingenieros y DJs internacionales que visitan periódicamente la academia para masterclasses exclusivas y workshops prácticos.',
+    id: 'wakken',
+    name: 'Wakken',
+    role: 'Director Visual',
+    category: 'management',
+    description: 'Director visual y especialista en diseño de escenarios, iluminación, visuales reactivos y producción multimedia para espectáculos en vivo.',
     fullBio: [
-      'En Critical Sounds Academy & Studios la formación se complementa con la experiencia directa de los artistas que lideran la industria global.',
-      'Periódicamente recibimos en nuestras instalaciones a DJs de gira, A&Rs de sellos internacionales e ingenieros de sonido para sesiones a puerta cerrada.',
-      'Nuestros estudiantes acceden a feedback personalizado de sus producciones, sesiones de preguntas y respuestas y demostraciones de flujo de trabajo en vivo.',
-      'Un espacio exclusivo diseñado para conectar el talento local con las redes profesionales de mayor impacto en la música electrónica.'
+      'Wakken lidera la dirección visual y de arte en Critical Sounds, diseñando experiencias escénicas inmersivas, iluminación sincronizada y conceptualización multimedia para festivales, clubes y producciones audiovisuales.',
+      'Su enfoque multidisciplinario abarca la creación de contenido gráfico en tiempo real, identidad escénica para DJs y producción técnica de eventos.',
+      'En la academia colabora con el ecosistema de formación para que los artistas comprendan el impacto del componente visual, la estética escénica y el show audiovisual en su carrera.'
     ],
-    gradient: 'from-[#202934] to-[#0f141a]',
+    gradient: 'from-[#251f33] to-[#100d17]',
+    image: '/multimedia/images/critical-academy/team/wakken-director-visual.webp',
+    logos: [
+      { name: 'Critical Academy', src: '/multimedia/images/critical-academy/critical-academy-logo.png' },
+    ],
+    socials: {
+      instagram: 'https://www.instagram.com/criticalsounds/',
+    }
+  },
+
+  // 10. Esteban Rengifo
+  {
+    id: 'esteban-rengifo',
+    name: 'Esteban Rengifo',
+    role: 'Business Development Manager',
+    category: 'management',
+    description: 'Más de 12 años de experiencia en producción de eventos, comunicaciones corporativas, distribución musical y alianzas estratégicas internacionales.',
+    fullBio: [
+      'Esteban Rengifo es Business Development Manager de Critical Sounds y Tecnólogo en Organización de Eventos, con más de 12 años de experiencia en producción de eventos, comunicaciones corporativas y marketing digital.',
+      'Ha conceptualizado y producido eventos propios con aforos de hasta 800 personas, conciertos y ferias del sector, además de coordinar eventos corporativos para grupos empresariales como Grupo Argos, Grupo Nutresa y EPM.',
+      'Fundó Bacon Agency, agencias de marketing digital que han trabajado con marcas gastronómicas, cerveceras y de servicios. Su recorrido incluye la distribución digital de música en LaMúsica.fm, XpaceMusic y formación en producción musical en Berklee College of Music.',
+      'Desde Critical Sounds impulsa alianzas, patrocinios y el crecimiento internacional de la industria electrónica en Latinoamérica y el mundo.'
+    ],
+    gradient: 'from-[#1c2c36] to-[#0d161c]',
+    logos: [
+      { name: 'Critical Academy', src: '/multimedia/images/critical-academy/critical-academy-logo.png' },
+    ],
+    socials: {
+      instagram: 'https://www.instagram.com/criticalsounds/',
+    }
+  },
+
+  // 11. Nancy Herrera
+  {
+    id: 'nancy-herrera',
+    name: 'Nancy Herrera',
+    role: 'Administración, Finanzas & Marketing Digital',
+    category: 'management',
+    description: 'Administradora de Empresas y Finanzas, especialista en marketing digital, pauta publicitaria y gestión de tráfico pago para artistas y marcas.',
+    fullBio: [
+      'Nancy Herrera es Administradora de Empresas y Finanzas, con sólida experiencia en atención al cliente, gestión comercial, ventas y estrategias de marketing digital.',
+      'Se especializa en la creación y gestión de contenido para redes sociales, publicidad digital, gestión de campañas publicitarias y tráfico pago, orientados a aumentar la visibilidad de las marcas, atraer clientes potenciales y generar más ventas.',
+      'En la academia comparte cómo los artistas pueden usar el marketing digital para construir su marca personal, proyectar su música y llegar a más público en la industria electrónica.'
+    ],
+    gradient: 'from-[#2a1d35] to-[#130d1a]',
+    image: '/multimedia/images/critical-academy/team/nancy-herrera-secretaria-traffiquerj.webp',
+    logos: [
+      { name: 'Critical Academy', src: '/multimedia/images/critical-academy/critical-academy-logo.png' },
+    ],
+    socials: {
+      instagram: 'https://www.instagram.com/criticalsounds/',
+    }
+  },
+
+  // 12. María Alejandra Torres
+  {
+    id: 'maria-alejandra-torres',
+    name: 'María Alejandra Torres',
+    role: 'Psicóloga · Bienestar & Acompañamiento',
+    category: 'management',
+    description: 'Psicóloga con formación y experiencia en acompañamiento psicosocial, orientación, fortalecimiento de habilidades socioemocionales y bienestar.',
+    fullBio: [
+      'María Alejandra Torres es psicóloga con formación y experiencia en acompañamiento psicosocial, procesos de orientación y bienestar integral.',
+      'Ha diseñado y desarrollado estrategias de intervención para fortalecer habilidades socioemocionales, comunicación asertiva y vínculos interpersonales en personas y grupos.',
+      'Complementó su formación con el Diplomado en Psicología Clínica y de la Salud del Tecnológico de Antioquia, seminarios en Equipos Reflexivos con Familias y Parejas, formación en Rutas de Actuación y Protección en Atención Psicosocial Laboral y certificación en primeros auxilios psicológicos.',
+      'Su interés profesional se centra en el bienestar emocional, las relaciones interpersonales y las estrategias que favorecen el aprendizaje y el crecimiento personal. Se caracteriza por una mirada empática y ética que reconoce las particularidades de cada persona y promueve espacios de escucha y reflexión.'
+    ],
+    gradient: 'from-[#192f2b] to-[#0c1816]',
+    image: '/multimedia/images/critical-academy/team/maria-alejandra-torres-psicologa.webp',
     logos: [
       { name: 'Critical Academy', src: '/multimedia/images/critical-academy/critical-academy-logo.png' },
     ],
