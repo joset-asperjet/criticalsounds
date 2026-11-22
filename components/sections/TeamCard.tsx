@@ -9,16 +9,18 @@ import { PixelTrail } from '@/components/ui/PixelTrail'
 
 interface TeamCardProps {
   member: TeamMember
+  hideLogos?: boolean
+  hideSocials?: boolean
 }
 
-export function TeamCard({ member }: TeamCardProps) {
+export function TeamCard({ member, hideLogos = false, hideSocials = false }: TeamCardProps) {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
     <>
       <article className="pt-2 flex flex-col group h-full">
         {/* Foto con PixelTrail y Botones Sociales */}
-        <div className="relative h-[390px] w-full overflow-hidden mb-6 rounded-none bg-[#161618] cursor-pointer">
+        <div className="relative h-[390px] w-full overflow-hidden mb-6 rounded-none bg-[#161618] cursor-pointer" onClick={() => setIsOpen(true)}>
           {member.image ? (
             <>
               <Image
@@ -38,8 +40,8 @@ export function TeamCard({ member }: TeamCardProps) {
             </div>
           )}
 
-          {/* Iconos de Redes adentro de la foto: Invert (fondo negro/icono blanco -> fondo blanco/icono negro en hover) */}
-          {member.socials && (
+          {/* Iconos de Redes adentro de la foto: Solo si NO está activo hideSocials */}
+          {!hideSocials && member.socials && (
             <div className="absolute bottom-4 right-4 z-30 pointer-events-auto flex items-center gap-2.5">
               {member.socials.instagram && (
                 <a
@@ -101,8 +103,8 @@ export function TeamCard({ member }: TeamCardProps) {
             </button>
           </p>
 
-          {/* Logos de sellos / marcas discográficas */}
-          {member.logos && member.logos.length > 0 && (
+          {/* Logos de sellos / marcas discográficas: Solo si NO está activo hideLogos */}
+          {!hideLogos && member.logos && member.logos.length > 0 && (
             <div className="pt-2 pb-1 flex items-center flex-wrap gap-4.5 mt-auto">
               {member.logos.map((logo) => {
                 const isPerfectoFluoro = logo.name === 'Perfecto Fluoro'
@@ -188,10 +190,9 @@ export function TeamCard({ member }: TeamCardProps) {
               )}
             </div>
 
-            {/* Footer del Modal */}
+            {/* Footer del Modal: Solo logos si NO está activo hideLogos */}
             <div className="p-5 px-6 sm:px-8 border-t border-white/10 bg-black/50 flex flex-wrap items-center justify-between gap-4">
-              {/* Logos del artista en modal */}
-              {member.logos && (
+              {!hideLogos && member.logos && member.logos.length > 0 ? (
                 <div className="flex items-center gap-4 flex-wrap">
                   {member.logos.map((logo) => {
                     const isPerfectoFluoro = logo.name === 'Perfecto Fluoro'
@@ -208,6 +209,8 @@ export function TeamCard({ member }: TeamCardProps) {
                     )
                   })}
                 </div>
+              ) : (
+                <div />
               )}
 
               <button

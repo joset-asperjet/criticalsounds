@@ -16,7 +16,7 @@ export type TeamMember = {
 }
 
 export const team: TeamMember[] = [
-  // 1. Pablo Anon
+  // 1. Pablo Anon (Founder)
   {
     id: 'pablo-anon',
     name: 'Pablo Anon',
@@ -48,7 +48,7 @@ export const team: TeamMember[] = [
     }
   },
 
-  // 2. Steve Dekay
+  // 2. Steve Dekay (Founder)
   {
     id: 'steve-dekay',
     name: 'Steve Dekay',
@@ -82,7 +82,7 @@ export const team: TeamMember[] = [
     }
   },
 
-  // 3. Galeneo
+  // 3. Galeneo (Founder)
   {
     id: 'galeneo',
     name: 'Galeneo',
@@ -107,7 +107,7 @@ export const team: TeamMember[] = [
     }
   },
 
-  // 4. Kashwell
+  // 4. Kashwell (Profesor)
   {
     id: 'kashwell',
     name: 'Kashwell',
@@ -123,15 +123,12 @@ export const team: TeamMember[] = [
     ],
     gradient: 'from-[#1b2d38] to-[#0c161d]',
     image: '/multimedia/images/critical-academy/team/kashwell-profesor-dj.webp',
-    logos: [
-      { name: 'Critical Academy', src: '/multimedia/images/critical-academy/critical-academy-logo.png' },
-    ],
     socials: {
       instagram: 'https://www.instagram.com/criticalsounds/',
     }
   },
 
-  // 5. Verolila
+  // 5. Verolila (Profesora)
   {
     id: 'verolila',
     name: 'Verolila',
@@ -146,15 +143,12 @@ export const team: TeamMember[] = [
     ],
     gradient: 'from-[#3b1d2e] to-[#180b13]',
     image: '/multimedia/images/critical-academy/team/verorila-profesora-dj.webp',
-    logos: [
-      { name: 'Critical Academy', src: '/multimedia/images/critical-academy/critical-academy-logo.png' },
-    ],
     socials: {
       instagram: 'https://www.instagram.com/criticalsounds/',
     }
   },
 
-  // 6. Nabrian DJ
+  // 6. Nabrian DJ (Profesor)
   {
     id: 'nabrian-dj',
     name: 'Nabrian DJ',
@@ -169,15 +163,12 @@ export const team: TeamMember[] = [
     ],
     gradient: 'from-[#2d2919] to-[#14120a]',
     image: '/multimedia/images/critical-academy/team/nabrian-profesor-dj.webp',
-    logos: [
-      { name: 'Critical Academy', src: '/multimedia/images/critical-academy/critical-academy-logo.png' },
-    ],
     socials: {
       instagram: 'https://www.instagram.com/criticalsounds/',
     }
   },
 
-  // 7. Servel
+  // 7. Servel (Profesor)
   {
     id: 'servel',
     name: 'Servel',
@@ -192,15 +183,12 @@ export const team: TeamMember[] = [
     ],
     gradient: 'from-[#172d42] to-[#0a1622]',
     image: '/multimedia/images/critical-academy/team/severl-profesor-dj.webp',
-    logos: [
-      { name: 'Critical Academy', src: '/multimedia/images/critical-academy/critical-academy-logo.png' },
-    ],
     socials: {
       instagram: 'https://www.instagram.com/criticalsounds/',
     }
   },
 
-  // 8. Blackswan DJ
+  // 8. Blackswan DJ (Profesora)
   {
     id: 'blackswan-dj',
     name: 'Blackswan DJ',
@@ -215,15 +203,12 @@ export const team: TeamMember[] = [
     ],
     gradient: 'from-[#2d1b3b] to-[#140b1b]',
     image: '/multimedia/images/critical-academy/team/black-swan-dj-profesora.webp',
-    logos: [
-      { name: 'Critical Academy', src: '/multimedia/images/critical-academy/critical-academy-logo.png' },
-    ],
     socials: {
       instagram: 'https://www.instagram.com/criticalsounds/',
     }
   },
 
-  // 9. Wakken
+  // 9. Wakken (Director Visual)
   {
     id: 'wakken',
     name: 'Wakken',
@@ -237,15 +222,12 @@ export const team: TeamMember[] = [
     ],
     gradient: 'from-[#251f33] to-[#100d17]',
     image: '/multimedia/images/critical-academy/team/wakken-director-visual.webp',
-    logos: [
-      { name: 'Critical Academy', src: '/multimedia/images/critical-academy/critical-academy-logo.png' },
-    ],
     socials: {
       instagram: 'https://www.instagram.com/criticalsounds/',
     }
   },
 
-  // 10. Esteban Rengifo
+  // 10. Esteban Rengifo (Business Development)
   {
     id: 'esteban-rengifo',
     name: 'Esteban Rengifo',
@@ -259,15 +241,12 @@ export const team: TeamMember[] = [
       'Desde Critical Sounds impulsa alianzas, patrocinios y el crecimiento internacional de la industria electrónica en Latinoamérica y el mundo.'
     ],
     gradient: 'from-[#1c2c36] to-[#0d161c]',
-    logos: [
-      { name: 'Critical Academy', src: '/multimedia/images/critical-academy/critical-academy-logo.png' },
-    ],
     socials: {
       instagram: 'https://www.instagram.com/criticalsounds/',
     }
   },
 
-  // 11. Nancy Herrera
+  // 11. Nancy Herrera (Finanzas & Marketing)
   {
     id: 'nancy-herrera',
     name: 'Nancy Herrera',
@@ -281,15 +260,12 @@ export const team: TeamMember[] = [
     ],
     gradient: 'from-[#2a1d35] to-[#130d1a]',
     image: '/multimedia/images/critical-academy/team/nancy-herrera-secretaria-traffiquerj.webp',
-    logos: [
-      { name: 'Critical Academy', src: '/multimedia/images/critical-academy/critical-academy-logo.png' },
-    ],
     socials: {
       instagram: 'https://www.instagram.com/criticalsounds/',
     }
   },
 
-  // 12. María Alejandra Torres
+  // 12. María Alejandra Torres (Psicóloga)
   {
     id: 'maria-alejandra-torres',
     name: 'María Alejandra Torres',
@@ -304,9 +280,6 @@ export const team: TeamMember[] = [
     ],
     gradient: 'from-[#192f2b] to-[#0c1816]',
     image: '/multimedia/images/critical-academy/team/maria-alejandra-torres-psicologa.webp',
-    logos: [
-      { name: 'Critical Academy', src: '/multimedia/images/critical-academy/critical-academy-logo.png' },
-    ],
     socials: {
       instagram: 'https://www.instagram.com/criticalsounds/',
     }

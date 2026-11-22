@@ -10,9 +10,17 @@ interface TeamGridProps {
   members: TeamMember[]
   showAll?: boolean
   showFilters?: boolean
+  hideLogos?: boolean
+  hideSocials?: boolean
 }
 
-export function TeamGrid({ members, showAll = false, showFilters = false }: TeamGridProps) {
+export function TeamGrid({
+  members,
+  showAll = false,
+  showFilters = false,
+  hideLogos = false,
+  hideSocials = false,
+}: TeamGridProps) {
   const [isExpanded, setIsExpanded] = useState(false)
   const [activeCategory, setActiveCategory] = useState<'all' | 'founders' | 'instructors' | 'management'>('all')
 
@@ -52,7 +60,12 @@ export function TeamGrid({ members, showAll = false, showFilters = false }: Team
 
         <div className="grid md:grid-cols-3 gap-8 items-stretch">
           {filteredMembers.map((member) => (
-            <TeamCard key={member.id} member={member} />
+            <TeamCard
+              key={member.id}
+              member={member}
+              hideLogos={hideLogos}
+              hideSocials={hideSocials}
+            />
           ))}
         </div>
       </div>
@@ -79,7 +92,12 @@ export function TeamGrid({ members, showAll = false, showFilters = false }: Team
       {/* Bloque principal de tres */}
       <div className="grid md:grid-cols-3 gap-8 items-stretch">
         {firstBlock.map((member) => (
-          <TeamCard key={member.id} member={member} />
+          <TeamCard
+            key={member.id}
+            member={member}
+            hideLogos={hideLogos}
+            hideSocials={hideSocials}
+          />
         ))}
       </div>
 
@@ -87,7 +105,12 @@ export function TeamGrid({ members, showAll = false, showFilters = false }: Team
       {isExpanded && remainingCount > 0 && (
         <div className="grid md:grid-cols-3 gap-8 items-stretch mt-8 animate-in fade-in slide-in-from-top-4 duration-500">
           {remainingMembers.map((member) => (
-            <TeamCard key={member.id} member={member} />
+            <TeamCard
+              key={member.id}
+              member={member}
+              hideLogos={hideLogos}
+              hideSocials={hideSocials}
+            />
           ))}
         </div>
       )}

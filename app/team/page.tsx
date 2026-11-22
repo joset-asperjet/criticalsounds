@@ -55,8 +55,8 @@ export default function TeamPage() {
           </div>
         </div>
 
-        {/* Grid de miembros del equipo con filtros interactivos */}
-        <TeamGrid members={team} showAll showFilters />
+        {/* Grid de miembros del equipo con filtros interactivos: sin logos ni redes sociales */}
+        <TeamGrid members={team} showAll showFilters hideLogos hideSocials />
       </main>
     </div>
   )
