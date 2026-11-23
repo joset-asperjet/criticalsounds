@@ -68,14 +68,14 @@ export function Navbar() {
             Souvenirs
           </a>
 
-          {/* Botón CTA: Reserva tu primera clase gratis */}
+          {/* Botón CTA: Reserva tu primera clase gratis (hollow verde, texto blanco, sin brillo) */}
           <a
             href={whatsappReservaUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#d7ff54] hover:bg-[#cbf542] text-[#0d0d0e] text-[13px] font-semibold tracking-wide transition-all duration-300 shadow-[0_0_20px_rgba(215,255,84,0.35)] hover:shadow-[0_0_28px_rgba(215,255,84,0.6)] hover:scale-[1.03] active:scale-[0.97] whitespace-nowrap ml-1 cursor-pointer"
+            className="group relative inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-[#d7ff54] bg-transparent hover:bg-[#d7ff54]/10 text-white text-[13px] font-medium tracking-wide transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] whitespace-nowrap ml-1 cursor-pointer"
           >
-            <span className="w-2 h-2 rounded-full bg-[#0d0d0e] animate-pulse shrink-0" />
+            <span className="w-1.5 h-1.5 rounded-full bg-[#d7ff54] shrink-0" />
             <span>Reserva tu primera clase gratis</span>
           </a>
         </nav>
@@ -111,9 +111,9 @@ export function Navbar() {
             href={whatsappReservaUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative inline-flex items-center gap-1.5 px-3.5 lg:px-4 py-2 rounded-full bg-[#d7ff54] hover:bg-[#cbf542] text-[#0d0d0e] text-[12px] font-semibold tracking-wide transition-all duration-300 shadow-[0_0_18px_rgba(215,255,84,0.35)] hover:scale-[1.02] active:scale-[0.97] whitespace-nowrap ml-1 cursor-pointer"
+            className="group relative inline-flex items-center gap-1.5 px-3.5 lg:px-4 py-2 rounded-full border border-[#d7ff54] bg-transparent hover:bg-[#d7ff54]/10 text-white text-[12px] font-medium tracking-wide transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] whitespace-nowrap ml-1 cursor-pointer"
           >
-            <span className="w-1.5 h-1.5 rounded-full bg-[#0d0d0e] animate-pulse shrink-0" />
+            <span className="w-1.5 h-1.5 rounded-full bg-[#d7ff54] shrink-0" />
             <span>Clase gratis</span>
           </a>
         </nav>
@@ -161,16 +161,16 @@ export function Navbar() {
             Souvenirs
           </a>
 
-          {/* CTA Mobile Button */}
+          {/* CTA Mobile Button (hollow verde, texto blanco, sin brillo) */}
           <div className="pt-2">
             <a
               href={whatsappReservaUrl}
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setIsOpen(false)}
-              className="w-full flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-full bg-[#d7ff54] hover:bg-[#cbf542] text-[#0d0d0e] font-semibold text-[14px] tracking-wide shadow-[0_0_20px_rgba(215,255,84,0.35)] active:scale-[0.98] transition-all cursor-pointer"
+              className="w-full flex items-center justify-center gap-2 px-6 py-3.5 rounded-full border border-[#d7ff54] bg-transparent hover:bg-[#d7ff54]/10 text-white font-medium text-[14px] tracking-wide active:scale-[0.98] transition-all cursor-pointer"
             >
-              <span className="w-2 h-2 rounded-full bg-[#0d0d0e] animate-pulse shrink-0" />
+              <span className="w-1.5 h-1.5 rounded-full bg-[#d7ff54] shrink-0" />
               <span>Reserva tu primera clase gratis</span>
             </a>
           </div>
