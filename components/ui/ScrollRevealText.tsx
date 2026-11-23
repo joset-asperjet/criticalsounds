@@ -7,27 +7,11 @@ interface ScrollRevealTextProps {
   className?: string
 }
 
-const HOLD_IMAGES = [
-  '/multimedia/images/critical-academy/hold-section/1.jpg',
-  '/multimedia/images/critical-academy/hold-section/2.jpg',
-  '/multimedia/images/critical-academy/hold-section/3.jpg',
-]
-
 export function ScrollRevealText({
   className = '',
 }: ScrollRevealTextProps) {
   const containerRef = useRef<HTMLDivElement>(null)
   const [scrollProgress, setScrollProgress] = useState(0)
-  const [currentImageIndex, setCurrentImageIndex] = useState(0)
-
-  // Cambio automático tipo ruleta cada 5 segundos
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentImageIndex((prev) => (prev + 1) % HOLD_IMAGES.length)
-    }, 5000)
-
-    return () => clearInterval(timer)
-  }, [])
 
   useEffect(() => {
     const handleScroll = () => {
@@ -70,7 +54,7 @@ export function ScrollRevealText({
   // Factor de revelado para el punto final "."
   const dotIndex = words.length + 1
   const dotStart = dotIndex / totalItems
-  const dotEnd = Math.min(dotStart + 0.14, 1)
+  const dotEnd = 1
   let dotFactor = 0
   if (scrollProgress >= dotEnd) {
     dotFactor = 1
@@ -83,8 +67,15 @@ export function ScrollRevealText({
   const dotB = Math.round(164 - (164 - 14) * dotFactor)
 
   return (
-    <div ref={containerRef} className={`relative select-none max-w-5xl ${className}`}>
-      <div className="text-[clamp(28px,3.8vw,52px)] font-light leading-[1.18] tracking-tight">
+    <div
+      ref={containerRef}
+      className={`relative z-10 font-normal leading-[1.38] tracking-tight ${className}`}
+      style={{
+        fontSize: 'clamp(26px, 4.2vw, 68px)',
+        color: 'rgb(168, 168, 164)',
+      }}
+    >
+      <p className="m-0 select-none flex flex-wrap items-baseline">
         {words.map((word, index) => {
           const itemStart = index / totalItems
           const itemEnd = Math.min(itemStart + 0.14, 1)
@@ -112,7 +103,7 @@ export function ScrollRevealText({
                 {word}
               </span>
 
-              {/* Ruleta de imágenes de la sección hold (1.jpg, 2.jpg, 3.jpg) al lado derecho de "Australia" */}
+              {/* Bandera de Australia al lado derecho de "Australia" (fija, sin canguros ni koalas) */}
               {word === 'Australia' && (
                 <span
                   className="inline-flex align-middle mx-1.5 sm:mx-2 relative transition-all duration-300 ease-out select-none"
@@ -122,32 +113,14 @@ export function ScrollRevealText({
                     filter: factor === 1 ? 'none' : `blur(${(1 - factor) * 2}px)`,
                   }}
                 >
-                  <span className="relative inline-block w-[68px] h-[36px] sm:w-[88px] sm:h-[46px] md:w-[108px] md:h-[52px] rounded-full overflow-hidden shadow-[0_4px_16px_rgba(0,0,0,0.08)]">
-                    <div
-                      className="w-full h-full relative transition-transform duration-700 ease-[cubic-bezier(0.65,0,0.35,1)]"
-                      style={{
-                        transform: `translateY(-${currentImageIndex * 100}%)`,
-                        height: '100%',
-                      }}
-                    >
-                      {HOLD_IMAGES.map((src, imgIdx) => (
-                        <div
-                          key={src}
-                          className="w-full h-full absolute inset-0"
-                          style={{
-                            top: `${imgIdx * 100}%`,
-                          }}
-                        >
-                          <Image
-                            src={src}
-                            alt={`Australia highlight ${imgIdx + 1}`}
-                            fill
-                            className="object-cover object-center"
-                            priority={imgIdx === 0}
-                          />
-                        </div>
-                      ))}
-                    </div>
+                  <span className="relative inline-block w-[68px] h-[36px] sm:w-[88px] sm:h-[46px] md:w-[108px] md:h-[52px] rounded-full overflow-hidden shadow-[0_4px_16px_rgba(0,0,0,0.08)] bg-white/5">
+                    <Image
+                      src="/multimedia/images/critical-academy/hold-section/3.jpg"
+                      alt="Bandera de Australia"
+                      fill
+                      className="object-cover object-center"
+                      priority
+                    />
                   </span>
                 </span>
               )}
@@ -169,15 +142,14 @@ export function ScrollRevealText({
               src="/multimedia/images/critical-academy/critical-sounds-pablo-anon.webp"
               alt="Pablo Anon"
               fill
-              className="object-cover object-[50%_15%]"
-              priority
+              className="object-cover object-[center_12%]"
             />
           </span>
         </span>
 
-        {/* Punto final al lado derecho de la foto */}
+        {/* Punto final al mismo nivel que la foto de Pablo */}
         <span
-          className="inline-block transition-colors duration-200 ease-out"
+          className="inline-block transition-colors duration-200 ease-out ml-0.5"
           style={{
             color: `rgb(${dotR}, ${dotG}, ${dotB})`,
             filter: dotFactor === 1 ? 'none' : `blur(${(1 - dotFactor) * 1.5}px)`,
@@ -185,7 +157,7 @@ export function ScrollRevealText({
         >
           .
         </span>
-      </div>
+      </p>
     </div>
   )
 }
