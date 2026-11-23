@@ -48,7 +48,8 @@ export default function AcademyStudiosPage() {
           </p>
         </div>
 
-        <TeamGrid members={team} />
+        {/* En el home solo se muestran los tres fundadores sin botones adicionales */}
+        <TeamGrid members={team.slice(0, 3)} showActionButtons={false} />
       </section>
 
       {/* Method Section */}

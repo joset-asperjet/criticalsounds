@@ -10,13 +10,6 @@ export default function TeamPage() {
       <main className="py-16 sm:py-24 px-6 sm:px-8 lg:px-[8vw]">
         {/* Cabecera Principal */}
         <div className="mb-12 sm:mb-16">
-          <div className="flex items-center gap-2 mb-4">
-            <span className="w-2 h-2 rounded-full bg-[#d7ff54] shadow-[0_0_8px_#d7ff54]" />
-            <span className="text-[11px] font-mono tracking-widest text-[#d7ff54] uppercase">
-              Staff &amp; Artistas · Critical Academy
-            </span>
-          </div>
-
           <h1 className="text-[clamp(40px,5.7vw,82px)] leading-tight font-light tracking-tight flex flex-wrap items-baseline gap-x-4 gap-y-1">
             <span>El Team</span>
             <span className="text-[clamp(18px,2.2vw,32px)] text-[#888] font-light tracking-normal">
@@ -25,10 +18,10 @@ export default function TeamPage() {
           </h1>
         </div>
 
-        {/* Tres Columnas Introductorias en Desktop que armonizan con el grid de 3 columnas */}
+        {/* Tres Columnas Introductorias en Desktop sin contenedor de bordes redondos */}
         <div className="grid md:grid-cols-3 gap-8 mb-16 lg:mb-20 text-[#aaa] text-[15px] leading-relaxed">
-          <div className="p-6 sm:p-7 rounded-2xl bg-white/[0.02] border border-white/[0.06] hover:border-white/15 transition-all">
-            <span className="text-[11px] font-mono text-[#d7ff54] tracking-wider block mb-3 uppercase">
+          <div>
+            <span className="text-[11px] font-mono text-[#d7ff54] tracking-wider block mb-2.5 uppercase font-medium">
               01 · Trayectoria &amp; Artistas
             </span>
             <p>
@@ -36,8 +29,8 @@ export default function TeamPage() {
             </p>
           </div>
 
-          <div className="p-6 sm:p-7 rounded-2xl bg-white/[0.02] border border-white/[0.06] hover:border-white/15 transition-all">
-            <span className="text-[11px] font-mono text-[#a9eff1] tracking-wider block mb-3 uppercase">
+          <div>
+            <span className="text-[11px] font-mono text-[#a9eff1] tracking-wider block mb-2.5 uppercase font-medium">
               02 · Plataforma 360°
             </span>
             <p>
@@ -45,8 +38,8 @@ export default function TeamPage() {
             </p>
           </div>
 
-          <div className="p-6 sm:p-7 rounded-2xl bg-white/[0.02] border border-white/[0.06] hover:border-white/15 transition-all">
-            <span className="text-[11px] font-mono text-[#b4a2ff] tracking-wider block mb-3 uppercase">
+          <div>
+            <span className="text-[11px] font-mono text-[#b4a2ff] tracking-wider block mb-2.5 uppercase font-medium">
               03 · Catálogo &amp; Academia
             </span>
             <p>
