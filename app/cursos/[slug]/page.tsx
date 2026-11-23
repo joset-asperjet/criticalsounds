@@ -96,6 +96,69 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ s
 
               const [base, colA, colB, colC] = meshPalettes[c.slug] || meshPalettes['social-dj']
 
+              const courseSvgIcons: Record<string, React.ReactNode> = {
+                'social-dj': (
+                  <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5 text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.75)]">
+                    <path d="M4 13v-1a8 8 0 0 1 16 0v1" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+                    <rect x="2.5" y="13" width="3.5" height="6" rx="1.5" stroke="currentColor" strokeWidth="1.8" fill="currentColor" fillOpacity="0.25" />
+                    <rect x="18" y="13" width="3.5" height="6" rx="1.5" stroke="currentColor" strokeWidth="1.8" fill="currentColor" fillOpacity="0.25" />
+                    <path d="M9 15v2M12 13v6M15 15v2" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+                  </svg>
+                ),
+                'club-dj': (
+                  <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5 text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.75)]">
+                    <rect x="3" y="3" width="18" height="18" rx="2.5" stroke="currentColor" strokeWidth="1.75" fill="currentColor" fillOpacity="0.12" />
+                    <path d="M8 6.5v7.5M16 6.5v7.5" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+                    <circle cx="8" cy="11" r="1.8" fill="currentColor" />
+                    <circle cx="16" cy="9" r="1.8" fill="currentColor" />
+                    <path d="M12 6.5v7.5" stroke="currentColor" strokeWidth="1.5" strokeDasharray="1.5 2" strokeLinecap="round" />
+                    <path d="M7 17.5h10" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+                    <rect x="11" y="16" width="2" height="3" rx="0.6" fill="currentColor" />
+                  </svg>
+                ),
+                'vinyl-dj': (
+                  <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5 text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.75)]">
+                    <circle cx="10.5" cy="12" r="7.5" stroke="currentColor" strokeWidth="1.75" fill="currentColor" fillOpacity="0.15" />
+                    <path d="M10.5 7.5a4.5 4.5 0 0 1 4.5 4.5" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" opacity="0.8" />
+                    <path d="M10.5 16.5a4.5 4.5 0 0 1-4.5-4.5" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" opacity="0.8" />
+                    <circle cx="10.5" cy="12" r="2" stroke="currentColor" strokeWidth="1.5" fill="currentColor" fillOpacity="0.35" />
+                    <circle cx="19.5" cy="5.5" r="1.5" fill="currentColor" />
+                    <path d="M19.5 7v5.5l-2.5 3.5" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                ),
+                'digital-dj': (
+                  <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5 text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.75)]">
+                    <rect x="4" y="2.5" width="16" height="3.5" rx="1" stroke="currentColor" strokeWidth="1.6" fill="currentColor" fillOpacity="0.25" />
+                    <circle cx="12" cy="14" r="7" stroke="currentColor" strokeWidth="1.75" strokeDasharray="3 1.5" />
+                    <circle cx="12" cy="14" r="4.2" stroke="currentColor" strokeWidth="1.6" fill="currentColor" fillOpacity="0.18" />
+                    <circle cx="12" cy="14" r="1.3" fill="currentColor" />
+                  </svg>
+                ),
+                '360-dj': (
+                  <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5 text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.75)]">
+                    <circle cx="12" cy="12" r="4.2" stroke="currentColor" strokeWidth="1.75" fill="currentColor" fillOpacity="0.22" />
+                    <circle cx="12" cy="12" r="1.4" fill="currentColor" />
+                    <ellipse cx="12" cy="12" rx="9.5" ry="4.2" transform="rotate(-30 12 12)" stroke="currentColor" strokeWidth="1.6" />
+                    <ellipse cx="12" cy="12" rx="9.5" ry="4.2" transform="rotate(30 12 12)" stroke="currentColor" strokeWidth="1.6" strokeDasharray="2.5 2" />
+                  </svg>
+                ),
+                'master-dj': (
+                  <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5 text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.75)]">
+                    <path d="M3.5 17.5L5.5 8l4.5 4.5L12 5l2 7.5L18.5 8l2 9.5H3.5z" stroke="currentColor" strokeWidth="1.75" strokeLinejoin="round" fill="currentColor" fillOpacity="0.22" />
+                    <path d="M4 20.5h16" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+                    <circle cx="12" cy="2.8" r="1.2" fill="currentColor" />
+                  </svg>
+                ),
+                'master-efx-dj': (
+                  <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5 text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.75)]">
+                    <rect x="3" y="3" width="18" height="18" rx="3" stroke="currentColor" strokeWidth="1.75" fill="currentColor" fillOpacity="0.15" />
+                    <path d="M5.5 14.5c1.8-5.5 3.2-5.5 4.5 0s2.7 5.5 4.5 0 2.5-3.5 4-1" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                    <circle cx="15.5" cy="8" r="1.8" fill="currentColor" />
+                    <path d="M15.5 4.8v6.4M12.3 8h6.4" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" opacity="0.75" />
+                  </svg>
+                ),
+              }
+
               return (
                 <Link
                   key={c.slug}
@@ -107,19 +170,22 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ s
                   }`}
                 >
                   <div className="flex items-center gap-3">
-                    {/* Animated mesh gradient con viñeta para máxima profundidad y saturación */}
+                    {/* Animated mesh gradient con icono SVG personalizado */}
                     <div 
-                      className={`w-9 h-9 shrink-0 rounded-none relative overflow-hidden transition-all duration-300 ${
+                      className={`w-9 h-9 shrink-0 rounded-none relative overflow-hidden flex items-center justify-center transition-all duration-300 ${
                         isActive 
-                          ? 'scale-105 ring-1 ring-white/30 shadow-[0_0_12px_rgba(255,255,255,0.15)]' 
-                          : 'opacity-90 group-hover:opacity-100 group-hover:scale-105'
+                          ? 'scale-105 ring-1 ring-white/40 shadow-[0_0_14px_rgba(255,255,255,0.2)]' 
+                          : 'opacity-90 group-hover:opacity-100 group-hover:scale-105 ring-1 ring-white/10'
                       }`}
                       style={{ backgroundColor: base }}
                     >
                       <span className="mesh-blob mesh-blob-a" style={{ backgroundColor: colA }} />
                       <span className="mesh-blob mesh-blob-b" style={{ backgroundColor: colB }} />
                       <span className="mesh-blob mesh-blob-c" style={{ backgroundColor: colC }} />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-black/25 pointer-events-none" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/15 to-black/25 pointer-events-none" />
+                      <div className={`relative z-10 transition-transform duration-300 ${isActive ? 'scale-105' : 'group-hover:scale-110'}`}>
+                        {courseSvgIcons[c.slug] || courseSvgIcons['social-dj']}
+                      </div>
                     </div>
 
                     <div className="flex flex-col">
