@@ -3,7 +3,6 @@
 import Link from 'next/link'
 import { useState } from 'react'
 import { Menu, X } from 'lucide-react'
-
 import Image from 'next/image'
 
 export function Navbar() {
@@ -17,10 +16,18 @@ export function Navbar() {
     { name: 'Galería', href: '/galeria' },
   ]
 
+  const whatsappReservaUrl = `https://wa.me/573226393861?text=${encodeURIComponent(
+    'Hola! Quiero reservar mi primera clase gratis en Critical Academy.'
+  )}`
+
+  const whatsappFinanciacionUrl = `https://wa.me/573226393861?text=${encodeURIComponent(
+    'Hola! Quiero información sobre los planes de financiación para los cursos de DJ.'
+  )}`
+
   return (
     <header className="fixed top-0 left-0 right-0 z-[100] w-full border-b border-white/[0.08] bg-[#0d0d0e]/85 backdrop-blur-2xl shadow-[0_8px_32px_0_rgba(0,0,0,0.5)] transition-all duration-300">
       <div className="flex h-[82px] items-center justify-between px-6 lg:px-12">
-        <Link href="/academy-studios" className="flex items-center hover:opacity-85 transition-opacity">
+        <Link href="/academy-studios" className="flex items-center hover:opacity-85 transition-opacity shrink-0">
           <Image
             src="/multimedia/images/logo-and-svg/critical-sounds-logo-academy.png"
             alt="Critical Sounds"
@@ -32,7 +39,7 @@ export function Navbar() {
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-8 ml-auto">
+        <nav className="hidden xl:flex items-center gap-7 2xl:gap-8 ml-auto">
           {links.map((link) => (
             <Link
               key={link.name}
@@ -43,18 +50,77 @@ export function Navbar() {
             </Link>
           ))}
           <a
-            href={`https://wa.me/573226393861?text=${encodeURIComponent('Hola! Quiero información sobre los planes de financiación para los cursos de DJ.')}`}
+            href={whatsappFinanciacionUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="text-[13px] text-[#aaa] hover:text-white transition-colors"
           >
             Financiación
           </a>
+
+          {/* Botón Souvenirs (sin enlace aún) */}
+          <a
+            href="#souvenirs"
+            onClick={(e) => e.preventDefault()}
+            className="text-[13px] text-[#aaa] hover:text-white transition-colors cursor-pointer select-none"
+            title="Próximamente"
+          >
+            Souvenirs
+          </a>
+
+          {/* Botón CTA: Reserva tu primera clase gratis */}
+          <a
+            href={whatsappReservaUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#d7ff54] hover:bg-[#cbf542] text-[#0d0d0e] text-[13px] font-semibold tracking-wide transition-all duration-300 shadow-[0_0_20px_rgba(215,255,84,0.35)] hover:shadow-[0_0_28px_rgba(215,255,84,0.6)] hover:scale-[1.03] active:scale-[0.97] whitespace-nowrap ml-1 cursor-pointer"
+          >
+            <span className="w-2 h-2 rounded-full bg-[#0d0d0e] animate-pulse shrink-0" />
+            <span>Reserva tu primera clase gratis</span>
+          </a>
+        </nav>
+
+        {/* Nav para pantallas medianas (md a lg) con espaciado compacto */}
+        <nav className="hidden md:flex xl:hidden items-center gap-4 lg:gap-5 ml-auto">
+          {links.map((link) => (
+            <Link
+              key={link.name}
+              href={link.href}
+              className="text-[12px] lg:text-[13px] text-[#aaa] hover:text-white transition-colors"
+            >
+              {link.name}
+            </Link>
+          ))}
+          <a
+            href={whatsappFinanciacionUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[12px] lg:text-[13px] text-[#aaa] hover:text-white transition-colors"
+          >
+            Financiación
+          </a>
+          <a
+            href="#souvenirs"
+            onClick={(e) => e.preventDefault()}
+            className="text-[12px] lg:text-[13px] text-[#aaa] hover:text-white transition-colors cursor-pointer select-none"
+            title="Próximamente"
+          >
+            Souvenirs
+          </a>
+          <a
+            href={whatsappReservaUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative inline-flex items-center gap-1.5 px-3.5 lg:px-4 py-2 rounded-full bg-[#d7ff54] hover:bg-[#cbf542] text-[#0d0d0e] text-[12px] font-semibold tracking-wide transition-all duration-300 shadow-[0_0_18px_rgba(215,255,84,0.35)] hover:scale-[1.02] active:scale-[0.97] whitespace-nowrap ml-1 cursor-pointer"
+          >
+            <span className="w-1.5 h-1.5 rounded-full bg-[#0d0d0e] animate-pulse shrink-0" />
+            <span>Clase gratis</span>
+          </a>
         </nav>
 
         {/* Mobile Toggle */}
         <button
-          className="md:hidden text-white"
+          className="md:hidden text-white p-2 focus:outline-none"
           onClick={() => setIsOpen(!isOpen)}
           aria-label="Toggle menu"
         >
@@ -64,26 +130,50 @@ export function Navbar() {
 
       {/* Mobile Nav */}
       {isOpen && (
-        <div className="md:hidden absolute top-[82px] left-0 right-0 bg-[#151516] border-b border-[#333] p-6 flex flex-col gap-4 shadow-xl">
+        <div className="md:hidden absolute top-[82px] left-0 right-0 bg-[#151516] border-b border-[#333] p-6 flex flex-col gap-4 shadow-xl animate-in fade-in slide-in-from-top-2 duration-200">
           {links.map((link) => (
             <Link
               key={link.name}
               href={link.href}
               onClick={() => setIsOpen(false)}
-              className="text-lg text-[#aaa] hover:text-white"
+              className="text-base text-[#aaa] hover:text-white transition-colors"
             >
               {link.name}
             </Link>
           ))}
           <a
-            href={`https://wa.me/573226393861?text=${encodeURIComponent('Hola! Quiero información sobre los planes de financiación para los cursos de DJ.')}`}
+            href={whatsappFinanciacionUrl}
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => setIsOpen(false)}
-            className="text-lg text-[#aaa] hover:text-white transition-colors"
+            className="text-base text-[#aaa] hover:text-white transition-colors"
           >
             Financiación
           </a>
+          <a
+            href="#souvenirs"
+            onClick={(e) => {
+              e.preventDefault()
+              setIsOpen(false)
+            }}
+            className="text-base text-[#aaa] hover:text-white transition-colors cursor-pointer select-none"
+          >
+            Souvenirs
+          </a>
+
+          {/* CTA Mobile Button */}
+          <div className="pt-2">
+            <a
+              href={whatsappReservaUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setIsOpen(false)}
+              className="w-full flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-full bg-[#d7ff54] hover:bg-[#cbf542] text-[#0d0d0e] font-semibold text-[14px] tracking-wide shadow-[0_0_20px_rgba(215,255,84,0.35)] active:scale-[0.98] transition-all cursor-pointer"
+            >
+              <span className="w-2 h-2 rounded-full bg-[#0d0d0e] animate-pulse shrink-0" />
+              <span>Reserva tu primera clase gratis</span>
+            </a>
+          </div>
         </div>
       )}
     </header>
