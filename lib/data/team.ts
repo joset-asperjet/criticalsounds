@@ -241,6 +241,7 @@ export const team: TeamMember[] = [
       'Desde Critical Sounds impulsa alianzas, patrocinios y el crecimiento internacional de la industria electrónica en Latinoamérica y el mundo.'
     ],
     gradient: 'from-[#1c2c36] to-[#0d161c]',
+    image: '/multimedia/images/critical-academy/team/esteban-Business-development-manager.webp',
     socials: {
       instagram: 'https://www.instagram.com/criticalsounds/',
     }
