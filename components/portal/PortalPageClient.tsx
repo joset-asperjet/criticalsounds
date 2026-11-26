@@ -18,11 +18,10 @@ function DivisionCard({ item, index }: { item: Division; index: number }) {
   const cardContent = (
     <div
       style={{ animationDelay: `${index * 130}ms` }}
-      className={`relative h-full w-full px-5 py-3.5 sm:px-6 sm:py-5 md:p-10 flex flex-col justify-between border-b md:border-b-0 md:border-r border-white/10 transition-all duration-500 overflow-hidden cursor-pointer group animate-entrance-desktop animate-entrance-mobile ${
-        item.active
+      className={`relative h-full w-full px-5 py-3.5 sm:px-6 sm:py-5 md:p-10 flex flex-col justify-between border-b md:border-b-0 md:border-r border-white/10 transition-all duration-500 overflow-hidden cursor-pointer group animate-entrance-desktop animate-entrance-mobile ${item.active
           ? 'bg-neutral-950/70 hover:bg-neutral-900/90'
           : 'bg-black/80 hover:bg-neutral-950/90'
-      }`}
+        }`}
     >
       {/* Background Image: Clean, high resolution */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -55,11 +54,10 @@ function DivisionCard({ item, index }: { item: Division; index: number }) {
             alt="Critical Sounds"
             width={360}
             height={96}
-            className={`h-12 sm:h-14 md:h-16 lg:h-18 w-auto object-contain transition-all duration-300 origin-left drop-shadow-[0_2px_12px_rgba(0,0,0,0.8)] ${
-              item.active
+            className={`h-12 sm:h-14 md:h-16 lg:h-18 w-auto object-contain transition-all duration-300 origin-left drop-shadow-[0_2px_12px_rgba(0,0,0,0.8)] ${item.active
                 ? 'opacity-95 group-hover:opacity-100'
                 : 'opacity-60 group-hover:opacity-90'
-            }`}
+              }`}
             priority
           />
         </div>
@@ -117,16 +115,16 @@ export default function PortalPageClient() {
       title: 'Artist',
       description: 'Agencia encargada de gestionar y realizar el booking de artistas de música electrónica a nivel nacional e internacional.',
       image: '/multimedia/images/home-sections/critical-sounds-artist.webp',
-      active: false,
-      href: '#',
+      active: true,
+      href: 'https://www.criticalartists.agency/',
     },
     {
       num: '04',
       title: 'Radioshow',
       description: 'Programa de radio y podcast de música electrónica con miles de reproducciones semanales y un nuevo estudio con formato Face to Face.',
       image: '/multimedia/images/home-sections/critical-sounds-radioshow.webp',
-      active: false,
-      href: '#',
+      active: true,
+      href: 'https://www.youtube.com/watch?v=DSI22TmwTCQ&list=PL_Znrxo8-xgIlRyROBJvIhtQysXJ7GX_n',
     },
   ]
 
