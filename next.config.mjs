@@ -10,7 +10,7 @@ const nextConfig = {
     return [
       {
         source: '/academy',
-        destination: 'https://criticalsounds.academy',
+        destination: 'https://www.criticalsounds.academy',
         permanent: false,
       },
     ]

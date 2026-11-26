@@ -108,7 +108,7 @@ export default function PortalPageClient() {
       description: 'Academia de DJ y cabinas profesionales con equipos de última generación, además de un estudio de producción y grabación musical 360°.',
       image: '/multimedia/images/home-sections/critical-sounds-academy.webp',
       active: true,
-      href: 'https://criticalsounds.academy',
+      href: 'https://www.criticalsounds.academy/',
     },
     {
       num: '03',

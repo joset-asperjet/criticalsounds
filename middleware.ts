@@ -5,9 +5,9 @@ export function middleware(request: NextRequest) {
   const host = request.headers.get('host') || ''
   const { pathname } = request.nextUrl
 
-  // Si entra a /academy en cualquier dominio, redirigir a https://criticalsounds.academy/
+  // Si entra a /academy en cualquier dominio, redirigir a https://www.criticalsounds.academy/
   if (pathname === '/academy') {
-    return NextResponse.redirect(new URL('https://criticalsounds.academy/', request.url), 308)
+    return NextResponse.redirect(new URL('https://www.criticalsounds.academy/', request.url), 308)
   }
 
   // Si está en el dominio academy y entra directamente a /academy-studios, llevar a la raíz limpia /
