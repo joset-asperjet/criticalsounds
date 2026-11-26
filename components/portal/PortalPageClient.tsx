@@ -101,8 +101,8 @@ export default function PortalPageClient() {
       title: 'Label',
       description: 'Sello discográfico holding con más de 1650 singles y 600 lanzamientos en 4 sublabels (Overload, State, Fusion, Uprising).',
       image: '/multimedia/images/home-sections/critical-sounds-label.webp',
-      active: false,
-      href: '#',
+      active: true,
+      href: 'https://www.criticalsounds.music/',
     },
     {
       num: '02',
