@@ -25,9 +25,33 @@ export function TeamGrid({
   const [isExpanded, setIsExpanded] = useState(false)
   const [activeCategory, setActiveCategory] = useState<'all' | 'founders' | 'instructors' | 'management'>('all')
 
-  const filteredMembers = activeCategory === 'all'
-    ? members
-    : members.filter((m) => m.category === activeCategory)
+  const hasCategory = (member: TeamMember, cat: string) => {
+    if (Array.isArray(member.category)) {
+      return member.category.includes(cat as any)
+    }
+    return member.category === cat
+  }
+
+  const getFilteredMembers = () => {
+    if (activeCategory === 'all') return members
+
+    if (activeCategory === 'instructors') {
+      const instructors = members.filter((m) => hasCategory(m, 'instructors'))
+      // Galeneo de primero en los profesores, seguido de Steve Dekay y luego el resto
+      const galeneo = instructors.filter((m) => m.id === 'galeneo')
+      const steve = instructors.filter((m) => m.id === 'steve-dekay')
+      const others = instructors.filter((m) => m.id !== 'galeneo' && m.id !== 'steve-dekay')
+      return [...galeneo, ...steve, ...others]
+    }
+
+    if (activeCategory === 'founders') {
+      return members.filter((m) => hasCategory(m, 'founders'))
+    }
+
+    return members.filter((m) => hasCategory(m, activeCategory))
+  }
+
+  const filteredMembers = getFilteredMembers()
 
   // Modo ShowAll (Para la página dedicada /team)
   if (showAll) {
@@ -37,9 +61,9 @@ export function TeamGrid({
           <div className="flex flex-wrap items-center gap-2.5 mb-10 pb-4 border-b border-white/[0.08]">
             {[
               { id: 'all', label: `Todos (${members.length})` },
-              { id: 'founders', label: `Fundadores (${members.filter((m) => m.category === 'founders').length})` },
-              { id: 'instructors', label: `Profesores (${members.filter((m) => m.category === 'instructors').length})` },
-              { id: 'management', label: `Staff & Bienestar (${members.filter((m) => m.category === 'management').length})` },
+              { id: 'founders', label: `Fundadores (${members.filter((m) => hasCategory(m, 'founders')).length})` },
+              { id: 'instructors', label: `Profesores (${members.filter((m) => hasCategory(m, 'instructors')).length})` },
+              { id: 'management', label: `Staff & Bienestar (${members.filter((m) => hasCategory(m, 'management')).length})` },
             ].map((tab) => {
               const active = activeCategory === tab.id
               return (

@@ -1,8 +1,10 @@
+export type TeamMemberCategory = 'founders' | 'instructors' | 'management'
+
 export type TeamMember = {
   id: string
   name: string
   role: string
-  category?: 'founders' | 'instructors' | 'management'
+  category?: TeamMemberCategory | TeamMemberCategory[]
   description: string
   fullBio: string[]
   gradient: string
@@ -48,12 +50,12 @@ export const team: TeamMember[] = [
     }
   },
 
-  // 2. Steve Dekay (Founder)
+  // 2. Steve Dekay (Founder & Profesor)
   {
     id: 'steve-dekay',
     name: 'Steve Dekay',
-    role: 'Productor, DJ & A&R de Critical Sounds',
-    category: 'founders',
+    role: 'Co-Founder · Productor, DJ & Profesor',
+    category: ['founders', 'instructors'],
     description: 'Su trayectoria como productor y DJ cuenta con una de las hojas de vida más impresionantes que ha dado Colombia.',
     fullBio: [
       'Originario de Colombia, Steve Dekay es un prodigio de la música trance cuyos ritmos y melodías han resonado por todo el mundo. Su prestigiosa reputación en la industria musical se ve reforzada por sus colaboraciones con importantes sellos discográficos, como Armada Music, Vandit Records, FSOE, Black Hole y Coldharbour, entre otros.',
@@ -82,12 +84,35 @@ export const team: TeamMember[] = [
     }
   },
 
-  // 3. Galeneo (Founder)
+  // 3. Esteban Rengifo (Founder)
+  {
+    id: 'esteban-rengifo',
+    name: 'Esteban Rengifo',
+    role: 'Co-Founder & Business Development Manager',
+    category: 'founders',
+    description: 'Más de 12 años de experiencia en producción de eventos, comunicaciones corporativas, distribución musical y alianzas estratégicas internacionales.',
+    fullBio: [
+      'Esteban Rengifo es Co-Founder & Business Development Manager de Critical Sounds y Tecnólogo en Organización de Eventos, con más de 12 años de experiencia en producción de eventos, comunicaciones corporativas y marketing digital.',
+      'Ha conceptualizado y producido eventos propios con aforos de hasta 800 personas, conciertos y ferias del sector, además de coordinar eventos corporativos para grupos empresariales como Grupo Argos, Grupo Nutresa y EPM.',
+      'Fundó Bacon Agency, agencias de marketing digital que han trabajado con marcas gastronómicas, cerveceras y de servicios. Su recorrido incluye la distribución digital de música en LaMúsica.fm, XpaceMusic y formación en producción musical en Berklee College of Music.',
+      'Desde Critical Sounds impulsa alianzas, patrocinios y el crecimiento internacional de la industria electrónica en Latinoamérica y el mundo.'
+    ],
+    gradient: 'from-[#1c2c36] to-[#0d161c]',
+    image: '/multimedia/images/critical-academy/team/esteban-Business-development-manager.webp',
+    logos: [
+      { name: 'Critical Academy', src: '/multimedia/images/critical-academy/critical-academy-logo.png' },
+    ],
+    socials: {
+      instagram: 'https://www.instagram.com/criticalsounds/',
+    }
+  },
+
+  // 4. Galeneo (Profesor - Primero de la lista de profesores)
   {
     id: 'galeneo',
     name: 'Galeneo',
-    role: 'Director de Academia · Techno & Crossover',
-    category: 'founders',
+    role: 'Director de Academia · Profesor DJ',
+    category: 'instructors',
     description: 'Director de Academia con estudios en Barcelona, España y más de 5 años formando a la nueva generación de DJs en Colombia.',
     fullBio: [
       'DJ y productor colombiano nacido en la ciudad de Medellín. Tuvo sus inicios en el año 2014 marcando una tendencia alrededor del Techno, la cual ha evolucionado a través de los años, llevándolo a estar en tarimas a nivel internacional en Aruba, Argentina y España.',
@@ -107,7 +132,7 @@ export const team: TeamMember[] = [
     }
   },
 
-  // 4. Kashwell (Profesor)
+  // 5. Kashwell (Profesor)
   {
     id: 'kashwell',
     name: 'Kashwell',
@@ -128,7 +153,7 @@ export const team: TeamMember[] = [
     }
   },
 
-  // 5. Verolila (Profesora)
+  // 6. Verolila (Profesora)
   {
     id: 'verolila',
     name: 'Verolila',
@@ -148,7 +173,7 @@ export const team: TeamMember[] = [
     }
   },
 
-  // 6. Nabrian DJ (Profesor)
+  // 7. Nabrian DJ (Profesor)
   {
     id: 'nabrian-dj',
     name: 'Nabrian DJ',
@@ -168,7 +193,7 @@ export const team: TeamMember[] = [
     }
   },
 
-  // 7. Servel (Profesor)
+  // 8. Servel (Profesor)
   {
     id: 'servel',
     name: 'Servel',
@@ -188,7 +213,7 @@ export const team: TeamMember[] = [
     }
   },
 
-  // 8. Blackswan DJ (Profesora)
+  // 9. Blackswan DJ (Profesora)
   {
     id: 'blackswan-dj',
     name: 'Blackswan DJ',
@@ -208,7 +233,7 @@ export const team: TeamMember[] = [
     }
   },
 
-  // 9. Wakken (Director Visual)
+  // 10. Wakken (Director Visual)
   {
     id: 'wakken',
     name: 'Wakken',
@@ -222,26 +247,6 @@ export const team: TeamMember[] = [
     ],
     gradient: 'from-[#251f33] to-[#100d17]',
     image: '/multimedia/images/critical-academy/team/wakken-director-visual.webp',
-    socials: {
-      instagram: 'https://www.instagram.com/criticalsounds/',
-    }
-  },
-
-  // 10. Esteban Rengifo (Business Development)
-  {
-    id: 'esteban-rengifo',
-    name: 'Esteban Rengifo',
-    role: 'Business Development Manager',
-    category: 'management',
-    description: 'Más de 12 años de experiencia en producción de eventos, comunicaciones corporativas, distribución musical y alianzas estratégicas internacionales.',
-    fullBio: [
-      'Esteban Rengifo es Business Development Manager de Critical Sounds y Tecnólogo en Organización de Eventos, con más de 12 años de experiencia en producción de eventos, comunicaciones corporativas y marketing digital.',
-      'Ha conceptualizado y producido eventos propios con aforos de hasta 800 personas, conciertos y ferias del sector, además de coordinar eventos corporativos para grupos empresariales como Grupo Argos, Grupo Nutresa y EPM.',
-      'Fundó Bacon Agency, agencias de marketing digital que han trabajado con marcas gastronómicas, cerveceras y de servicios. Su recorrido incluye la distribución digital de música en LaMúsica.fm, XpaceMusic y formación en producción musical en Berklee College of Music.',
-      'Desde Critical Sounds impulsa alianzas, patrocinios y el crecimiento internacional de la industria electrónica en Latinoamérica y el mundo.'
-    ],
-    gradient: 'from-[#1c2c36] to-[#0d161c]',
-    image: '/multimedia/images/critical-academy/team/esteban-Business-development-manager.webp',
     socials: {
       instagram: 'https://www.instagram.com/criticalsounds/',
     }

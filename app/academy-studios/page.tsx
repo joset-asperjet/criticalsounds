@@ -49,7 +49,10 @@ export default function AcademyStudiosPage() {
         </div>
 
         {/* En el home solo se muestran los tres fundadores sin botones adicionales */}
-        <TeamGrid members={team.slice(0, 3)} showActionButtons={false} />
+        <TeamGrid
+          members={team.filter((m) => (Array.isArray(m.category) ? m.category.includes('founders') : m.category === 'founders'))}
+          showActionButtons={false}
+        />
       </section>
 
       {/* Method Section */}
