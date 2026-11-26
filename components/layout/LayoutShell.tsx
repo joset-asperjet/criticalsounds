@@ -5,9 +5,17 @@ import { Navbar } from '@/components/layout/Navbar'
 import { Footer } from '@/components/layout/Footer'
 import { FloatingWhatsAppButton } from '@/components/ui/FloatingWhatsAppButton'
 
-export function LayoutShell({ children }: { children: React.ReactNode }) {
+export function LayoutShell({
+  children,
+  isAcademyDomain = false,
+}: {
+  children: React.ReactNode
+  isAcademyDomain?: boolean
+}) {
   const pathname = usePathname()
-  const isPortalHome = pathname === '/'
+  // Si estamos en criticalsounds.academy, "/" es la academia (debe mostrar Navbar y Footer).
+  // Solo se ocultan Navbar y Footer si NO estamos en academy y estamos en la raíz "/" (es decir, el Portal de 4 divisiones).
+  const isPortalHome = !isAcademyDomain && pathname === '/'
 
   return (
     <>

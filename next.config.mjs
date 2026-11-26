@@ -6,6 +6,15 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  async redirects() {
+    return [
+      {
+        source: '/academy',
+        destination: 'https://criticalsounds.academy',
+        permanent: false,
+      },
+    ]
+  },
 }
 
 export default nextConfig

@@ -65,7 +65,7 @@ export function Footer() {
             {/* Col 1: Brand & Contact Info (lg:col-span-4) */}
             <div className="lg:col-span-4 flex flex-col justify-between">
               <div>
-                <Link href="/academy-studios" className="inline-block mb-4 hover:opacity-90 transition-opacity">
+                <Link href="/" className="inline-block mb-4 hover:opacity-90 transition-opacity">
                   <Image
                     src="/multimedia/images/logo-and-svg/critical-sounds-logo-academy.png"
                     alt="Critical Sounds"
@@ -222,12 +222,12 @@ export function Footer() {
               </h4>
               <ul className="space-y-2.5 text-[13px]">
                 <li>
-                  <Link href="/academy-studios#quienes-somos" className="hover:text-white transition-colors">
+                  <Link href="/#quienes-somos" className="hover:text-white transition-colors">
                     Quiénes Somos
                   </Link>
                 </li>
                 <li>
-                  <Link href="/academy-studios#cursos" className="hover:text-white transition-colors">
+                  <Link href="/#cursos" className="hover:text-white transition-colors">
                     Rutas de Formación
                   </Link>
                 </li>

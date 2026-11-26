@@ -1,9 +1,7 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
+import { headers } from 'next/headers'
 import './globals.css'
-import { Navbar } from '@/components/layout/Navbar'
-import { Footer } from '@/components/layout/Footer'
-
 import { LayoutShell } from '@/components/layout/LayoutShell'
 
 export const metadata: Metadata = {
@@ -19,11 +17,15 @@ export const viewport: Viewport = {
   ],
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const headersList = await headers()
+  const host = headersList.get('host') || ''
+  const isAcademyDomain = host.includes('criticalsounds.academy')
+
   return (
     <html lang="es">
       <head>
@@ -35,7 +37,7 @@ export default function RootLayout({
         />
       </head>
       <body className="antialiased bg-[#0d0d0e] text-[#f5f3ef]">
-        <LayoutShell>
+        <LayoutShell isAcademyDomain={isAcademyDomain}>
           {children}
         </LayoutShell>
         {process.env.NODE_ENV === 'production' && <Analytics />}
@@ -43,4 +45,3 @@ export default function RootLayout({
     </html>
   )
 }
-

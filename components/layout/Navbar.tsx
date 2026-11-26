@@ -9,7 +9,7 @@ export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
 
   const links = [
-    { name: 'Quiénes somos', href: '/academy-studios#quienes-somos' },
+    { name: 'Quiénes somos', href: '/#quienes-somos' },
     { name: 'Team', href: '/team' },
     { name: 'Cursos', href: '/cursos/social-dj' },
     { name: 'Cabinas', href: '/cabinas' },
@@ -27,7 +27,7 @@ export function Navbar() {
   return (
     <header className="fixed top-0 left-0 right-0 z-[100] w-full border-b border-white/[0.08] bg-[#0d0d0e]/85 backdrop-blur-2xl shadow-[0_8px_32px_0_rgba(0,0,0,0.5)] transition-all duration-300">
       <div className="flex h-[82px] items-center justify-between px-6 lg:px-12">
-        <Link href="/academy-studios" className="flex items-center hover:opacity-85 transition-opacity shrink-0">
+        <Link href="/" className="flex items-center hover:opacity-85 transition-opacity shrink-0">
           <Image
             src="/multimedia/images/logo-and-svg/critical-sounds-logo-academy.png"
             alt="Critical Sounds"

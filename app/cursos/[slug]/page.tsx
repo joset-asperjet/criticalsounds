@@ -22,7 +22,7 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ s
         <aside className="hidden lg:flex w-[290px] xl:w-[320px] shrink-0 border-r border-[#242428] bg-[#09090b] flex-col p-6 sticky top-[82px] h-[calc(100vh-82px)] overflow-y-auto">
           <div className="mb-6 pb-4 border-b border-[#222]">
             <Link
-              href="/academy-studios#cursos"
+              href="/#cursos"
               className="inline-flex items-center gap-1.5 text-[11px] font-mono uppercase tracking-widest text-[#777] hover:text-white transition-colors"
             >
               <span>←</span>
@@ -269,7 +269,7 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ s
                 })}
               </div>
 
-              <Link href="/academy-studios#cursos" className="inline-flex items-center text-[#777] text-[12px] hover:text-white mb-8 uppercase tracking-widest font-mono">
+              <Link href="/#cursos" className="inline-flex items-center text-[#777] text-[12px] hover:text-white mb-8 uppercase tracking-widest font-mono">
                 ← Volver a Cursos
               </Link>
 
